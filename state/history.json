@@ -109,6 +109,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11130925/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -1579,6 +1580,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11080472/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -2094,6 +2096,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11303987/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -2154,6 +2157,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11334948/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -2220,6 +2224,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11284887/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -2336,25 +2341,22 @@
       ],
       "article": {
         "doi": "10.1128/iai.00360-26",
-        "ids": [
-          "MED:42937463",
-          "PMID:42937463"
-        ],
-        "title": "Powerhouses of lethality: mitochondria in macrophage antimicrobial activity.",
-        "authors": "McFadden MJ, O'Meara TR, O'Riordan MX.",
-        "venue": "Infection and immunity",
+        "ids": [],
+        "title": "Powerhouses of lethality: mitochondria in macrophage antimicrobial activity",
+        "authors": "Michael J. McFadden; Teresa R. O'Meara; Mary X. O'Riordan",
+        "venue": "Infection and Immunity",
         "date": "2026-10-27",
-        "indexed": "2026-10-28",
-        "abstract": "Macrophages employ multiple strategies to dispatch phagocytosed microbes, including bombardment with toxic compounds and radicals, or the deprivation of key nutrients. The lethality of macrophages depends on their ability to regulate levels of microbicidal effectors and proper targeting of these effectors to the phagosome, where many intracellular pathogens are detained. Mitochondria play important roles in establishing an antimicrobial phagosomal environment in macrophages, playing roles in both the production and targeting of these effectors. In response to infection, the mitochondrial network undergoes dramatic structural and functional perturbations that modulate macrophage microbicidal potential. As central coordinators of cellular metabolism, mitochondria control the abundance of metabolites that can either be toxic to ingested microbes or necessary for their growth. Mitochondria are also prolific producers of reactive oxygen species (ROS), which play direct roles in killing microbes and serve as signaling molecules to coordinate antimicrobial responses. While mitochondria are also known to play extensive roles in regulating cytokine production and proinflammatory responses, this review will focus on highlighting mechanisms by which mitochondria manipulate the macrophage microbicidal milieu.",
+        "indexed": "2026-10-27",
+        "abstract": "ABSTRACT Macrophages employ multiple strategies to dispatch phagocytosed microbes, including bombardment with toxic compounds and radicals, or the deprivation of key nutrients. The lethality of macrophages depends on their ability to regulate levels of microbicidal effectors and proper targeting of these effectors to the phagosome, where many intracellular pathogens are detained. Mitochondria play important roles in establishing an antimicrobial phagosomal environment in macrophages, playing roles in both the production and targeting of these effectors. In response to infection, the mitochondrial network undergoes dramatic structural and functional perturbations that modulate macrophage microbicidal potential. As central coordinators of cellular metabolism, mitochondria control the abundance of metabolites that can either be toxic to ingested microbes or necessary for their growth. Mitochondria are also prolific producers of reactive oxygen species (ROS), which play direct roles in killing microbes and serve as signaling molecules to coordinate antimicrobial responses. While mitochondria are also known to play extensive roles in regulating cytokine production and proinflammatory responses, this review will focus on highlighting mechanisms by which mitochondria manipulate the macrophage microbicidal milieu.",
         "types": [
-          "Review",
-          "Journal Article"
+          "journal-article"
         ],
         "preprint": false,
         "version": 0,
         "url": "https://doi.org/10.1128/iai.00360-26",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC",
           "PubMed"
         ],
@@ -5649,6 +5651,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11289998/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -6702,6 +6705,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11211670/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -6766,6 +6770,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11467142/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -6826,6 +6831,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11298378/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -6897,6 +6903,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11270528/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -7356,6 +7363,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11497132/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -8221,6 +8229,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11290648/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -9143,6 +9152,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11191056/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -9607,6 +9617,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11503419/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -9859,6 +9870,7 @@
         "url": "https://doi.org/10.21203/rs.3.rs-11227495/v1",
         "related": [],
         "sources": [
+          "Crossref",
           "Europe PMC"
         ],
         "retracted": false,
@@ -15407,24 +15419,22 @@
       ],
       "article": {
         "doi": "10.1083/jcb.202606052",
-        "ids": [
-          "PMID:42944726"
-        ],
-        "title": "Lysosomal acidification through membrane contacts with mitochondria.",
+        "ids": [],
+        "title": "Lysosomal acidification through membrane contacts with mitochondria",
         "authors": "Zhiqi Tian; Yujie Sun; Jiajie Diao",
-        "venue": "The Journal of cell biology",
+        "venue": "Journal of Cell Biology",
         "date": "2026-10-27",
         "indexed": "2026-10-27",
         "abstract": "Recent work from two independent studies has uncovered mitochondria as a previously unrecognized proton source driving lysosomal acidification. In this Viewpoint, we summarize these findings, examine the associated proteins and functional mechanisms, and discuss their relevance to disease.",
         "types": [
-          "Journal Article",
-          "Review"
+          "journal-article"
         ],
         "preprint": false,
         "version": 0,
         "url": "https://doi.org/10.1083/jcb.202606052",
         "related": [],
         "sources": [
+          "Crossref",
           "PubMed"
         ],
         "retracted": false,
@@ -15457,7 +15467,7 @@
             "uncover*"
           ]
         },
-        "preferred": false,
+        "preferred": true,
         "jif": null,
         "tier": "值得一读"
       },
@@ -24341,6 +24351,68 @@
       "first_seen": "2026-10-28",
       "last_seen": "2026-10-28",
       "announced": [],
+      "suppressed": false
+    },
+    "d467a0bc389524d9776ad13f": {
+      "aliases": [
+        "doi:10.1101/2025.10.10.681325"
+      ],
+      "article": {
+        "doi": "10.1101/2025.10.10.681325",
+        "ids": [],
+        "title": "Cholesterol-activated VapC12 toxin modulates growth and drug susceptibility in Mycobacterium tuberculosis",
+        "authors": "Hashmi, Z.; Singh, S. P.; Talwar, S.; Megta, A.; Srivastava, M.; Sarmadhikari, D.; Babele, P.; Kundu, S.; Sharma, T.; Sharma, C.; Asthana, S.; Krishnan, V.; Pandey, A. K.",
+        "venue": "bioRxiv",
+        "date": "2026-10-28",
+        "indexed": "",
+        "date_kind": "version_posted",
+        "abstract": "Tuberculosis eradication efforts are severely hampered by antimicrobial resistance and bacterial persistence. We previously reported that the VapBC12 toxin antitoxin (TA) system in Mycobacterium tuberculosis (M. tuberculosis) regulates disease progression and antibiotic persistence. In this study, we investigated the molecular mechanisms underlying VapC12 dependent modulation of bacterial growth and antibiotic susceptibility. We identified a Cholesterol Recognition Amino acid Consensus (CRAC) motif in the VapC12 toxin that is critical for cholesterol binding and interaction with its cognate antitoxin, VapB12. Heterologous expression of VapC12 in Mycobacterium smegmatis induced toxicity, providing a model to investigate its functional activity. We determined the crystal structure of VapB12 at 1.6 Angstorm resolution and used molecular modelling to predict the VapBC12 complex structure. Structure-function analyses identified specific residues critical for complex assembly and toxin activity. Mechanistically, our findings suggest that cholesterol activates VapC12 by competitively displacing VapB12 from the CRAC motif, thereby restricting M. tuberculosis growth. Finally, we showed that pharmacologically inhibiting VapC12 alleviates cholesterol-mediated growth restriction and enhances antibiotic activity. Collectively, these findings establish a mechanistic link between cholesterol sensing, toxin-antitoxin regulation, and antibiotic susceptibility in M. tuberculosis, highlighting VapC12 as a potential target for therapeutic strategies to combat tuberculosis persistence.",
+        "types": [
+          "new results"
+        ],
+        "preprint": true,
+        "version": 4,
+        "url": "https://doi.org/10.1101/2025.10.10.681325",
+        "related": [],
+        "sources": [
+          "biorxiv"
+        ],
+        "retracted": false,
+        "aliases": [
+          "doi:10.1101/2025.10.10.681325"
+        ],
+        "topics": [
+          "lipids"
+        ],
+        "reasons": {
+          "lipids": {
+            "title_terms": [
+              "cholesterol"
+            ],
+            "abstract_terms": [
+              "cholesterol"
+            ],
+            "supporting_terms": []
+          }
+        },
+        "score": 17,
+        "signals": {
+          "mechanism": [
+            "mechanism*",
+            "binding"
+          ],
+          "method": [],
+          "discovery_claim": []
+        },
+        "preferred": false,
+        "jif": null,
+        "tier": "值得一读"
+      },
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28",
+      "announced": [
+        "10.1101/2025.10.10.681325|preprint|4"
+      ],
       "suppressed": false
     }
   },
