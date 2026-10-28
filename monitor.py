@@ -5,6 +5,7 @@ import copy
 import datetime as dt
 import hashlib
 import html
+import http.cookiejar
 import json
 import os
 import re
@@ -27,6 +28,18 @@ CROSSREF = 'https://api.crossref.org/works'
 
 class SourceError(RuntimeError):
     pass
+
+
+def source_problems(statuses):
+    return [name for name, status in statuses.items() if status.get('status') != 'ok'] or ([] if statuses else ['未执行任何数据源检索'])
+
+
+def require_complete(report):
+    problems = source_problems(report.get('sources', {}))
+    if report.get('complete') is False and not problems:
+        problems = ['检索或日报生成尚未完成']
+    if problems:
+        raise SourceError('Retrieval incomplete; publication and delivery stopped: ' + ', '.join(problems))
 
 
 def clean(value):
@@ -79,8 +92,12 @@ class Client:
         self.crossref_lock = threading.Lock()
         self.crossref_last_request = 0.0
         self.crossref_next_allowed = 0.0
+        # Publisher RSS redirects can require an anonymous session cookie.
+        self.rss_opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+        self.rss_lock = threading.Lock()
+        self.rss_last_request = 0.0
 
-    def read(self, url, params=None):
+    def read(self, url, params=None, opener=None, diagnostics=None):
         if params:
             url += '?' + urllib.parse.urlencode(params)
         for attempt in range(3):
@@ -95,8 +112,17 @@ class Client:
                         if delay > 0:
                             time.sleep(delay)
                         self.crossref_last_request = time.monotonic()
-                    with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                        return response.read()
+                    open_request = opener.open if opener else urllib.request.urlopen
+                    with open_request(request, timeout=self.timeout) as response:
+                        data = response.read()
+                        if diagnostics is not None:
+                            final = urllib.parse.urlsplit(response.url)
+                            diagnostics.update(http_status=response.status, content_type=response.headers.get('Content-Type', ''),
+                                               content_encoding=response.headers.get('Content-Encoding', ''),
+                                               final_url=urllib.parse.urlunsplit((final.scheme, final.netloc, final.path, '', '')),
+                                               bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
+                                               looks_like_html=bool(re.search(br'<(?:!doctype\s+html|html)(?:\s|>)', data[:1000], re.I)))
+                        return data
             except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
                 if attempt == 2:
                     # Never include request URLs in errors: push URLs contain secrets.
@@ -115,6 +141,15 @@ class Client:
                     time.sleep(pause)
                 else:
                     time.sleep(2 ** attempt)
+
+    def read_feed(self, url, diagnostics):
+        # Serialize feed traffic and retain cookies across normal publisher redirects.
+        with self.rss_lock:
+            delay = self.rss_last_request + 1.2 - time.monotonic()
+            if delay > 0:
+                time.sleep(delay)
+            self.rss_last_request = time.monotonic()
+            return self.read(url, opener=self.rss_opener, diagnostics=diagnostics)
 
     def get(self, url, params=None):
         for attempt in range(3):
@@ -634,7 +669,8 @@ def build(config, directory, today, preview=False, refresh=False):
     report_path = directory / 'reports' / (today + '.json')
     # Keep the day's report stable on reruns, including after failed notification.
     previous = json_read(report_path, None) if not preview else None
-    if previous and not refresh:
+    latest_attempt = json_read(directory / 'state/retrieval_status.json', {})
+    if previous and not refresh and not source_problems(previous.get('sources', {})) and latest_attempt.get('complete', True):
         print('Report already prepared; preserving same-day report and delivery identity.')
         return json_read(report_path, {})
     state = json_read(state_path, {'papers': {}})
@@ -645,9 +681,18 @@ def build(config, directory, today, preview=False, refresh=False):
         start = min(start, dt.date.fromisoformat(state['last_complete_date']) - dt.timedelta(days=2))
     elif state.get('initial_start'):
         start = min(start, dt.date.fromisoformat(state['initial_start']))
+    retrieval = {'date': today, 'attempted_at': dt.datetime.now(dt.timezone.utc).isoformat(),
+                 'start': start.isoformat(), 'complete': False, 'phase': 'collecting', 'sources': {}}
+    # Persist the stop marker before network work, including for interrupted runs.
+    json_write(directory / 'state/retrieval_status.json', retrieval)
     records, statuses = collect(config, start.isoformat(), today, not initial)
+    retrieval.update(sources=statuses, phase='failed' if source_problems(statuses) else 'generating')
+    json_write(directory / 'diagnostics' / ('retrieval-' + today + '.json'), retrieval)
+    json_write(directory / 'state/retrieval_status.json', retrieval)
     if preview:
         json_write(directory / 'raw-preview.json', records)
+    # Gate BEFORE ingest mutates announcement history or any report is overwritten.
+    require_complete({'sources': statuses})
     if not statuses or all(s['status'] == 'failed' for s in statuses.values()):
         selected, deferred, rejected = [], 0, {}
     else:
@@ -675,12 +720,13 @@ def build(config, directory, today, preview=False, refresh=False):
     json_write(report_path, report)
     (directory / 'reports' / (today + '.md')).write_text(text)
     if not preview:
-        mandatory = {name: s for name, s in statuses.items() if not name.startswith('RSS / ')}
-        if mandatory and all(s['status'] == 'ok' for s in mandatory.values()):
-            state['last_complete_date'] = today
+        state['last_complete_date'] = today
         state['last_attempt_date'] = today
         state.setdefault('initial_start', start.isoformat())
         json_write(state_path, state)
+    retrieval.update(complete=True, phase='complete')
+    json_write(directory / 'state/retrieval_status.json', retrieval)
+    json_write(directory / 'diagnostics' / ('retrieval-' + today + '.json'), retrieval)
     print(f"Report: {len(selected)} unique papers; {deferred} deferred. Preview={preview}")
     return report
 

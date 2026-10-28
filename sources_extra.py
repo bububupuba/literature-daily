@@ -5,7 +5,7 @@ import re
 import time
 import xml.etree.ElementTree as ET
 
-from monitor import clean, doi, day, crossref_article
+from monitor import clean, doi, day, crossref_article, SourceError
 
 
 def xml_text(element):
@@ -124,6 +124,8 @@ def feed_date(text):
 
 def parse_feed(data, feed, start, end):
     root = ET.fromstring(data)
+    if root.tag.rsplit('}', 1)[-1] not in ('RDF', 'rss', 'feed'):
+        raise SourceError('Response is not an RSS/RDF/Atom feed')
     articles = []
     for item in root.iter():
         if item.tag.rsplit('}', 1)[-1] not in ('item', 'entry'):
@@ -160,4 +162,20 @@ def parse_feed(data, feed, start, end):
 
 
 def fetch_rss(client, feed, start, end):
-    return parse_feed(client.read(feed['url']), feed, start, end)
+    attempts = []
+    for attempt in range(3):
+        diagnostics = {'attempt': attempt + 1}
+        try:
+            data = client.read_feed(feed['url'], diagnostics)
+            articles, status = parse_feed(data, feed, start, end)
+            diagnostics['result'] = 'ok'
+            attempts.append(diagnostics)
+            status['attempts'] = attempts
+            return articles, status
+        except (ET.ParseError, SourceError, UnicodeDecodeError) as error:
+            diagnostics.update(result='failed', error=str(error) if isinstance(error, (ET.ParseError, SourceError)) else type(error).__name__)
+            attempts.append(diagnostics)
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    return [], {'status': 'failed', 'fetched': 0, 'family': 'rss', 'url': feed['url'],
+                'error': 'RSS retrieval/validation failed after 3 attempts', 'attempts': attempts}

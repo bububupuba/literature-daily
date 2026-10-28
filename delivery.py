@@ -9,7 +9,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from monitor import json_read, json_write, push_payload
+from monitor import json_read, json_write, push_payload, require_complete
 
 
 class DeliveryError(RuntimeError):
@@ -46,6 +46,9 @@ def acknowledged(receipts, identity):
 
 def deliver(reports, directory, repository, sendkey, retry_uncertain=False):
     directory = Path(directory)
+    retrieval = json_read(directory / 'state/retrieval_status.json', {})
+    if retrieval and not retrieval.get('complete'):
+        require_complete(retrieval)
     receipts_path = directory / 'state/deliveries.json'
     attempts_path = directory / 'state/delivery_attempts.json'
     receipts = json_read(receipts_path, {})
@@ -55,6 +58,7 @@ def deliver(reports, directory, repository, sendkey, retry_uncertain=False):
         identity = report['date']
         if acknowledged(receipts, identity):
             continue
+        require_complete(report)
         if attempts.get(identity, {}).get('status') in ('uncertain', 'sending') and not retry_uncertain:
             uncertain.append(identity)
             continue
@@ -114,11 +118,15 @@ def status_summary(directory, today):
     pending = [r['date'] for r in reports if not acknowledged(receipts, r['date'])]
     uncertain = [date for date in pending if attempts.get(date, {}).get('status') in ('uncertain', 'sending')]
     latest = reports[-1] if reports else None
+    retrieval = json_read(directory / 'state/retrieval_status.json', {})
+    blocked = bool(retrieval) and not retrieval.get('complete')
+    sources = retrieval.get('sources', {}) if retrieval else latest.get('sources', {}) if latest else {}
     status = {'date': today, 'pending_report_dates': pending, 'uncertain_report_dates': uncertain,
               'latest_report': latest['date'] if latest else None,
-              'source_problems': [name for name, s in latest['sources'].items() if s['status'] != 'ok'] if latest else ['日报尚未生成']}
+              'retrieval_blocked': blocked, 'last_retrieval_attempt': retrieval.get('date'),
+              'source_problems': [name for name, s in sources.items() if s['status'] != 'ok'] if sources else ['检索尚未完成']}
     json_write(directory / 'state/health.json', status)
-    text = '\n'.join(['## 文献日报运行状态', '', f"最近日报：{status['latest_report'] or '无'}", f"未确认送达：{', '.join(pending) or '无'}", f"需核实投递：{', '.join(uncertain) or '无'}", f"数据源异常：{', '.join(status['source_problems']) or '无'}", '', '明确失败：北京时间 10:00、12:00 自动补发；结果不确定：检查服务投递历史后，手动勾选 retry_uncertain 再运行。', ''])
+    text = '\n'.join(['## 文献日报运行状态', '', f"最近日报：{status['latest_report'] or '无'}", f"未确认送达：{', '.join(pending) or '无'}", f"需核实投递：{', '.join(uncertain) or '无'}", f"检索失败已停止发布和推送：{'是' if blocked else '否'}", f"数据源异常：{', '.join(status['source_problems']) or '无'}", '', '检索失败或分页不完整：修复并成功重跑前停止发布、推送及补发。投递明确失败：北京时间 10:00、12:00 补发；投递结果不确定：核实后手动重试。', ''])
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as stream:
             stream.write(text)
