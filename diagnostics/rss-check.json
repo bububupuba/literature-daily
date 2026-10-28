@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-28",
+  "sources": {
+    "Nature": {
+      "status": "ok",
+      "fetched": 75,
+      "available": 75,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nature.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nature.rss",
+          "bytes": 112423,
+          "sha256": "38a29816aa053ef45f89f186d7306e6b25881ed3141574f2d3a481dcb8651f89",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Communications": {
+      "status": "ok",
+      "fetched": 8,
+      "available": 8,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/ncomms.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/ncomms.rss",
+          "bytes": 18548,
+          "sha256": "461af68d95c0f19364c3548735012cb6f18fc82eb03e9b6223e53b6e3b7f52e4",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Cell Biology": {
+      "status": "ok",
+      "fetched": 5,
+      "available": 5,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/ncb.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/ncb.rss",
+          "bytes": 19577,
+          "sha256": "596fd0dac010181bfe22f524a5dd78ba879e037ed1fdb40f96467c36e5f20b74",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Aging": {
+      "status": "failed",
+      "fetched": 0,
+      "family": "rss",
+      "url": "https://www.nature.com/nataging.rss",
+      "error": "RSS retrieval/validation failed after 3 attempts",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        }
+      ]
+    },
+    "Nature Metabolism": {
+      "status": "ok",
+      "fetched": 3,
+      "available": 3,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/natmetab.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 17978,
+          "sha256": "c505941a124637a5f7b6b8325e0c716f4e3f47d5aa38a0f95c38c4018261dfe9",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Reviews Molecular Cell Biology": {
+      "status": "ok",
+      "fetched": 2,
+      "available": 2,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nrm.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nrm.rss",
+          "bytes": 15368,
+          "sha256": "c2f825845a13ff42dcd9fd378e389a688e080661b2286549dd1f63c16e3d8e69",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Reviews Endocrinology": {
+      "status": "ok",
+      "fetched": 1,
+      "available": 1,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nrendo.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nrendo.rss",
+          "bytes": 14949,
+          "sha256": "f048f4f295d41b3cb07904d8d9740f96c52cad63cb9792d4111a974d441ab934",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Nature Neuroscience": {
+      "status": "ok",
+      "fetched": 8,
+      "available": 8,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/neuro.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 18838,
+          "sha256": "2ab0c6f3b4646fcf3fbce5917f162530f734b696bc7e7d8db119f28bc1e60146",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Cell": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/cell/current.rss",
+          "bytes": 40884,
+          "sha256": "7450d42ffb968c46be7ab496da8c9db798326165c7e0a2ad81e0932460ac0427",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Molecular Cell": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/molecular-cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/molecular-cell/current.rss",
+          "bytes": 34152,
+          "sha256": "e96d5b3a23bd152fe97a53ee2de93e23fe01f0afe5ed25a274ae48e54deaea7b",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Cell Metabolism": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/cell-metabolism/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/cell-metabolism/current.rss",
+          "bytes": 42934,
+          "sha256": "4ec5b0aa1410d0edd91699066d36fac0fbad3aaf90f86c76913f7e0d679b8390",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "Current Biology": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/current-biology/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/current-biology/current.rss",
+          "bytes": 71413,
+          "sha256": "65b5b64bb648dc27273c588988ba4a4f7a9f54e02cefd2cf07e516d5b3062a09",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "eLife": {
+      "status": "ok",
+      "fetched": 32,
+      "available": 32,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://elifesciences.org/rss/recent.xml",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/xml",
+          "content_encoding": "",
+          "final_url": "https://elifesciences.org/rss/recent.xml",
+          "bytes": 244039,
+          "sha256": "e5399ef3585307642a3f62905705e8af0b85ca2e36283d24ab1378f8d387f1a3",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    }
+  }
+}
