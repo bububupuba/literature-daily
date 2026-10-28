@@ -160,6 +160,11 @@ class Client:
                              extra_headers={'Accept': 'application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8',
                                             'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
 
+    def read_browser_feed(self, url, diagnostics):
+        from browser_rss import read_feed
+        with self.rss_lock:
+            return read_feed(url, diagnostics)
+
     def get(self, url, params=None):
         for attempt in range(3):
             try:

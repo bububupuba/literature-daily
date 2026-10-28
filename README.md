@@ -29,6 +29,8 @@
 
 RSS 请求使用匿名 Cookie 会话并串行间隔访问，响应必须是有效 RSS/RDF/Atom；无效内容最多重试 3 次。`diagnostics/retrieval-YYYY-MM-DD.json` 与 `state/retrieval_status.json` 保存每次尝试的状态、响应类型、正文长度、摘要哈希、去掉查询参数的跳转地址及 XML 错误，不保存 Cookie、凭据或验证参数。不会把 HTML 验证页面当作零篇论文。
 
+Nature 返回 `Client Challenge` JavaScript 页面时，会再使用普通 Chromium 匿名会话加载公开订阅地址；只接受校验通过的真实 RSS。不修改网站脚本或伪造验证状态；若遇到 CAPTCHA 或仍无法取得 RSS，继续阻止整次发布。每次尝试与恢复情况均记录在诊断中。`Check publisher RSS` 工作流可单独排查订阅源，不发布日报、不发微信，也不能解除完整检索的失败标志。
+
 ## 微信失败补发与故障提示
 
 - 09:00 生成并保存报告，再投递微信；**10:00、12:00 只检查并补发未确认送达的报告**，不重新生成另一份当日日报。
@@ -43,7 +45,7 @@ RSS 请求使用匿名 Cookie 会话并串行间隔访问，响应必须是有�
 
 当前仓库已部署，`DAILY_ENABLED=true` 已开启。推送密钥放在仓库 Actions Secret `SERVERCHAN_SENDKEY`，不写入代码，不发送到聊天。
 
-需要 Python 3.11+，仅使用标准库，不需要大模型 API、数据库 API Key 或第三方 Python 包。
+需要 Python 3.11+。常规检索使用标准库；云端另安装微软 Playwright 与 Chromium，供 Nature JavaScript 页面后的正常浏览器获取使用。不需要大模型 API 或数据库 API Key，电脑仍无需开机。
 
 ```bash
 python -B -m unittest discover -s . -p 'test_*.py' -v

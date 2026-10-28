@@ -177,5 +177,19 @@ def fetch_rss(client, feed, start, end):
             attempts.append(diagnostics)
             if attempt < 2:
                 time.sleep(2 ** attempt)
+    # A real browser can execute the publisher's ordinary anonymous JS session.
+    # Do not substitute another database or mark a challenge page as an empty feed.
+    if feed['url'].startswith('https://www.nature.com/') and any(a.get('page_title') == 'Client Challenge' for a in attempts):
+        diagnostics = {'attempt': 4, 'transport': 'chromium'}
+        try:
+            data = client.read_browser_feed(feed['url'], diagnostics)
+            articles, status = parse_feed(data, feed, start, end)
+            diagnostics['result'] = 'ok'
+            attempts.append(diagnostics)
+            status['attempts'] = attempts
+            return articles, status
+        except (ET.ParseError, SourceError, UnicodeDecodeError) as error:
+            diagnostics.update(result='failed', error=str(error) if isinstance(error, (ET.ParseError, SourceError)) else type(error).__name__)
+            attempts.append(diagnostics)
     return [], {'status': 'failed', 'fetched': 0, 'family': 'rss', 'url': feed['url'],
-                'error': 'RSS retrieval/validation failed after 3 attempts', 'attempts': attempts}
+                'error': 'RSS retrieval/validation failed after available HTTP and browser attempts', 'attempts': attempts}

@@ -106,6 +106,33 @@ class RSSRecoveryTests(unittest.TestCase):
         self.assertEqual(client.read_feed.call_count, 3)
         self.assertIn('not an RSS', status['attempts'][-1]['error'])
 
+    def test_client_challenge_requires_real_rss_from_browser_before_success(self):
+        client = MagicMock()
+        def challenge(url, info):
+            info['page_title'] = 'Client Challenge'
+            return b'<html>javascript'
+        client.read_feed.side_effect = challenge
+        client.read_browser_feed.return_value = b'<rss><channel/></rss>'
+        with patch.object(sources.time, 'sleep'):
+            _, status = sources.fetch_rss(client, self.feed, '2026-10-26', '2026-10-28')
+        self.assertEqual(status['status'], 'ok')
+        self.assertEqual(len(status['attempts']), 4)
+        self.assertEqual(status['attempts'][-1]['transport'], 'chromium')
+        self.assertEqual(status['attempts'][-1]['result'], 'ok')
+
+    def test_browser_challenge_failure_is_not_ignored(self):
+        client = MagicMock()
+        def challenge(url, info):
+            info['page_title'] = 'Client Challenge'
+            return b'<html>javascript'
+        client.read_feed.side_effect = challenge
+        client.read_browser_feed.side_effect = m.SourceError('Client Challenge unresolved')
+        with patch.object(sources.time, 'sleep'):
+            _, status = sources.fetch_rss(client, self.feed, '2026-10-26', '2026-10-28')
+        self.assertEqual(status['status'], 'failed')
+        with self.assertRaises(m.SourceError):
+            m.require_complete({'sources': {'RSS': status}})
+
     def test_response_diagnostics_strip_query_and_do_not_store_cookie_or_body(self):
         response = MagicMock()
         response.status = 200
