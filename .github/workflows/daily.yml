@@ -1,0 +1,65 @@
+name: Daily literature
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      send_notification:
+        description: Send the daily digest to your configured WeChat channel
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: literature-daily
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    if: github.event_name == 'workflow_dispatch' || vars.DAILY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate logic
+        run: python -m unittest discover -s . -p test_monitor.py -v
+      - name: Retrieve and generate report
+        run: python monitor.py build
+      - name: Persist report and deduplication history before delivery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports state
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update daily literature report and history'
+            git push
+          fi
+      - name: Send WeChat digest
+        if: github.event_name == 'schedule' || inputs.send_notification
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+        run: python monitor.py notify
+      - name: Persist acknowledged delivery
+        if: success() && (github.event_name == 'schedule' || inputs.send_notification)
+        run: |
+          git add state
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record acknowledged daily notification'
+            git push
+          fi
+      - name: Save diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: literature-reports-${{ github.run_id }}
+          path: reports/
+          retention-days: 7
