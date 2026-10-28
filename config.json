@@ -3,8 +3,7 @@
   "schedule_local": "09:00",
   "initial_days": 3,
   "overlap_days": 7,
-  "max_papers": 100,
-  "reserved_per_feed": 15,
+  "max_papers": 50,
   "ai_enabled": false,
   "github_owner": "bububupuba",
   "repository_name": "literature-daily",
@@ -14,7 +13,10 @@
     "europepmc": true,
     "biorxiv": true,
     "medrxiv": true,
-    "research_square": true
+    "research_square": true,
+    "pubmed": true,
+    "crossref_journals": true,
+    "rss": true
   },
   "max_pages_per_source": 100,
   "timeout_seconds": 35,
@@ -201,5 +203,92 @@
     "10.1016/j.cell.2022.11.001",
     "10.1038/s41580-022-00490-x",
     "10.1038/s41467-024-46037-w"
+  ],
+  "pool_limits": {
+    "journals": 25,
+    "preprints": 25
+  },
+  "quota_per_feed": 5,
+  "tiers": {
+    "must_read": 28,
+    "recommended": 16
+  },
+  "crossref_max_pages": 10,
+  "crossref_queries": {
+    "mitochondria": [
+      "mitochondrial",
+      "mitochondria",
+      "mitophagy"
+    ],
+    "celegans": [
+      "Caenorhabditis elegans"
+    ],
+    "aging": [
+      "aging",
+      "longevity",
+      "senescence",
+      "lifespan"
+    ],
+    "lipids": [
+      "lipid",
+      "phosphoinositide",
+      "cardiolipin",
+      "fatty acid",
+      "cholesterol"
+    ]
+  },
+  "rss_feeds": [
+    {
+      "name": "Nature",
+      "url": "https://www.nature.com/nature.rss"
+    },
+    {
+      "name": "Nature Communications",
+      "url": "https://www.nature.com/ncomms.rss"
+    },
+    {
+      "name": "Nature Cell Biology",
+      "url": "https://www.nature.com/ncb.rss"
+    },
+    {
+      "name": "Nature Aging",
+      "url": "https://www.nature.com/nataging.rss"
+    },
+    {
+      "name": "Nature Metabolism",
+      "url": "https://www.nature.com/natmetab.rss"
+    },
+    {
+      "name": "Nature Reviews Molecular Cell Biology",
+      "url": "https://www.nature.com/nrm.rss"
+    },
+    {
+      "name": "Nature Reviews Endocrinology",
+      "url": "https://www.nature.com/nrendo.rss"
+    },
+    {
+      "name": "Nature Neuroscience",
+      "url": "https://www.nature.com/neuro.rss"
+    },
+    {
+      "name": "Cell",
+      "url": "https://www.cell.com/cell/current.rss"
+    },
+    {
+      "name": "Molecular Cell",
+      "url": "https://www.cell.com/molecular-cell/current.rss"
+    },
+    {
+      "name": "Cell Metabolism",
+      "url": "https://www.cell.com/cell-metabolism/current.rss"
+    },
+    {
+      "name": "Current Biology",
+      "url": "https://www.cell.com/current-biology/current.rss"
+    },
+    {
+      "name": "eLife",
+      "url": "https://elifesciences.org/rss/recent.xml"
+    }
   ]
 }

@@ -1,70 +1,79 @@
 # 四方向文献日报（无大模型 API）
 
-面向 bububupuba：线粒体生物学、秀丽隐杆线虫、衰老与长寿、脂质生物学分别检索，并生成交叉研究栏目。
+每日北京时间 09:00 在 GitHub Actions 运行，微信推送摘要并链接到本公开仓库的完整日报。电脑无需开机。没有新增论文也通知。
 
-## 运行方式
+## 每日篇数与排序
 
-- GitHub Actions 每天北京时间 09:00 触发；调度可能延迟，运行不依赖个人电脑开机。
-- 首次回溯含当天的 3 个日历日；后续默认重叠 7 天，未完成检索会扩大回溯补查。
-- 每天最多推荐 100 篇独立论文。各方向共享同一论文编号，不重复计数；超过上限的候选顺延。
-- 没有新论文也通知；数据源失败时明确显示检索缺口，绝不将失败报告成零新增。
-- 微信只显示部分精选标题和完整日报链接；完整日报在本公开仓库中，无需登录 GitHub 阅读。
-- 不接入任何大模型服务，不需要模型 API Key。中文栏目、中文匹配理由；原文标题与摘要不自动翻译。
+- **期刊论文最多 25 篇，预印本另外最多 25 篇，总上限 50 篇。**
+- 两组分别为线粒体、秀丽隐杆线虫、衰老与长寿、脂质生物学各预分配 5 篇，交叉研究另预分配 5 篇。
+- 某栏不足 5 篇，余量在同一组内调剂；不跨期刊／预印本组借额。全部合格候选不足时，按实际数量输出。
+- 每篇仅归属一个展示栏目，整份日报去重。所有关联方向仍在详情中列出。
+- 先筛选研究相关性。期刊组优先按**已核验期刊影响因子**降序，之后按相关性规则分；预印本按相关性、方法和机制关键词排序，不赋影响因子。
+- 影响因子来源、指标年份与核验日期列在详情中。官网只给值而未注明年份时如实注明；未知指标不估算，仍可入选但排序靠后。指标覆盖并不完整。
+- 阅读分级为“必读候选／值得一读／其他相关”，依据主题与实验方法关键词阈值，不代表创新性、严谨性或机制深度已经经过评审。
 
-## 当前部署状态与后续配置
+## 数据源与去重
 
-当前已完成：真实云端检索、首条通知服务端回执、每日定时开关。仓库已按用户要求改为公开。
+四方向独立查询，不要求同时覆盖四个方向，不设期刊白名单。
 
-以下是以后更换凭据或重新部署时的步骤：
+- Europe PMC：各方向标题／摘要检索。
+- **PubMed**：直接访问 NCBI E-utilities。与 Europe PMC 部分共用文献索引，但访问服务独立，可在其中一条服务路径失效时补充获取题录和摘要。
+- **Crossref 期刊查询**：按多组方向词与出版日期直接查出版社登记记录，补充期刊来源。
+- **期刊官方 RSS**：Nature、Nature Communications、Nature Cell Biology、Nature Aging、Nature Metabolism、Nature Reviews Molecular Cell Biology、Nature Reviews Endocrinology、Nature Neuroscience、Cell、Molecular Cell、Cell Metabolism、Current Biology、eLife。RSS 是滚动条目，不保证完整回溯。
+- bioRxiv／medRxiv 官方接口：新发与修订预印本。
+- Research Square：Crossref DOI 前缀和日期增量查询。
 
-1. 在仓库 Settings → Secrets and variables → Actions → Secrets 中添加 `SERVERCHAN_SENDKEY`，值为自己在 Server酱申请的 SendKey。不要放入代码或聊天。
-2. 首次运行 Actions → Daily literature → Run workflow，先保持 `send_notification=false`，检查日报；确认后以 `true` 试发微信。
-3. 收到通知后，在同一设置页的 Variables 标签中添加 `DAILY_ENABLED=true`，开启日常运行。未设置时，定时任务不会执行。
+按 DOI、PMID、数据库编号、Research Square 版本根 DOI 和明确登记的预印本／期刊关系合并，不靠相似标题强行合并。初次回溯含当天的 3 个日历日，之后重叠检索并保存历史；超过名额的候选顺延。
 
-本仓库工作流使用 GitHub 自动提供的 GITHUB_TOKEN 保存报告和去重历史，不需要个人访问令牌。
-Server酱服务额度以其账户页面为准，不承诺第三方服务永久免费。
+每个数据源单独报告成功、失败或分页不完整。其他源成功不能证明已补齐缺失源的全部文献。数据库收录延迟、缺少摘要、日期不完整及无登记版本关系，仍可能导致漏检。
 
-## 本地验证
+## 微信失败补发与故障提示
 
-需要 Python 3.11 或更高，仅使用标准库。
+- 09:00 生成并保存报告，再投递微信；**10:00、12:00 只检查并补发未确认送达的报告**，不重新生成另一份当日日报。
+- 明确失败的报告保留在待发送队列，下次投递时把漏发日报的完整链接合并进一条消息。
+- 成功回执按日报日期记录；同日手动重跑或更新日报不会自动重复发送已经确认的消息。
+- 超时、连接中断等可能属于“服务已接收但客户端没收到回执”。这种结果标为**待核实**，不自动连续重发，避免重复通知。
+- GitHub Actions 运行摘要与 `state/health.json` 显示数据源问题、未送达日期、需核实日期。投递失败时工作流显示失败，尝试状态仍保存回仓库。
+- 核实 Server酱投递记录后，若确认未收到，可在 Run workflow 勾选 `send_notification` 和 `retry_uncertain` 后重试。`retry_uncertain` 不应在未核实前开启。
+
+## 配置与运行
+
+当前仓库已部署，`DAILY_ENABLED=true` 已开启。推送密钥放在仓库 Actions Secret `SERVERCHAN_SENDKEY`，不写入代码，不发送到聊天。
+
+需要 Python 3.11+，仅使用标准库，不需要大模型 API、数据库 API Key 或第三方 Python 包。
 
 ```bash
-python -m unittest discover -s . -p test_monitor.py -v
+python -B -m unittest discover -s . -p 'test_*.py' -v
 python monitor.py preview --directory validation/preview
 python monitor.py build
-python monitor.py notify
+python monitor.py build --refresh
+python monitor.py retry
+python monitor.py status
 ```
 
-`preview` 不写生产历史或发送微信。`build` 写入报告与历史；同日重跑保留原报告，便于失败通知重试。`notify` 读取环境变量 SERVERCHAN_SENDKEY，只发送一条摘要卡片；成功回执记录后不重复发当天消息。网络在服务接收后断开时无法实现严格的恰好一次投递，需检查服务历史后再重试。
-
-## 检索与排序
-
-- Europe PMC：四组独立标题/摘要查询，覆盖其索引内的期刊与预印本，不按期刊限制。
-- bioRxiv / medRxiv：官方日期接口，包含新发和修订版本。
-- Research Square：Crossref 的 DOI 前缀与日期增量接口。
-- DOI、PMID、数据库编号、Research Square 版本根 DOI，以及明确登记的预印本/期刊关系用于合并。没有足够关系证据时不凭相似标题强行合并。
-- 标题和摘要主题匹配为主要排序依据；实验机制、方法和发现表述提供有限加分。交叉主题适当加分，偏好期刊只用作同分次级排序。
-- 每个方向预留最多 15 个候选位置，余下名额全局排序，避免大量脂质或衰老论文挤掉线虫栏目。
-
-## 无模型模式的边界
-
-**本版本不能替代科学评审。** 不声称准确判定创新性、严谨性、科学意义或因果机制；不把摘要中的作者推测写成实验事实。不生成每篇 AI 中文发现总结、意义分析或自动证据分层。预印本明确标记未经同行评审。
-
-规则可能有漏检/误检；索引可能延迟；没有摘要或日期的文献暂不推荐；没有登记关系的预印本转期刊可能漏识别。实际检索成功与否及分页截断均保存在每日日报。引用的五篇代表论文用作需求记录，不作为必须同时满足的主题限制。
+`preview` 不写生产历史、不发微信。`build --refresh` 按新规则更新今天的日报和来源状态，保留已报告版本历史，防止旧条目再次推荐。GitHub 手动运行中提供 `refresh_report` 对应此功能。
 
 ## 文件
 
-- `config.json`：方向、关键词、偏好期刊与数量限制。
-- `monitor.py`：抓取、筛选、去重、报告和微信推送。
-- `reports/YYYY-MM-DD.md`：可直接在 GitHub 阅读的完整日报。
-- `reports/YYYY-MM-DD.json`：结构化结果、数据源状态和过滤统计。
-- `state/history.json`：候选历史及已报告版本，不要随意删除。
-- `state/deliveries.json`：成功推送回执。
+- `config.json`：方向、关键词、期刊／预印本名额、阅读分级阈值、RSS 与 Crossref 查询词。
+- `journal_metrics.json`：逐刊核验的影响因子值、年份与官方来源；不完整的指标表，需要随年份更新。
+- `monitor.py`：检索调度、筛选、名额分配、去重和报告。
+- `sources_extra.py`：PubMed、Crossref 期刊和 RSS 解析。
+- `delivery.py`：待发送队列、补发、投递状态和运行健康摘要。
+- `reports/YYYY-MM-DD.md` 与 `.json`：完整日报与结构化结果。
+- `state/history.json`：候选与已报告版本历史。
+- `state/deliveries.json`、`state/delivery_attempts.json`、`state/health.json`：成功回执、尝试状态和故障信息。
 
-## 官方接口文档
+## 内容分析边界
+
+中文栏目与筛选理由，原文标题和摘要保留英文。不生成 AI 中文总结，不自动区分每句实验结果／解释／假设。科学意义、实验可靠性和因果机制仍需阅读全文判断。期刊影响因子不能等同单篇论文质量。
+
+## 官方文档
 
 - https://europepmc.org/RestfulWebService
+- https://www.ncbi.nlm.nih.gov/books/NBK25499/
+- https://www.crossref.org/documentation/retrieve-metadata/rest-api/
 - https://api.biorxiv.org/
-- https://github.com/CrossRef/rest-api-doc
 - https://github.com/easychen/serverchan-sdk
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
+- NCBI 使用声明与版权说明：https://www.ncbi.nlm.nih.gov/home/about/policies/

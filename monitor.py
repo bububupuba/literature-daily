@@ -23,6 +23,10 @@ BIO = 'https://api.biorxiv.org'
 CROSSREF = 'https://api.crossref.org/works'
 
 
+class SourceError(RuntimeError):
+    pass
+
+
 def clean(value):
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html.unescape(str(value or '')))).strip()
 
@@ -61,22 +65,37 @@ def json_write(path, value):
     tmp.replace(path)
 
 
+def load_config():
+    config = json_read(ROOT / 'config.json', {})
+    config['journal_metrics'] = json_read(ROOT / 'journal_metrics.json', {})
+    return config
+
+
 class Client:
     def __init__(self, timeout=35):
         self.timeout = timeout
 
-    def get(self, url, params=None):
+    def read(self, url, params=None):
         if params:
             url += '?' + urllib.parse.urlencode(params)
         for attempt in range(3):
             try:
-                request = urllib.request.Request(url, headers={'User-Agent': 'LiteratureDaily/1.0', 'Accept': 'application/json'})
+                request = urllib.request.Request(url, headers={'User-Agent': 'LiteratureDaily/2.0 (https://github.com/bububupuba/literature-daily)', 'Accept': '*/*'})
                 with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                    return json.load(response)
+                    return response.read()
             except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
                 if attempt == 2:
                     # Never include request URLs in errors: push URLs contain secrets.
-                    raise RuntimeError(type(exc).__name__) from None
+                    raise SourceError(f'HTTP {exc.code}' if isinstance(exc, urllib.error.HTTPError) else type(exc).__name__) from None
+                time.sleep(2 ** attempt)
+
+    def get(self, url, params=None):
+        for attempt in range(3):
+            try:
+                return json.loads(self.read(url, params))
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                if attempt == 2:
+                    raise SourceError('Invalid JSON response') from None
                 time.sleep(2 ** attempt)
 
 
@@ -262,7 +281,25 @@ def classify(article, config):
     discovery_hits = matches(text, ['previously unknown', 'previously unrecognized', 'new mechanism', 'novel gene', 'unexpected', 'challenge*', 'uncover*'])
     # These are reading-priority indicators, not ratings of validity or novelty.
     score = relevance + min(12, 3 * len(mechanism_hits)) + min(8, 2 * len(method_hits)) + min(6, 2 * len(discovery_hits)) + (10 if len(topics) > 1 else 0)
-    return dict(article, topics=topics, reasons=reasons, score=score, signals={'mechanism': mechanism_hits, 'method': method_hits, 'discovery_claim': discovery_hits}, preferred=article['venue'].casefold() in {j.casefold() for j in config['preferred_journals']}), ''
+    paper = dict(article, topics=topics, reasons=reasons, score=score, signals={'mechanism': mechanism_hits, 'method': method_hits, 'discovery_claim': discovery_hits}, preferred=article['venue'].casefold() in {j.casefold() for j in config['preferred_journals']})
+    return decorate(paper, config), ''
+
+
+def journal_key(value):
+    value = clean(value).casefold()
+    value = value.replace('the ', '', 1) if value.startswith('the ') else value
+    value = re.sub(r'\([^)]*\)', '', value)
+    return re.sub(r'[^a-z0-9]', '', value).removesuffix('cb')
+
+
+def decorate(paper, config):
+    paper = dict(paper)
+    metrics = config.get('journal_metrics', {})
+    metric = next((entry for entry in metrics.values() if journal_key(paper['venue']) in {journal_key(name) for name in [entry['journal']] + entry.get('aliases', [])}), None)
+    paper['jif'] = metric if metric and not paper['preprint'] else None
+    thresholds = config.get('tiers', {'must_read': 28, 'recommended': 16})
+    paper['tier'] = '必读候选' if paper['score'] >= thresholds['must_read'] else '值得一读' if paper['score'] >= thresholds['recommended'] else '其他相关'
+    return paper
 
 
 def aliases(article):
@@ -299,10 +336,18 @@ def consolidate(articles):
         paper['sources'] = sorted({source for a in members for source in a['sources']})
         paper['related'] = sorted({value for a in members for value in [a['doi']] + a['related'] if value and value != paper['doi']})
         paper['retracted'] = any(a.get('retracted') for a in members)
+        same = [a for a in members if a['doi'] == paper['doi'] and a['preprint'] == paper['preprint']]
+        dated = [a['date'] for a in same if a['date']]
+        if dated:
+            paper['date'] = min(dated)  # Online date must not be replaced by a later issue date.
         # Only supplement abstracts from the same DOI and same version.
         for a in members:
             if a['doi'] == paper['doi'] and a['version'] == paper['version'] and len(a['abstract']) > len(paper['abstract']):
                 paper['abstract'] = a['abstract']
+            if a['doi'] == paper['doi']:
+                for field in ('authors', 'venue'):
+                    if not paper[field] or paper[field] == '数据库未注明':
+                        paper[field] = a[field]
         output.append(paper)
     return output
 
@@ -313,10 +358,17 @@ def fingerprint(paper):
 
 
 def rank(paper):
-    return (-paper['score'], -int(paper['preferred']), paper['title'].casefold())
+    metric = paper.get('jif')
+    impact = float(metric['value']) if metric and not paper['preprint'] else -1
+    return (-impact, -paper['score'], -int(paper['preferred']), paper['title'].casefold())
 
 
 def choose(papers, config):
+    if 'pool_limits' in config:
+        selected = []
+        for preprint, pool in ((False, 'journals'), (True, 'preprints')):
+            selected.extend(allocate([decorate(p, config) for p in papers if p['preprint'] == preprint], config['pool_limits'][pool], config))
+        return selected
     ordered = sorted(papers, key=rank)
     chosen = []
     chosen_ids = set()
@@ -325,7 +377,7 @@ def choose(papers, config):
             chosen.append(p)
             chosen_ids.add(p['key'])
     # Protect each independent direction from being crowded out by a larger field.
-    for index in range(config['reserved_per_feed']):
+    for index in range(config.get('reserved_per_feed', 15)):
         for topic in config['topics']:
             candidates = [p for p in ordered if topic in p['topics']]
             if index < len(candidates):
@@ -335,7 +387,46 @@ def choose(papers, config):
     return sorted(chosen, key=rank)
 
 
-def ingest(records, state, config, report_date):
+def allocate(papers, limit, config):
+    """Unique papers fill five quotas; spare slots are redistributed within this pool."""
+    ordered = sorted(papers, key=rank)
+    categories = ['interdisciplinary'] + list(config['topics'])
+    slots = [category for category in categories for _ in range(config.get('quota_per_feed', 5))]
+    assigned = {}
+    def eligible(p, category):
+        return len(p['topics']) >= 2 if category == 'interdisciplinary' else category in p['topics']
+    def place(p, visited):
+        for index, category in enumerate(slots):
+            if index in visited or not eligible(p, category):
+                continue
+            visited.add(index)
+            previous = assigned.get(index)
+            if previous is None or place(previous, visited):
+                assigned[index] = p
+                return True
+        return False
+    for paper in ordered:
+        if len(assigned) >= min(limit, len(slots)):
+            break
+        place(paper, set())
+    result = [dict(p, feed=slots[index], redistributed=False) for index, p in assigned.items()]
+    used = {p['key'] for p in result}
+    for paper in ordered:
+        if len(result) >= limit:
+            break
+        if paper['key'] in used:
+            continue
+        counts = {category: sum(p['feed'] == category for p in result) for category in categories}
+        possible = [category for category in categories if eligible(paper, category)]
+        if not possible:
+            continue
+        category = min(possible, key=lambda name: (counts[name], categories.index(name)))
+        result.append(dict(paper, feed=category, redistributed=True))
+        used.add(paper['key'])
+    return sorted(result, key=rank)
+
+
+def ingest(records, state, config, report_date, select=True):
     state.setdefault('papers', {})
     initial_start = state.setdefault('initial_start', (dt.date.fromisoformat(report_date) - dt.timedelta(days=config['initial_days'] - 1)).isoformat())
     rejected = {}
@@ -386,7 +477,7 @@ def ingest(records, state, config, report_date):
         if item['first_seen'] < report_date and not item['announced']:
             label += '（此前超过每日上限，顺延）'
         pending.append(dict(p, key=key, event=label))
-    selected = choose(pending, config)
+    selected = choose(pending, config) if select else []
     for p in selected:
         state['papers'][p['key']]['announced'].append(fingerprint(p))
     return selected, len(pending) - len(selected), rejected
@@ -397,44 +488,75 @@ def md(value):
 
 
 def render(report, config):
-    papers = report['papers']
-    lines = [f"# 文献日报 · {report['date']}", '', '**无大模型模式：中文栏目与匹配理由；标题、作者和摘要保留原文。**', '',
-             '排序为可复核的关键词与方法线索排序，不代表创新性、严谨性、机制深度或影响力已经经过评审。摘要为作者原文，可能同时包含实验描述、解释与假设；本程序不把这些表述改写为已证实事实。', '',
-             f"本次纳入 **{len(papers)}** 篇独立文献；交叉栏目与各方向共享编号；另有 {report['deferred']} 篇顺延。", '',
-             f"检索窗口：{report['start']} 至 {report['date']}（北京时间）。初次回溯 3 个日历日；后续重叠检索并按持久标识符去重。", '', '## 数据源状态', '']
+    papers = [decorate(p, config) for p in report['papers']]
+    counts = {'journals': sum(not p['preprint'] for p in papers), 'preprints': sum(p['preprint'] for p in papers)}
+    limits = config.get('pool_limits', {'journals': 25, 'preprints': 25})
+    names = dict(interdisciplinary='交叉研究', **{key: spec['name'] for key, spec in config['topics'].items()})
+    lines = [f"# 文献日报 · {report['date']}", '',
+        f"期刊论文 **{counts['journals']}/{limits['journals']}** 篇；预印本 **{counts['preprints']}/{limits['preprints']}** 篇；合计 **{len(papers)}** 篇独立文献，另有 {report['deferred']} 篇候选顺延。", '',
+        '四方向与交叉研究各预分配 5 个名额，缺额在同组内转给其他栏目；每篇仅占一个名额。期刊组与预印本组分别分配，互不占用名额。', '',
+        '**排序：** 相关性筛选合格后，期刊论文优先按已核验的期刊影响因子降序；未知指标不估算，预印本不赋影响因子。各栏目内预印本按相关性、方法和机制关键词排序。指标年份及来源逐篇列出，已核验指标覆盖仍不完整。', '',
+        '**阅读分级：** 必读候选／值得一读／其他相关。分级取决于主题与实验方法关键词规则，不是科学质量评审，也不因影响因子高就自动评为必读。', '',
+        '**无大模型模式：** 中文栏目与匹配理由；标题、作者和摘要保留原文。摘要为作者表述，可能混合实验描述、解释与假设，尚未自动证据分层。', '',
+        f"检索窗口：{report['start']} 至 {report['date']}（北京时间）。期刊 RSS 为滚动条目，数据库可能延迟收录。", '',
+        '## 数据源状态', '']
     labels = {'ok': '完成', 'partial': '覆盖不完整', 'failed': '失败'}
     for source, status in report['sources'].items():
-        lines.append(f"- {source}：{labels[status['status']]}；获取 {status.get('fetched', 0)} / {status.get('available', '未知')} 条。" + (f" 错误：{status['error']}" if status.get('error') else ''))
+        suffix = f" 错误：{status['error']}" if status.get('error') else ''
+        if status.get('scope'):
+            suffix += ' ' + status['scope']
+        lines.append(f"- {source}：{labels[status['status']]}；获取 {status.get('fetched', 0)} / {status.get('available', '未知')} 条。{suffix}")
     if any(s['status'] != 'ok' for s in report['sources'].values()):
-        lines += ['', '**本次存在检索缺口，不能把零结果理解为没有新论文。**']
+        failure = '所有来源检索失败' if all(s['status'] == 'failed' for s in report['sources'].values()) else '部分来源未完成'
+        lines += ['', f'**{failure}，存在检索缺口。不能把零结果理解为没有新论文，也不能把备用来源成功理解为缺失来源已完全覆盖。**']
     elif not papers:
         lines += ['', '在已查询数据源与当前规则下，本次没有新增或更新的合格文献。']
-    lines += ['', '## 优先关注的交叉研究（规则筛选候选）', '']
-    cross = [(i, p) for i, p in enumerate(papers, 1) if len(p['topics']) >= 2]
-    for i, p in cross:
-        lines.append(f"- [#{i} {md(p['title'])}](#paper-{i}) — " + ' × '.join(config['topics'][t]['name'] for t in p['topics']))
-    if not cross:
-        lines.append('本次没有符合两个以上方向筛选规则的候选论文。')
-    for topic, spec in config['topics'].items():
-        lines += ['', f"## {spec['name']}", '']
-        subset = [(i, p) for i, p in enumerate(papers, 1) if topic in p['topics']]
-        lines += [f"- [#{i} {md(p['title'])}](#paper-{i})" for i, p in subset] or ['本次无新增或更新。']
+    categories = list(config['topics']) + ['interdisciplinary']
+    for preprint, label, pool in ((False, '期刊论文', 'journals'), (True, '预印本（未经同行评审）', 'preprints')):
+        lines += ['', f"## {label} · {counts[pool]}/{limits[pool]} 篇", '', '| 栏目 | 基础名额 | 实际入选 |', '|---|---:|---:|']
+        subset = [(i, p) for i, p in enumerate(papers, 1) if p['preprint'] == preprint]
+        for key in categories:
+            n = sum(p.get('feed', p['topics'][0]) == key for _, p in subset)
+            lines.append(f"| {names[key]} | 5 | {n} |")
+        for key in categories:
+            lines += ['', f"### {names[key]}", '']
+            group = [(i, p) for i, p in subset if p.get('feed', p['topics'][0]) == key]
+            for i, p in group:
+                metric = p.get('jif')
+                impact = f"IF {metric['value']:g}（{metric['year'] or '官网未注明年份'}）" if metric else '预印本，无 IF' if preprint else 'IF 未核验'
+                lines.append(f"- [#{i} {md(p['title'])}](#paper-{i}) — **{p['tier']}** · {impact}")
+            if not group:
+                lines.append('本栏无合格新增候选，空缺名额已用于其他栏目；全组不足时不凑数。')
     lines += ['', '## 文献详情', '']
     for i, p in enumerate(papers, 1):
         status = f"**预印本：未经同行评审 · v{p['version'] or '未知'}**" if p['preprint'] else '期刊发表版本（同行评审过程未单独核验）'
-        lines += [f'<a id="paper-{i}"></a>', f"### {i}. {md(p['title'])}", '', f"- 作者：{md(p['authors']) or '数据库未提供'}", f"- 来源：{md(p['venue'])} · 日期：{p['date'] or '未提供'}", f"- 状态：{status}；{p['event']}", f"- 原文：[{md(p['doi']) or '原始页面'}]({p['url']})", f"- 阅读优先分：{p['score']}（规则分，不是科学质量分）", '- 关联方向：' + '、'.join(config['topics'][t]['name'] for t in p['topics'])]
+        metric = p.get('jif')
+        impact = f"[{metric['value']:g}（{metric['year'] or '官网未注明年份'}）]({metric['source']})；核验日期 {metric['verified_at']}" if metric else '不适用（预印本）' if p['preprint'] else '未核验，不以猜测值参与排序'
+        lines += [f'<a id="paper-{i}"></a>', f"### {i}. {md(p['title'])}", '',
+            f"- 作者：{md(p['authors']) or '数据库未提供'}", f"- 来源：{md(p['venue'])} · 日期：{p['date'] or '未提供'}",
+            f"- 状态：{status}；{p.get('event', '新收录')}", f"- 原文：[{md(p['doi']) or '原始页面'}]({p['url']})",
+            f"- 期刊影响因子：{impact}", f"- 阅读分级：**{p['tier']}**；相关性规则分 {p['score']}（不是质量分）",
+            '- 关联方向：' + '、'.join(config['topics'][t]['name'] for t in p['topics']),
+            '- 名额归属：' + names.get(p.get('feed', p['topics'][0]), '') + ('（调剂名额）' if p.get('redistributed') else '')]
         for topic in p['topics']:
-            r = p['reasons'][topic]
-            terms = r['title_terms'] or r['abstract_terms']
-            lines.append(f"- 与{config['topics'][topic]['name']}相关的依据：{'标题' if r['title_terms'] else '摘要'}匹配 {md('；'.join(terms))}。")
+            reason = p['reasons'][topic]
+            terms = reason['title_terms'] or reason['abstract_terms']
+            lines.append(f"- 与{config['topics'][topic]['name']}相关的依据：{'标题' if reason['title_terms'] else '摘要'}匹配 {md('；'.join(terms))}。")
         if p['related']:
             lines.append('- 关联版本：' + '；'.join(f'[{md(d)}](https://doi.org/{d})' for d in p['related']))
-        lines += ['', '**原文摘要（作者表述，未经自动证据分层）**', '', '> ' + md(p['abstract']), '', '**科学意义、实验可靠性与推测边界：** 待阅读全文人工判断；不根据期刊名或关键词自动下结论。', '']
-    lines += ['## 范围与局限', '', '- 不设期刊白名单；偏好期刊只在规则分相同时作为次级排序依据。', '- Europe PMC 的期刊、预印本索引存在收录延迟；bioRxiv、medRxiv另查官方接口；Research Square另查 Crossref。不能保证全球文献零遗漏。', '- 缺少足够摘要、日期或生物学背景的记录不会进入推荐；过滤数量保存在 JSON 报告。', '- DOI、PMID、数据库标识符及明确版本关系用于去重。无法确认关系时保留记录，避免把相似标题误合并；没有登记的预印本—期刊关系可能漏识别。', '- 预印本版本号变化会提示更新；元数据不含新版本号时不能可靠识别所有内容修订。', '- 已明确标记的撤稿／撤回记录排除；数据库延迟标记的撤稿可能尚未识别。', '']
+        lines += ['', '**原文摘要（作者表述，未经自动证据分层）**', '', '> ' + md(p['abstract']), '',
+            '**科学意义、实验可靠性与推测边界：** 待阅读全文判断，规则分级与期刊影响因子都不替代逐篇审阅。', '']
+    lines += ['## 范围与局限', '',
+        '- 不设期刊白名单；期刊论文通过 Europe PMC、PubMed、Crossref 和已配置的期刊 RSS 补充获取。各源覆盖和时间窗不同，不能保证零遗漏。',
+        '- DOI、PMID、数据库编号与明确登记的版本关系用于去重。没有登记关系的预印本转期刊可能漏识别；检测到关联后优先保留期刊版本。',
+        '- 缺少足够摘要、完整日期或生物学背景的记录暂不推荐，过滤统计保存在同日 JSON。',
+        '- 影响因子来自可核验来源且标注年份；未核验期刊仍可入选，排序靠后。不同年份的数值可比性有限，不把期刊影响因子称为论文影响因子。',
+        '- 预印本版本号变化会提示更新；无新版本号的内容修订与未及时登记的撤稿仍可能漏识别。',
+        '- 报告生成和微信投递分别保存状态：未送达报告在补发时汇总链接；已确认送达的日报不自动重发。', '']
     return '\n'.join(lines)
 
-
 def collect(config, start, end, incremental):
+    from sources_extra import fetch_crossref_journals, fetch_pubmed, fetch_rss
     client = Client(config['timeout_seconds'])
     tasks = {}
     limit = config['max_pages_per_source']
@@ -448,6 +570,14 @@ def collect(config, start, end, incremental):
                 tasks[pool.submit(fetch_biorxiv, client, server, start, end, limit)] = server
         if config['sources']['research_square']:
             tasks[pool.submit(fetch_research_square, client, start, end, incremental, limit)] = 'Research Square / Crossref'
+        if config['sources'].get('crossref_journals'):
+            for key, queries in config['crossref_queries'].items():
+                tasks[pool.submit(fetch_crossref_journals, client, queries, key, start, end, config.get('crossref_max_pages', 10))] = 'Crossref期刊 / ' + config['topics'][key]['name']
+        if config['sources'].get('pubmed'):
+            tasks[pool.submit(fetch_pubmed, client, config['topics'], start, end, incremental, limit)] = 'PubMed / 四方向'
+        if config['sources'].get('rss'):
+            for feed in config['rss_feeds']:
+                tasks[pool.submit(fetch_rss, client, feed, start, end)] = 'RSS / ' + feed['name']
         for future in as_completed(tasks):
             name = tasks[future]
             try:
@@ -455,16 +585,17 @@ def collect(config, start, end, incremental):
                 records.extend(found)
                 statuses[name] = status
             except Exception as exc:
-                statuses[name] = {'status': 'failed', 'error': type(exc).__name__, 'fetched': 0}
+                statuses[name] = {'status': 'failed', 'error': str(exc) if isinstance(exc, SourceError) else type(exc).__name__, 'fetched': 0}
             print(name, statuses[name]['status'], statuses[name].get('fetched', 0), flush=True)
     return records, statuses
 
 
-def build(config, directory, today, preview=False):
+def build(config, directory, today, preview=False, refresh=False):
     state_path = directory / 'state' / 'history.json'
     report_path = directory / 'reports' / (today + '.json')
     # Keep the day's report stable on reruns, including after failed notification.
-    if report_path.exists() and not preview:
+    previous = json_read(report_path, None) if not preview else None
+    if previous and not refresh:
         print('Report already prepared; preserving same-day report and delivery identity.')
         return json_read(report_path, {})
     state = json_read(state_path, {'papers': {}})
@@ -473,21 +604,43 @@ def build(config, directory, today, preview=False):
     start = date - dt.timedelta(days=(config['initial_days'] if initial else config['overlap_days']) - 1)
     if state.get('last_complete_date'):
         start = min(start, dt.date.fromisoformat(state['last_complete_date']) - dt.timedelta(days=2))
+    elif state.get('initial_start'):
+        start = min(start, dt.date.fromisoformat(state['initial_start']))
     records, statuses = collect(config, start.isoformat(), today, not initial)
     if preview:
         json_write(directory / 'raw-preview.json', records)
     if not statuses or all(s['status'] == 'failed' for s in statuses.values()):
         selected, deferred, rejected = [], 0, {}
     else:
-        selected, deferred, rejected = ingest(records, state, config, today)
+        selected, deferred, rejected = ingest(records, state, config, today, select=not bool(previous))
+        if previous:
+            # Rebuild today's selection from the old report plus unannounced candidates.
+            # Keep prior announcements in history so removed entries do not reappear tomorrow.
+            old_aliases = set().union(*(aliases(p) for p in previous['papers'])) if previous['papers'] else set()
+            candidates = []
+            for key, item in state['papers'].items():
+                if item.get('suppressed'):
+                    continue
+                p = item['article']
+                if fingerprint(p) not in item['announced'] or old_aliases.intersection(item['aliases']):
+                    candidates.append(dict(p, key=key, event='当日规则更新' if old_aliases.intersection(item['aliases']) else '新收录'))
+            selected = choose(candidates, config)
+            for p in selected:
+                announced = state['papers'][p['key']]['announced']
+                if fingerprint(p) not in announced:
+                    announced.append(fingerprint(p))
+            deferred = sum(not item.get('suppressed') and fingerprint(item['article']) not in item['announced'] for item in state['papers'].values())
     report = {'date': today, 'start': start.isoformat(), 'papers': selected, 'sources': statuses, 'deferred': deferred, 'rejected': rejected, 'mode': 'no-model-api', 'preview': preview}
     text = render(report, config)
     (directory / 'reports').mkdir(parents=True, exist_ok=True)
     json_write(report_path, report)
     (directory / 'reports' / (today + '.md')).write_text(text)
     if not preview:
-        if statuses and all(s['status'] == 'ok' for s in statuses.values()):
+        mandatory = {name: s for name, s in statuses.items() if not name.startswith('RSS / ')}
+        if mandatory and all(s['status'] == 'ok' for s in mandatory.values()):
             state['last_complete_date'] = today
+        state['last_attempt_date'] = today
+        state.setdefault('initial_start', start.isoformat())
         json_write(state_path, state)
     print(f"Report: {len(selected)} unique papers; {deferred} deferred. Preview={preview}")
     return report
@@ -498,13 +651,17 @@ def push_payload(report, repository):
     degraded = any(s['status'] != 'ok' for s in report['sources'].values())
     title = f"文献日报 {report['date']}：{count}篇" + ('（检索有缺口）' if degraded else '')
     url = f"https://github.com/{repository}/blob/main/reports/{report['date']}.md"
-    lines = [f"本次 {count} 篇独立文献，四方向分别检索；无 AI 总结。", f"[完整日报（公开阅读）]({url})", '']
+    journals = sum(not p['preprint'] for p in report['papers'])
+    lines = [f"期刊 {journals}/25 篇，预印本 {count - journals}/25 篇；四方向与交叉各预分配5篇，缺额组内调剂。", f"[完整日报（公开阅读）]({url})", '']
     if degraded:
         lines += ['部分数据源失败或分页不完整，不能据此认定没有新论文。', '']
     elif count == 0:
         lines += ['在已查询数据源及当前规则下，没有新增或更新的合格论文。', '']
-    for paper in report['papers'][:8]:
-        entry = f"- [{'[预印本] ' if paper['preprint'] else ''}{md(paper['title'])}]({paper['url']})"
+    highlights = [p for p in report['papers'] if not p['preprint']][:4] + [p for p in report['papers'] if p['preprint']][:4]
+    for paper in highlights:
+        metric = paper.get('jif')
+        impact = f" IF {metric['value']:g}" if metric else ''
+        entry = f"- [{'[预印本] ' if paper['preprint'] else ''}{md(paper['title'])}]({paper['url']}){impact}"
         if len('\n'.join(lines + [entry])) > 3000:
             break
         lines.append(entry)
@@ -513,48 +670,27 @@ def push_payload(report, repository):
 
 
 def notify(report, directory, repository, sendkey):
-    if not sendkey:
-        raise RuntimeError('Missing SERVERCHAN_SENDKEY; no notification was sent.')
-    if not re.fullmatch(r'[A-Za-z0-9]+', sendkey):
-        raise RuntimeError('Invalid SendKey format.')
-    receipts_path = directory / 'state' / 'deliveries.json'
-    receipts = json_read(receipts_path, {})
-    title, body = push_payload(report, repository)
-    identity = report['date']
-    if identity in receipts:
-        print('Notification already acknowledged for this date; skipped.')
-        return
-    sc3 = re.match(r'^sctp(\d+)t', sendkey)
-    endpoint = f"https://{sc3.group(1)}.push.ft07.com/send/{sendkey}.send" if sc3 else f'https://sctapi.ftqq.com/{sendkey}.send'
-    request = urllib.request.Request(endpoint, data=urllib.parse.urlencode({'title': title, 'desp': body}).encode(), headers={'Content-Type': 'application/x-www-form-urlencoded'})
-    try:
-        # Do not automatically retry POST: the first request may already be delivered.
-        with urllib.request.urlopen(request, timeout=30) as response:
-            result = json.load(response)
-        if result.get('code') != 0:
-            raise RuntimeError('Notification service returned nonzero status.')
-    except Exception:
-        raise RuntimeError('Notification failed or delivery is uncertain; inspect service delivery history before rerunning. Secret omitted.') from None
-    receipts[identity] = {'acknowledged': True, 'at': dt.datetime.now(dt.timezone.utc).isoformat()}
-    json_write(receipts_path, receipts)
-    print('Notification service acknowledged delivery.')
-
+    from delivery import deliver
+    return deliver([report], directory, repository, sendkey)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=('build', 'preview', 'notify'))
+    parser.add_argument('command', choices=('build', 'preview', 'notify', 'retry', 'status'))
     parser.add_argument('--date')
+    parser.add_argument('--refresh', action='store_true')
+    parser.add_argument('--retry-uncertain', action='store_true')
     parser.add_argument('--directory', type=Path, default=ROOT)
     args = parser.parse_args()
-    config = json_read(ROOT / 'config.json', {})
+    config = load_config()
     today = args.date or dt.datetime.now(ZoneInfo(config['timezone'])).date().isoformat()
-    if args.command == 'notify':
-        report = json_read(args.directory / 'reports' / (today + '.json'), None)
-        if not report or report.get('preview'):
-            raise RuntimeError('No production report available.')
-        notify(report, args.directory, os.environ.get('GITHUB_REPOSITORY', config['github_owner'] + '/' + config['repository_name']), os.environ.get('SERVERCHAN_SENDKEY', ''))
+    if args.command in ('notify', 'retry'):
+        from delivery import notify_pending
+        notify_pending(args.directory, today, os.environ.get('GITHUB_REPOSITORY', config['github_owner'] + '/' + config['repository_name']), os.environ.get('SERVERCHAN_SENDKEY', ''), args.retry_uncertain)
+    elif args.command == 'status':
+        from delivery import status_summary
+        status_summary(args.directory, today)
     else:
-        build(config, args.directory, today, preview=args.command == 'preview')
+        build(config, args.directory, today, preview=args.command == 'preview', refresh=args.refresh)
 
 
 if __name__ == '__main__':

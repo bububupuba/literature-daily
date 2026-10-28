@@ -1,0 +1,146 @@
+{
+  "Nature": {
+    "journal": "Nature",
+    "value": 56.1,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Communications": {
+    "journal": "Nature Communications",
+    "value": 18.1,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Scientific Reports": {
+    "journal": "Scientific Reports",
+    "value": 4.9,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Cell Biology": {
+    "journal": "Nature Cell Biology",
+    "value": 22.7,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Metabolism": {
+    "journal": "Nature Metabolism",
+    "value": 27.5,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Neuroscience": {
+    "journal": "Nature Neuroscience",
+    "value": 20.3,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Reviews Cardiology": {
+    "journal": "Nature Reviews Cardiology",
+    "value": 50.2,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Reviews Endocrinology": {
+    "journal": "Nature Reviews Endocrinology",
+    "value": 39.1,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Reviews Molecular Cell Biology": {
+    "journal": "Nature Reviews Molecular Cell Biology",
+    "value": 118.0,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "npj Aging": {
+    "journal": "npj Aging",
+    "value": 13.0,
+    "year": 2025,
+    "source": "https://www.nature.com/nature-portfolio/about-journals/journal-metrics",
+    "verified_at": "2026-10-28"
+  },
+  "Nature Aging": {
+    "journal": "Nature Aging",
+    "value": 25.0,
+    "year": 2025,
+    "source": "https://www.nature.com/nataging/journal-impact",
+    "verified_at": "2026-10-28"
+  },
+  "Biogerontology": {
+    "journal": "Biogerontology",
+    "value": 5.3,
+    "year": 2025,
+    "source": "https://link.springer.com/journal/10522",
+    "verified_at": "2026-10-28"
+  },
+  "GeroScience": {
+    "journal": "GeroScience",
+    "value": 6.0,
+    "year": 2025,
+    "source": "https://link.springer.com/journal/11357",
+    "verified_at": "2026-10-28"
+  },
+  "The EMBO Journal": {
+    "journal": "The EMBO Journal",
+    "value": 8.7,
+    "year": 2025,
+    "source": "https://link.springer.com/journal/44318",
+    "verified_at": "2026-10-28",
+    "note": "Publisher explicitly corrects the erroneous 2025 JIF to 8.7."
+  },
+  "Journal of Lipid Research": {
+    "journal": "Journal of Lipid Research",
+    "value": 4.9,
+    "year": 2025,
+    "source": "https://www.jlr.org/",
+    "verified_at": "2026-10-28"
+  },
+  "Autophagy": {
+    "journal": "Autophagy",
+    "value": 18.6,
+    "year": 2025,
+    "source": "https://www.tandfonline.com/journals/kaup20/about-this-journal",
+    "verified_at": "2026-10-28"
+  },
+  "Advanced Science": {
+    "journal": "Advanced Science",
+    "value": 14.1,
+    "year": null,
+    "source": "https://onlinelibrary.wiley.com/journal/21983844",
+    "verified_at": "2026-10-28",
+    "note": "Official page verifies value; metric year not explicitly stated in retrieved page."
+  },
+  "Advanced Healthcare Materials": {
+    "journal": "Advanced Healthcare Materials",
+    "value": 11.0,
+    "year": null,
+    "source": "https://advanced.onlinelibrary.wiley.com/journal/21922659",
+    "verified_at": "2026-10-28",
+    "note": "Official page verifies value; metric year not explicitly stated in retrieved page."
+  },
+  "Clinical and Molecular Hepatology": {
+    "journal": "Clinical and Molecular Hepatology",
+    "value": 21.7,
+    "year": null,
+    "source": "https://www.e-cmh.org/",
+    "verified_at": "2026-10-28",
+    "note": "Official page verifies value; metric year not explicitly stated in retrieved page."
+  },
+  "Signal Transduction and Targeted Therapy": {
+    "journal": "Signal Transduction and Targeted Therapy",
+    "value": 81.2,
+    "year": 2025,
+    "source": "https://www.nature.com/sigtrans/journal-information",
+    "verified_at": "2026-10-28"
+  }
+}

@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 import monitor as m
 
-CONFIG = json.loads((m.ROOT / 'config.json').read_text())
+CONFIG = m.load_config()
 
 
 def article(title='Mitochondrial dynamics control metabolism', abstract=None, **kwargs):
@@ -80,6 +80,7 @@ class MonitorTests(unittest.TestCase):
     def test_cap_and_overflow_not_marked_seen(self):
         config = copy.deepcopy(CONFIG)
         config['max_papers'] = 2
+        config['pool_limits'] = {'journals': 2, 'preprints': 0}
         rows = [article(doi=f'10.1234/{i}', ids=[]) for i in range(5)]
         state = {}
         first, deferred, _ = m.ingest(rows, state, config, '2026-10-28')
