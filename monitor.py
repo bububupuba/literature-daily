@@ -97,12 +97,14 @@ class Client:
         self.rss_lock = threading.Lock()
         self.rss_last_request = 0.0
 
-    def read(self, url, params=None, opener=None, diagnostics=None):
+    def read(self, url, params=None, opener=None, diagnostics=None, extra_headers=None):
         if params:
             url += '?' + urllib.parse.urlencode(params)
         for attempt in range(3):
             try:
-                request = urllib.request.Request(url, headers={'User-Agent': 'LiteratureDaily/2.0 (https://github.com/bububupuba/literature-daily)', 'Accept': '*/*'})
+                headers = {'User-Agent': 'LiteratureDaily/2.0 (https://github.com/bububupuba/literature-daily)', 'Accept': '*/*'}
+                headers.update(extra_headers or {})
+                request = urllib.request.Request(url, headers=headers)
                 crossref = urllib.parse.urlparse(url).hostname == 'api.crossref.org'
                 with self.crossref_lock if crossref else nullcontext():
                     if crossref:
@@ -122,6 +124,11 @@ class Client:
                                                final_url=urllib.parse.urlunsplit((final.scheme, final.netloc, final.path, '', '')),
                                                bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
                                                looks_like_html=bool(re.search(br'<(?:!doctype\s+html|html)(?:\s|>)', data[:1000], re.I)))
+                            if diagnostics['looks_like_html']:
+                                title = re.search(br'<title[^>]*>(.*?)</title>', data, re.I | re.S)
+                                diagnostics['page_title'] = clean(title.group(1).decode('utf-8', 'replace'))[:120] if title else ''
+                                lower = data.lower()
+                                diagnostics['html_markers'] = [text for text in ('javascript', 'cookie', 'access denied', 'captcha', 'temporarily unavailable', 'redirect') if text.encode() in lower]
                         return data
             except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
                 if attempt == 2:
@@ -149,7 +156,9 @@ class Client:
             if delay > 0:
                 time.sleep(delay)
             self.rss_last_request = time.monotonic()
-            return self.read(url, opener=self.rss_opener, diagnostics=diagnostics)
+            return self.read(url, opener=self.rss_opener, diagnostics=diagnostics,
+                             extra_headers={'Accept': 'application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8',
+                                            'Cache-Control': 'no-cache', 'Pragma': 'no-cache'})
 
     def get(self, url, params=None):
         for attempt in range(3):
