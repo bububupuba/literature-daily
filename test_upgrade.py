@@ -88,6 +88,10 @@ class SelectionTests(unittest.TestCase):
 
 
 class SourceTests(unittest.TestCase):
+    def test_nature_news_not_recommended_as_original_research(self):
+        p=article(doi='10.1038/d41586-026-00001-1')
+        self.assertIsNone(m.classify(p,CONFIG)[0])
+
     def test_rdf_feed_parse_namespaces_doi_and_date(self):
         xml=b'''<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:p="http://prismstandard.org/namespaces/basic/2.0/"><item><title>Mitochondrial work</title><link>https://example.org/article</link><dc:creator>Author A</dc:creator><dc:date>2026-10-27</dc:date><p:doi>10.1234/XYZ</p:doi><description>Abstract here</description></item></rdf:RDF>'''
         rows,status=sources.parse_feed(xml,{'name':'Nature','url':'https://www.nature.com/nature.rss'},'2026-10-26','2026-10-28')

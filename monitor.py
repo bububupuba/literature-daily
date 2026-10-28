@@ -244,6 +244,8 @@ def classify(article, config):
     text = title + ' ' + abstract
     if article.get('retracted') or re.match(r'(?i)^(retraction|withdrawn|retracted|correction|erratum)\b', title):
         return None, '撤稿、撤回或更正记录'
+    if article.get('doi', '').startswith('10.1038/d41586'):
+        return None, 'Nature 新闻或评论记录'
     types = ' '.join(article.get('types', [])).lower()
     if re.search(r'\b(editorial|news|comment|letter|case reports?)\b', types) and not re.search(r'review|research|journal article', types):
         return None, '无实质研究或综述的文章类型'

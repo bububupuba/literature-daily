@@ -153,7 +153,7 @@ def parse_feed(data, feed, start, end):
         if not title or not (found or link):
             continue
         articles.append(dict(doi=found, ids=[], title=title, authors='; '.join(texts('creator', 'author')),
-            venue=feed['name'], date=date, indexed='', abstract=abstract, types=['Journal Article'], preprint=False,
+            venue=feed['name'], date=date, indexed='', abstract=abstract, types=texts('type', 'genre') or ['Journal Article'], preprint=False,
             version=0, url='https://doi.org/' + found if found else link, related=[], sources=['RSS / ' + feed['name']], retracted=False))
     # RSS is a rolling feed, not a complete historical API; say so explicitly.
     return articles, {'status': 'ok', 'fetched': len(articles), 'available': len(articles), 'family': 'rss', 'scope': '滚动订阅源当前可见条目，不代表期刊完整历史', 'url': feed['url']}
