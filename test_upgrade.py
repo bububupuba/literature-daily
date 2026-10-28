@@ -5,6 +5,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 import xml.etree.ElementTree as ET
+import urllib.error
+from email.message import Message
+from unittest.mock import MagicMock
 
 import monitor as m
 import sources_extra as sources
@@ -99,6 +102,15 @@ class SelectionTests(unittest.TestCase):
 
 
 class SourceTests(unittest.TestCase):
+    def test_crossref_rate_limit_respects_retry_after(self):
+        headers=Message();headers['Retry-After']='7'
+        rejected=urllib.error.HTTPError('https://api.crossref.org/works',429,'limit',headers,None)
+        response=MagicMock();response.__enter__.return_value.read.return_value=b'{}'
+        with patch('urllib.request.urlopen',side_effect=[rejected,response]) as request,patch.object(m.time,'sleep') as sleep:
+            self.assertEqual(m.Client().get('https://api.crossref.org/works'),{})
+            self.assertEqual(request.call_count,2)
+            self.assertTrue(any(call.args[0]>=7 for call in sleep.call_args_list))
+
     def test_nature_news_not_recommended_as_original_research(self):
         p=article(doi='10.1038/d41586-026-00001-1')
         self.assertIsNone(m.classify(p,CONFIG)[0])

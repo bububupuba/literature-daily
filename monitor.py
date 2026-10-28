@@ -9,11 +9,13 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import nullcontext
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -74,6 +76,9 @@ def load_config():
 class Client:
     def __init__(self, timeout=35):
         self.timeout = timeout
+        self.crossref_lock = threading.Lock()
+        self.crossref_last_request = 0.0
+        self.crossref_next_allowed = 0.0
 
     def read(self, url, params=None):
         if params:
@@ -81,13 +86,35 @@ class Client:
         for attempt in range(3):
             try:
                 request = urllib.request.Request(url, headers={'User-Agent': 'LiteratureDaily/2.0 (https://github.com/bububupuba/literature-daily)', 'Accept': '*/*'})
-                with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                    return response.read()
+                crossref = urllib.parse.urlparse(url).hostname == 'api.crossref.org'
+                with self.crossref_lock if crossref else nullcontext():
+                    if crossref:
+                        delay = max(self.crossref_last_request + 1.2, self.crossref_next_allowed) - time.monotonic()
+                        if delay > 60:
+                            raise SourceError('Crossref cooldown exceeds one minute; deferred')
+                        if delay > 0:
+                            time.sleep(delay)
+                        self.crossref_last_request = time.monotonic()
+                    with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                        return response.read()
             except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
                 if attempt == 2:
                     # Never include request URLs in errors: push URLs contain secrets.
                     raise SourceError(f'HTTP {exc.code}' if isinstance(exc, urllib.error.HTTPError) else type(exc).__name__) from None
-                time.sleep(2 ** attempt)
+                if isinstance(exc, urllib.error.HTTPError) and exc.code in (429, 503):
+                    try:
+                        pause = float(exc.headers.get('Retry-After', 15))
+                    except (ValueError, TypeError, AttributeError):
+                        pause = 15
+                    pause = max(pause, 2 ** attempt)
+                    if urllib.parse.urlparse(url).hostname == 'api.crossref.org':
+                        with self.crossref_lock:
+                            self.crossref_next_allowed = max(self.crossref_next_allowed, time.monotonic() + pause)
+                    if pause > 60:
+                        raise SourceError(f'HTTP {exc.code}; long Retry-After deferred') from None
+                    time.sleep(pause)
+                else:
+                    time.sleep(2 ** attempt)
 
     def get(self, url, params=None):
         for attempt in range(3):
