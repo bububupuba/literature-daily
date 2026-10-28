@@ -59,6 +59,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports state
+          if [ -d diagnostics ]; then git add diagnostics; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Update literature report and history'
             git push
@@ -83,6 +84,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add state
+          if [ -d diagnostics ]; then git add diagnostics; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Record delivery attempts, receipts and health'
             git push
@@ -92,5 +94,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: literature-reports-${{ github.run_id }}
-          path: reports/
+          path: |
+            reports/
+            diagnostics/
+            state/retrieval_status.json
           retention-days: 7
