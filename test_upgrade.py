@@ -78,6 +78,17 @@ class SelectionTests(unittest.TestCase):
         self.assertEqual(p['date'],'2026-10-27')
         self.assertEqual(p['abstract'],b['abstract'])
 
+    def test_preprint_revision_date_not_replaced_by_original_v1_date(self):
+        a=article(preprint=True,version=2,date='2026-10-01',sources=['Europe PMC'])
+        b=article(preprint=True,version=2,date='2026-10-27',sources=['biorxiv'],date_kind='version_posted')
+        self.assertEqual(m.consolidate([a,b])[0]['date'],'2026-10-27')
+
+    def test_identifiers_link_groups_transitively(self):
+        a=article(doi='10.1234/a',ids=[])
+        b=article(doi='10.1234/b',ids=[])
+        bridge=article(doi='10.1234/c',ids=[],related=['10.1234/a','10.1234/b'])
+        self.assertEqual(len(m.consolidate([a,b,bridge])),1)
+
     def test_render_has_two_separate_pools_and_metrics_sources(self):
         p=candidate(1,['aging'],venue='Nature');p.update(feed='aging',event='新收录')
         text=m.render(report('2026-10-28',[p]),CONFIG)

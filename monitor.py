@@ -167,6 +167,7 @@ def biorxiv_article(raw, server):
     return {
         'doi': identifier, 'ids': [], 'title': clean(raw.get('title')), 'authors': clean(raw.get('authors')),
         'venue': 'bioRxiv' if server == 'biorxiv' else 'medRxiv', 'date': day(raw.get('date')), 'indexed': '',
+        'date_kind': 'version_posted',
         'abstract': clean(raw.get('abstract')), 'types': [raw.get('type', 'preprint')], 'preprint': True,
         'version': number(raw.get('version')), 'url': 'https://doi.org/' + identifier,
         'related': [doi(raw['published'])] if doi(raw.get('published')) else [],
@@ -315,20 +316,25 @@ def aliases(article):
 
 
 def consolidate(articles):
-    groups = []
-    for article in articles:
-        keys = aliases(article)
-        overlap = [group for group in groups if keys & group['aliases']]
-        if overlap:
-            group = overlap[0]
-            group['articles'].append(article)
-            group['aliases'].update(keys)
-            for extra in overlap[1:]:
-                group['articles'].extend(extra['articles'])
-                group['aliases'].update(extra['aliases'])
-                groups.remove(extra)
-        else:
-            groups.append({'aliases': keys, 'articles': [article]})
+    parents = list(range(len(articles)))
+    owners = {}
+    def find(index):
+        while parents[index] != index:
+            parents[index] = parents[parents[index]]
+            index = parents[index]
+        return index
+    # Index persistent identifiers instead of comparing every record with every group.
+    for index, article in enumerate(articles):
+        for identifier in aliases(article):
+            if identifier in owners:
+                parents[find(index)] = find(owners[identifier])
+            owners[identifier] = index
+    grouped = {}
+    for index, article in enumerate(articles):
+        group = grouped.setdefault(find(index), {'aliases': set(), 'articles': []})
+        group['aliases'].update(aliases(article))
+        group['articles'].append(article)
+    groups = grouped.values()
     output = []
     for group in groups:
         # The journal version takes precedence; otherwise keep latest preprint version.
@@ -340,8 +346,12 @@ def consolidate(articles):
         paper['retracted'] = any(a.get('retracted') for a in members)
         same = [a for a in members if a['doi'] == paper['doi'] and a['preprint'] == paper['preprint']]
         dated = [a['date'] for a in same if a['date']]
-        if dated:
+        if dated and not paper['preprint']:
             paper['date'] = min(dated)  # Online date must not be replaced by a later issue date.
+        elif paper['preprint']:
+            posted = [a['date'] for a in same if a.get('date_kind') == 'version_posted' and a['version'] == paper['version'] and a['date']]
+            if posted:
+                paper['date'] = max(posted)  # Europe PMC may retain v1's original publication date.
         # Only supplement abstracts from the same DOI and same version.
         for a in members:
             if a['doi'] == paper['doi'] and a['version'] == paper['version'] and len(a['abstract']) > len(paper['abstract']):
