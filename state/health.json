@@ -4,7 +4,11 @@
   "uncertain_report_dates": [],
   "latest_report": "2026-10-28",
   "source_problems": [
-    "Crossref期刊 / 线粒体生物学",
-    "Research Square / Crossref"
+    "RSS / Nature Communications",
+    "RSS / Nature Cell Biology",
+    "RSS / Nature Aging",
+    "RSS / Nature Metabolism",
+    "RSS / Nature Reviews Molecular Cell Biology",
+    "RSS / Nature Reviews Endocrinology"
   ]
 }
