@@ -3,10 +3,7 @@
   "pending_report_dates": [],
   "uncertain_report_dates": [],
   "latest_report": "2026-10-28",
-  "retrieval_blocked": true,
+  "retrieval_blocked": false,
   "last_retrieval_attempt": "2026-10-28",
-  "source_problems": [
-    "RSS / Nature Aging",
-    "RSS / Nature Neuroscience"
-  ]
+  "source_problems": []
 }
