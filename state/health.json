@@ -3,12 +3,10 @@
   "pending_report_dates": [],
   "uncertain_report_dates": [],
   "latest_report": "2026-10-28",
+  "retrieval_blocked": true,
+  "last_retrieval_attempt": "2026-10-28",
   "source_problems": [
-    "RSS / Nature Communications",
-    "RSS / Nature Cell Biology",
     "RSS / Nature Aging",
-    "RSS / Nature Metabolism",
-    "RSS / Nature Reviews Molecular Cell Biology",
-    "RSS / Nature Reviews Endocrinology"
+    "RSS / Nature Neuroscience"
   ]
 }
