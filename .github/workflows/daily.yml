@@ -43,6 +43,11 @@ jobs:
           python-version: '3.12'
       - name: Validate logic
         run: python -m unittest discover -s . -p 'test_*.py' -v
+      - name: Prepare normal publisher browser session
+        if: github.event_name != 'schedule' || github.event.schedule == '0 1 * * *'
+        run: |
+          python -m pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
       - name: Retrieve and generate report
         if: github.event_name != 'schedule' || github.event.schedule == '0 1 * * *'
         env:
