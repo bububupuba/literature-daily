@@ -33,7 +33,9 @@ class StrictRetrievalTests(unittest.TestCase):
                 attempt = m.json_read(root/'state/retrieval_status.json', {})
                 self.assertFalse(attempt['complete'])
                 self.assertEqual(attempt['phase'], 'failed')
-                health = delivery.status_summary(root, '2026-10-28')
+                # Fixture failures must not be appended to the real Actions summary.
+                with patch.dict(m.os.environ, {'GITHUB_STEP_SUMMARY': ''}):
+                    health = delivery.status_summary(root, '2026-10-28')
                 self.assertTrue(health['retrieval_blocked'])
                 self.assertEqual(health['source_problems'], ['RSS / Nature Aging'])
 
