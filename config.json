@@ -8,7 +8,7 @@
   "ai_enabled": false,
   "github_owner": "bububupuba",
   "repository_name": "literature-daily",
-  "private": true,
+  "private": false,
   "notify_when_empty": true,
   "sources": {
     "europepmc": true,

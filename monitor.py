@@ -498,7 +498,7 @@ def push_payload(report, repository):
     degraded = any(s['status'] != 'ok' for s in report['sources'].values())
     title = f"文献日报 {report['date']}：{count}篇" + ('（检索有缺口）' if degraded else '')
     url = f"https://github.com/{repository}/blob/main/reports/{report['date']}.md"
-    lines = [f"本次 {count} 篇独立文献，四方向分别检索；无 AI 总结。", f"[完整日报（需要登录 GitHub）]({url})", '']
+    lines = [f"本次 {count} 篇独立文献，四方向分别检索；无 AI 总结。", f"[完整日报（公开阅读）]({url})", '']
     if degraded:
         lines += ['部分数据源失败或分页不完整，不能据此认定没有新论文。', '']
     elif count == 0:
@@ -508,7 +508,7 @@ def push_payload(report, repository):
         if len('\n'.join(lines + [entry])) > 3000:
             break
         lines.append(entry)
-    lines += ['', '手机通知展示精选标题；全部条目与原文摘要见私有仓库。']
+    lines += ['', '手机通知展示精选标题；全部条目与原文摘要见公开日报。']
     return title, '\n'.join(lines)
 
 
