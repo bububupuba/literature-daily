@@ -1,0 +1,58 @@
+name: Check publisher RSS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: literature-daily
+  cancel-in-progress: false
+
+jobs:
+  check-rss:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test publisher feeds without publishing or sending
+        run: |
+          python -u -B - <<'PY'
+          import datetime as dt
+          from pathlib import Path
+          from monitor import Client, load_config, json_write, require_complete
+          from sources_extra import fetch_rss
+          config = load_config()
+          client = Client(config['timeout_seconds'])
+          today = dt.date.today()
+          statuses = {}
+          for feed in config['rss_feeds']:
+              _, status = fetch_rss(client, feed, (today - dt.timedelta(days=7)).isoformat(), today.isoformat())
+              statuses[feed['name']] = status
+              json_write(Path('diagnostics/rss-check.json'), {'date': today.isoformat(), 'sources': statuses})
+              print(feed['name'], status['status'], status.get('attempts', []), flush=True)
+          require_complete({'sources': statuses})
+          print('All publisher feeds passed. This diagnostic does not publish a report or clear a blocked full retrieval.')
+          PY
+      - name: Preserve diagnostic evidence
+        if: always()
+        run: |
+          if [ -d diagnostics ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add diagnostics
+            if ! git diff --cached --quiet; then
+              git commit -m 'Record publisher RSS diagnostic results'
+              git push
+            fi
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publisher-rss-diagnostics
+          path: diagnostics/rss-check.json
+          retention-days: 7
