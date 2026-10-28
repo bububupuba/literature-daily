@@ -2,11 +2,22 @@ name: Daily literature
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 1 * * *' # 09:00 Beijing: retrieve, report and notify
+    - cron: '0 2,4 * * *' # 10:00 / 12:00 Beijing: retry pending delivery only
   workflow_dispatch:
     inputs:
       send_notification:
-        description: Send the daily digest to your configured WeChat channel
+        description: Deliver pending reports to WeChat
+        required: true
+        type: boolean
+        default: false
+      refresh_report:
+        description: Refresh today's report using current selection rules and sources
+        required: true
+        type: boolean
+        default: false
+      retry_uncertain:
+        description: Retry uncertain delivery ONLY after checking ServerChan history
         required: true
         type: boolean
         default: false
@@ -31,29 +42,49 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate logic
-        run: python -m unittest discover -s . -p test_monitor.py -v
+        run: python -m unittest discover -s . -p 'test_*.py' -v
       - name: Retrieve and generate report
-        run: python monitor.py build
-      - name: Persist report and deduplication history before delivery
+        if: github.event_name != 'schedule' || github.event.schedule == '0 1 * * *'
+        env:
+          REFRESH_REPORT: ${{ inputs.refresh_report }}
+        run: |
+          if [ "$REFRESH_REPORT" = 'true' ]; then
+            python monitor.py build --refresh
+          else
+            python monitor.py build
+          fi
+      - name: Persist report before delivery
+        if: success()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add reports state
           if ! git diff --cached --quiet; then
-            git commit -m 'Update daily literature report and history'
+            git commit -m 'Update literature report and history'
             git push
           fi
-      - name: Send WeChat digest
-        if: github.event_name == 'schedule' || inputs.send_notification
+      - name: Deliver pending reports
+        if: success() && (github.event_name == 'schedule' || inputs.send_notification)
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
-        run: python monitor.py notify
-      - name: Persist acknowledged delivery
-        if: success() && (github.event_name == 'schedule' || inputs.send_notification)
+          RETRY_UNCERTAIN: ${{ inputs.retry_uncertain }}
         run: |
+          if [ "$RETRY_UNCERTAIN" = 'true' ]; then
+            python monitor.py retry --retry-uncertain
+          else
+            python monitor.py retry
+          fi
+      - name: Summarize health and delivery state
+        if: always()
+        run: python monitor.py status
+      - name: Persist delivery state even after a failure
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add state
           if ! git diff --cached --quiet; then
-            git commit -m 'Record acknowledged daily notification'
+            git commit -m 'Record delivery attempts, receipts and health'
             git push
           fi
       - name: Save diagnostics
