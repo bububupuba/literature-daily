@@ -1,9 +1,9 @@
 {
   "date": "2026-10-28",
-  "attempted_at": "2026-10-28T08:33:13.352146+00:00",
+  "attempted_at": "2026-10-28T09:09:20.309948+00:00",
   "start": "2026-10-22",
-  "complete": false,
-  "phase": "failed",
+  "complete": true,
+  "phase": "complete",
   "sources": {
     "Europe PMC / 秀丽隐杆线虫": {
       "status": "ok",
@@ -30,13 +30,13 @@
     },
     "biorxiv": {
       "status": "ok",
-      "fetched": 1297,
-      "available": 1297
+      "fetched": 1303,
+      "available": 1303
     },
     "Crossref期刊 / 线粒体生物学": {
       "status": "ok",
-      "fetched": 166,
-      "available": 166,
+      "fetched": 167,
+      "available": 167,
       "family": "crossref",
       "topics": [
         "mitochondria"
@@ -44,8 +44,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 131,
-          "available": 131,
+          "fetched": 132,
+          "available": 132,
           "query": "mitochondrial",
           "family": "crossref",
           "topics": [
@@ -74,11 +74,10 @@
         }
       ]
     },
-    "Europe PMC / 脂质生物学": {
+    "Research Square / Crossref": {
       "status": "ok",
-      "fetched": 5949,
-      "available": 5949,
-      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-22 TO 2026-10-28] OR FIRST_IDATE:[2026-10-22 TO 2026-10-28] OR UPDATE_DATE:[2026-10-22 TO 2026-10-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "fetched": 3311,
+      "available": 3311
     },
     "Crossref期刊 / 秀丽隐杆线虫": {
       "status": "ok",
@@ -101,10 +100,16 @@
         }
       ]
     },
+    "Europe PMC / 脂质生物学": {
+      "status": "ok",
+      "fetched": 5952,
+      "available": 5950,
+      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-22 TO 2026-10-28] OR FIRST_IDATE:[2026-10-22 TO 2026-10-28] OR UPDATE_DATE:[2026-10-22 TO 2026-10-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+    },
     "Crossref期刊 / 衰老与长寿": {
       "status": "ok",
-      "fetched": 266,
-      "available": 266,
+      "fetched": 278,
+      "available": 278,
       "family": "crossref",
       "topics": [
         "aging"
@@ -112,8 +117,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 204,
-          "available": 204,
+          "fetched": 216,
+          "available": 216,
           "query": "aging",
           "family": "crossref",
           "topics": [
@@ -151,11 +156,6 @@
           ]
         }
       ]
-    },
-    "Research Square / Crossref": {
-      "status": "ok",
-      "fetched": 3308,
-      "available": 3308
     },
     "RSS / Nature": {
       "status": "ok",
@@ -199,10 +199,99 @@
         }
       ]
     },
+    "RSS / Nature Cell Biology": {
+      "status": "ok",
+      "fetched": 4,
+      "available": 4,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/ncb.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/ncb.rss",
+          "bytes": 19577,
+          "sha256": "596fd0dac010181bfe22f524a5dd78ba879e037ed1fdb40f96467c36e5f20b74",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Nature Aging": {
+      "status": "ok",
+      "fetched": 3,
+      "available": 3,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nataging.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 19178,
+          "sha256": "0e2b844240566b266bac8827c4a3b94bbd9f4f5a43a2f6a4b180e95bc218fce5",
+          "result": "ok"
+        }
+      ]
+    },
     "Crossref期刊 / 脂质生物学": {
       "status": "ok",
-      "fetched": 638,
-      "available": 638,
+      "fetched": 645,
+      "available": 645,
       "family": "crossref",
       "topics": [
         "lipids"
@@ -210,8 +299,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 127,
-          "available": 127,
+          "fetched": 128,
+          "available": 128,
           "query": "lipid",
           "family": "crossref",
           "topics": [
@@ -240,8 +329,8 @@
         },
         {
           "status": "ok",
-          "fetched": 471,
-          "available": 471,
+          "fetched": 477,
+          "available": 477,
           "query": "fatty acid",
           "family": "crossref",
           "topics": [
@@ -257,48 +346,6 @@
           "topics": [
             "lipids"
           ]
-        }
-      ]
-    },
-    "RSS / Nature Cell Biology": {
-      "status": "ok",
-      "fetched": 4,
-      "available": 4,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.nature.com/ncb.rss",
-      "attempts": [
-        {
-          "attempt": 1,
-          "http_status": 200,
-          "content_type": "application/rss+xml; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 19577,
-          "sha256": "596fd0dac010181bfe22f524a5dd78ba879e037ed1fdb40f96467c36e5f20b74",
-          "looks_like_html": false,
-          "result": "ok"
-        }
-      ]
-    },
-    "RSS / Nature Metabolism": {
-      "status": "ok",
-      "fetched": 2,
-      "available": 2,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.nature.com/natmetab.rss",
-      "attempts": [
-        {
-          "attempt": 1,
-          "http_status": 200,
-          "content_type": "application/rss+xml; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/natmetab.rss",
-          "bytes": 17978,
-          "sha256": "c505941a124637a5f7b6b8325e0c716f4e3f47d5aa38a0f95c38c4018261dfe9",
-          "looks_like_html": false,
-          "result": "ok"
         }
       ]
     },
@@ -344,22 +391,27 @@
         }
       ]
     },
-    "RSS / Nature Aging": {
-      "status": "failed",
-      "fetched": 0,
+    "RSS / Nature Metabolism": {
+      "status": "ok",
+      "fetched": 2,
+      "available": 2,
       "family": "rss",
-      "url": "https://www.nature.com/nataging.rss",
-      "error": "RSS retrieval/validation failed after 3 attempts",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/natmetab.rss",
       "attempts": [
         {
           "attempt": 1,
           "http_status": 200,
           "content_type": "text/html; charset=utf-8",
           "content_encoding": "",
-          "final_url": "https://www.nature.com/nataging.rss",
+          "final_url": "https://www.nature.com/natmetab.rss",
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
         },
@@ -368,10 +420,14 @@
           "http_status": 200,
           "content_type": "text/html; charset=utf-8",
           "content_encoding": "",
-          "final_url": "https://www.nature.com/nataging.rss",
+          "final_url": "https://www.nature.com/natmetab.rss",
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
         },
@@ -380,12 +436,26 @@
           "http_status": 200,
           "content_type": "text/html; charset=utf-8",
           "content_encoding": "",
-          "final_url": "https://www.nature.com/nataging.rss",
+          "final_url": "https://www.nature.com/natmetab.rss",
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 17978,
+          "sha256": "c505941a124637a5f7b6b8325e0c716f4e3f47d5aa38a0f95c38c4018261dfe9",
+          "result": "ok"
         }
       ]
     },
@@ -453,11 +523,12 @@
       ]
     },
     "RSS / Nature Neuroscience": {
-      "status": "failed",
-      "fetched": 0,
+      "status": "ok",
+      "fetched": 8,
+      "available": 8,
       "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
       "url": "https://www.nature.com/neuro.rss",
-      "error": "RSS retrieval/validation failed after 3 attempts",
       "attempts": [
         {
           "attempt": 1,
@@ -468,6 +539,10 @@
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
         },
@@ -480,6 +555,10 @@
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
         },
@@ -492,8 +571,22 @@
           "bytes": 3038,
           "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
           "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
           "result": "failed",
           "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 18838,
+          "sha256": "2ab0c6f3b4646fcf3fbce5917f162530f734b696bc7e7d8db119f28bc1e60146",
+          "result": "ok"
         }
       ]
     },
@@ -532,8 +625,8 @@
           "content_type": "text/xml",
           "content_encoding": "",
           "final_url": "https://elifesciences.org/rss/recent.xml",
-          "bytes": 109179,
-          "sha256": "f2ab85467a6dc1c2264f79b0baf91dc2841f45ddabfcffedde35404c93e4114e",
+          "bytes": 244039,
+          "sha256": "764cca1d23f60883affd4ca48f3b6b0fbba575e37fb35b86bb01c404d2003a0c",
           "looks_like_html": false,
           "result": "ok"
         }

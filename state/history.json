@@ -6688,17 +6688,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11211670/v1",
-        "ids": [
-          "PPR:PPR1350099"
-        ],
+        "ids": [],
         "title": "Fatty acid synthesis system in Glaucophyta: Further evidence for the lack of chloroplast fatty acid synthesis in glaucophyte algae",
-        "authors": "Sato N, Awai K.",
+        "authors": "Naoki Sato; Koichiro Awai",
         "venue": "Research Square",
         "date": "2026-10-26",
-        "indexed": "2026-10-27",
+        "indexed": "2026-10-26",
         "abstract": "Abstract We previously showed that the chloroplast of the glaucophyte Cyanophora paradoxa does not have fatty acid synthesis activity, based on both experimental and bioinformatic analyses. The present study was intended to extend the bioinformatic analysis to a wider range of Glaucophyta, using published genomic data. The results confirmed that the four species of Glaucophyta analyzed do not have prokaryotic acetyl-CoA carboxylase, which is found in the chloroplasts of Rhodophyta and Viridiplantae. Only the eukaryotic type of acetyl-CoA carboxylase was identified. Some components of prokaryotic fatty acid synthase (FAS II), such as acyl carrier protein (ACP), 2-oxoacyl ACP synthase (KAS I/II), and FabD, were detected in the glaucophytes, but other components especially KAS III were not detected. In contrast, the eukaryotic fatty acid synthase (FAS I) was found in Gloeochaete as well as Cyanophora. Although the genome data is still to be amended, the available evidence suggests that the lack of fatty acid synthesis in the chloroplast is a trait of not just Cyanophora but also shared by the phylum Glaucophyta. The relationship between photosynthesis and fatty acid synthesis is discussed with special attention to the origin of chloroplasts.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -6753,17 +6751,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11467142/v1",
-        "ids": [
-          "PPR:PPR1351289"
-        ],
+        "ids": [],
         "title": "Coordinated adipose–liver metabolic remodelling reveals sex-specific peripheral adaptations during amyotrophic lateral sclerosis progression in TDP-43A315T mice",
-        "authors": "Benito-Casado C, Ferrer-Donato Á, Barroso-García G, Domínguez-Vías G, Domínguez-Rubio R, Povedano M, Fernandez-Martos CM.",
+        "authors": "Cristina Benito-Casado; Águeda Ferrer-Donato; Gemma Barroso-García; Germán Domínguez-Vías; Raúl Domínguez-Rubio; Mónica Povedano; Carmen M Fernandez-Martos",
         "venue": "Research Square",
         "date": "2026-10-27",
-        "indexed": "2026-10-28",
+        "indexed": "2026-10-27",
         "abstract": "Abstract Amyotrophic lateral sclerosis (ALS) is increasingly recognised as a systemic disorder associated with metabolic dysfunction, although the contribution of peripheral metabolic organs and sex-dependent responses remains unclear. We investigated metabolic remodelling across white adipose tissue (WAT), brown adipose tissue (BAT) and liver, during disease progression in the TDP-43 A315T mouse model and assessed its relevance in ALS patients. Lipidomic profiling was performed in WAT from male mice, while metabolic and endocrine pathways were evaluated by RT-qPCR in BAT and liver from male and female mice. Plasma cholesterol levels were determined in ALS patients at diagnosis. The results revealed that WAT exhibited marked alterations that were detectable at the asymptomatic stage and persisted throughout disease progression. Lipid remodelling was characterised by coordinated changes affecting lipid classes, with cardiolipins predominating at early stages and triacylglycerols becoming increasingly altered as disease progressed. BAT displayed predominantly late-stage transcriptional changes in male mice, characterised by increased expression of genes associated with brown adipocyte identity, metabolic regulation and leptin signalling. Female mice developed a distinct hepatic transcriptional signature characterised by increased expression of genes associated with fatty acid uptake and utilisation, together with reduced expression of genes involved in de novo lipogenesis. Furthermore, ALS patients revealed sex-associated differences in circulating cholesterol levels at diagnosis. Overall, ALS progression is associated with extensive metabolic remodelling in peripheral tissues, with marked tissue-specific and sex-dependent responses. These findings identify peripheral metabolism as a potential contributor to disease heterogeneity and highlight metabolic pathways as promising sources of translational biomarkers and therapeutic targets.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -6814,17 +6810,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11298378/v1",
-        "ids": [
-          "PPR:PPR1350033"
-        ],
+        "ids": [],
         "title": "APOE-Driven Lipid Metabolic Reprogramming Promotes Gastric Cancer Growth and Chemoresistance",
-        "authors": "Dou X, Fu C, Wang Y, Gong Z, Liu Y, Qin S.",
+        "authors": "Xue Dou; Chao Fu; Yuchen Wang; Zhe Gong; Ying Liu; Songbing Qin",
         "venue": "Research Square",
         "date": "2026-10-26",
-        "indexed": "2026-10-27",
+        "indexed": "2026-10-26",
         "abstract": "Abstract Background Apolipoprotein E (APOE) plays critical role in lipid metabolism but its function in chemoresistance of gastric cancer (GC) remains unclear. This study investigated the clinical significance of APOE in GC progression and elucidated its mechanistic role in regulating lipid metabolism and chemotherapy resistance. Methods APOE expression was analyzed in 4 published GEO datasets (GSE29272, GSE54129, GSE103236, GSE118916) and validated by immunohistochemistry (IHC) in GC tissue microarrays. Gene Set Enrichment Analysis (GSEA) and correlation analyses were performed to identify lipid metabolism pathways associated with APOE . In vitro, APOE was silenced by siRNA in AGS and HGC-27 cells. Western blotting assessed the PI3K/AKT/mTOR-SREBP1-FASN signaling cascade. Cholesterol quantification, CCK-8 proliferation assay, flow cytometry apoptosis assay, and 5-fluorouracil (5-Fu) sensitivity assay were performed. Results APOE expression was significantly upregulated across 4 GC datasets ( P P P = 0.0014). GSEA revealed enrichment of lipid metabolism pathways (fatty acid, glycerophospholipid, and glycerolipid metabolism) in APOE -high tumors. APOE expression was positively correlated with SREBF1 and FASN across datasets, with IHC confirming SREBP1 and FASN co-upregulation and significant positive correlations with APOE H-score (SREBP1: r = 0.3117, P P APOE knockdown suppressed p-AKT, p-mTOR, SREBP1, and FASN, and reduced intracellular cholesterol ( P P",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -6886,17 +6880,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11270528/v1",
-        "ids": [
-          "PPR:PPR1349993"
-        ],
+        "ids": [],
         "title": "Engineering Nutrient-Stress Regimes for Microalgal Biodiesel Production: Biomass–Lipid Trade-Offs, Fatty-Acid Remodeling and Fuel-Quality Performance in Pediastrum duplex",
-        "authors": "Adekanmi AA, Garuba EO, Onilude AA.",
+        "authors": "Abideen. A. Adekanmi; Emmanuel. O. Garuba; Abiodun. A. Onilude",
         "venue": "Research Square",
         "date": "2026-10-26",
-        "indexed": "2026-10-27",
+        "indexed": "2026-10-26",
         "abstract": "Abstract Rational manipulation of cultivation conditions is central to engineering microalgal processes that reconcile biomass production, lipid accumulation and biodiesel quality. However, nutrient-stress studies frequently optimise individual biological responses without resolving how cultivation variables propagate through biomass–lipid partitioning, fatty-acid composition and downstream fuel properties. This study developed an integrated bioprocess framework for evaluating nitrogen, phosphate, iron and salinity stress as controllable cultivation variables for biodiesel production from Pediastrum duplex . Biomass concentration and lipid accumulation were experimentally quantified, fatty acid methyl esters (FAMEs) were characterised by gas chromatography, and biodiesel properties were estimated from experimentally determined FAME profiles using established empirical models. Treatment effects and process-response relationships were evaluated using ANOVA, effect-size analysis, Pearson correlation, principal component analysis and hierarchical cluster analysis. Nitrogen limitation produced the highest lipid content (59.75%) but reduced biomass formation, demonstrating a pronounced biomass–lipid production trade-off. Iron limitation generated favourable combination of saturated (48.10%) and monounsaturated (49.20%) fatty acids, whereas salinity stress produced highest predicted cetane number (63.85) and flash point (225 °C). Phosphate limitation increased polyunsaturated fatty acids to 20.50%, demonstrating that cultivation conditions influenced not only lipid accumulation but also downstream fuel-quality characteristics. Multivariate analysis discriminated nutrient-specific process-response regimes and supported integrated pathway linking nutrient availability, carbon allocation, lipid accumulation, FAME remodeling and predicted biodiesel performance. The findings demonstrate that nutrient management can function as bioprocess-engineering strategy for tuning the quantity and compositional quality of lipid feedstock and provide basis for designing staged cultivation strategies that balance biomass production, lipid accumulation and biodiesel quality.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -8212,17 +8204,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11290648/v1",
-        "ids": [
-          "PPR:PPR1350998"
-        ],
+        "ids": [],
         "title": "Altered Sphingolipid–N-Acylethanolamine Signaling Reveals Peripheral Lipid Remodeling in First-Episode Schizophrenia",
-        "authors": "Zheng F, Liu M, Qin X, Zhao H, Zhu Y, He Y, Zhou F, Sun Z.",
+        "authors": "Fan Zheng; Mingxia Liu; Xiangqin Qin; Hanyue Zhao; Yizhi Zhu; Yi He; Fuchun Zhou; Zuoli Sun",
         "venue": "Research Square",
         "date": "2026-10-27",
-        "indexed": "2026-10-28",
+        "indexed": "2026-10-27",
         "abstract": "Abstract Background Lipid abnormalities have been reported in schizophrenia, but little is known about changes in sphingolipids and N-acylethanolamines (NAEs) early in the illness or their trajectories during antipsychotic treatment. We examined plasma lipid-related metabolites in first-episode schizophrenia and their associations with clinical symptoms, cognitive performance, and short-term treatment. Methods Targeted plasma metabolomic profiling was performed in 55 individuals with first-episode schizophrenia and 80 healthy controls. Sixty-seven metabolites were quantified. Clinical symptoms and cognitive function were assessed using the Positive and Negative Syndrome Scale (PANSS) and the MATRICS Consensus Cognitive Battery (MCCB). Thirty-five patients had paired plasma samples at baseline and Week 8. Between-group differences, clinical correlations, metabolite correlation patterns, receiver operating characteristic analyses, and longitudinal changes were examined. Results Twenty of the 67 metabolites remained significantly different between patients and controls after false discovery rate (FDR) adjustment. Six of seven sphingolipid and NAE metabolites examined in detail were higher in patients. Plasma sphingosine-1-phosphate (S1P) was positively correlated with negative symptoms (r = 0.42) and PANSS total scores (r = 0.46), and negatively correlated with processing speed (r = − 0.47) and the MCCB composite score (r = − 0.44). S1P distinguished patients from controls with an AUC of 0.81 (95% CI, 0.73–0.88). Sphingolipids and NAEs formed separate correlation modules, with most cross-module correlations involving S1P or sphinganine-1-phosphate. Although PANSS scores improved significantly after 8 weeks of treatment, none of the seven sphingolipid and NAE metabolites changed significantly. Changes in metabolite concentrations were not significantly associated with changes in PANSS scores after multiple-testing adjustment Conclusion First-episode schizophrenia was associated with higher plasma concentrations of several sphingolipids and NAEs. S1P showed prominent between-group and clinical associations, whereas these lipid differences did not closely track short-term symptom improvement. Independent replication and longer follow-up are needed to clarify their clinical and biological relevance.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -9135,17 +9125,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11191056/v1",
-        "ids": [
-          "PPR:PPR1351112"
-        ],
+        "ids": [],
         "title": "Multi-omic profiling and machine learning reveal diagnostic metabolic signatures and distinct decidual cellular states in tubal pregnancy and spontaneous abortion",
-        "authors": "Huang L, Yin Y, Huang Y, Yang L, Liu X, Wu X, He J, Li K, Huang X, Liang Y, Liu Z, Leow XRK, Zhang Y, Gao J, Liu Z.",
+        "authors": "Letong Huang; Yinghua Yin; Yanxi Huang; Lilin Yang; Xiaojing Liu; Xiaozhen Wu; Jinfeng He; Kaiwei Li; Xuge Huang; Yuanqi Liang; Ziyan Liu; Xin Ru Kelly Leow; Yingxuan Zhang; Jie Gao; Zhuoliang Liu",
         "venue": "Research Square",
         "date": "2026-10-27",
-        "indexed": "2026-10-28",
+        "indexed": "2026-10-27",
         "abstract": "Abstract Background Tubal pregnancy (TP) and spontaneous abortion (SA) are prevalent early pregnancy complications that severely compromise gestational safety. Accurate differentiation between normal intrauterine pregnancy (NP), TP and SA at early gestational stages is critical for standardized clinical management and the reduction of adverse pregnancy outcomes. Clinically, intrauterine pregnancy (IUP) includes both normal viable intrauterine pregnancy and non-viable intrauterine pregnancy such as early spontaneous abortion, which serves as the main control cohort for distinguishing ectopic gestation. Traditional diagnostic approaches relying on serial β-hCG detection and transvaginal ultrasound exhibit limited accuracy for both pregnancy localization and embryonic viability assessment, easily resulting in delayed or inappropriate clinical intervention for TP and SA patients. Methods Untargeted serum metabolomics based on UHPLC-MS/MS was performed on serum samples from 50 patients with TP, 50 patients with SA and 50 individuals with uncomplicated NP. Multivariate statistical analyses and KEGG pathway enrichment were used to screen differential metabolites and characterize disease-specific metabolic perturbations. Samples were randomly allocated to a training set comprising 60% of the cohort and a validation set comprising the remaining 40%. Diagnostic models for pregnancy localization discrimination and embryonic viability assessment were established, with model efficacy verified via multiple indicators and core predictive metabolites screened through SHAP analysis. Furthermore, scRNA-seq of decidual tissues from TP, SA and NP patients was performed to decipher the cellular and molecular mechanisms underlying disease-specific metabolic perturbations. Results Two machine learning models were constructed for the staged identification of abnormal early pregnancy. First, metabolic perturbations of TP were characterized by comparing TP with combined IUP (NP + SA) samples. In total, 77 differential metabolites and nine disturbed metabolic pathways were identified, which were mainly involved in arachidonic acid-related inflammation, TCA cycle dysfunction and tryptophan metabolic disorder. The LightGBM model based on LASSO-selected core metabolites showed valid performance in TP identification (AUC = 0.948, PR-AUC = 0.919, accuracy = 0.90). 15-deoxy-Δ¹²,¹⁴-prostaglandin J₂ and kynurenine were identified as key biomarkers for TP discrimination. Second, metabolic signatures distinguishing SA from NP were screened to evaluate embryonic developmental status. A total of 81 differential metabolites were obtained in SA samples, which were enriched in lipid peroxidation and ferroptosis-associated pathways. The LightGBM model for SA identification achieved valid predictive performance (AUC = 0.985, PR-AUC = 0.986, accuracy = 0.95). Glutathione and 3-hydroxyanthranilic acid were core biomarkers for SA prediction. Single-cell transcriptomic analysis further identified decidual cell states concordant with systemic serum metabolic alterations. TP decidua was characterized by a TP-enriched macrophage state with reprogrammed lipid inflammatory and energy metabolism profiles. SA decidua exhibited pro-inflammatory macrophage polarization, accompanied by downregulated GPX4 expression and elevated ferroptosis-associated transcriptional signatures in endothelial cells and pro-inflammatory macrophages. These cell-type-specific transcriptional alterations were concordant with, and may provide a cellular context for, the systemic metabolic perturbations observed in serum. Conclusions This study combines serum untargeted metabolomics and uterine decidual single-cell transcriptomics to characterize divergent metabolic dysregulations in TP and SA. The LightGBM metabolite-based models enable reliable early discrimination of ectopic pregnancy and impaired embryonic viability, offering potential auxiliary biomarkers for risk stratification in early pregnancy.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -9600,17 +9588,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11503419/v1",
-        "ids": [
-          "PPR:PPR1351187"
-        ],
+        "ids": [],
         "title": "Vascular Steatosis as a Proposed Mechanism of Metabolic Hypertension: From Arterial Lipid Accumulation to Increased Vascular Resistance",
-        "authors": "Andrade LJdO, de Oliveira GCM, Bittencourt AMV, Salles OJdM, Dinamarco N, de Oliveira LM.",
+        "authors": "Luis Jesuino de Oliveira Andrade; Gabriela Correia Matos de Oliveira; Alcina Maria Vinhaes Bittencourt; Osmário Jorge de Mattos Salles; Nelson Dinamarco; Luis Matos de Oliveira",
         "venue": "Research Square",
         "date": "2026-10-27",
-        "indexed": "2026-10-28",
+        "indexed": "2026-10-27",
         "abstract": "Abstract Introduction: Hypertension remains the leading modifiable determinant of cardiovascular morbidity worldwide. Metabolic disease frequently coexists with elevated pressure, yet no vessel-level lesion has been clearly defined that converts systemic lipid excess into sustained vascular resistance. Objective: We propose vascular steatosis, defined as lipid accumulation within the arterial wall, as a candidate mechanism of metabolic hypertension and test its molecular and genetic support using human arterial transcriptomes and Mendelian randomization. Methods: This in silico study used two public arterial transcriptomes (GSE100927 for discovery, GSE43292 for paired validation). Summary-level Mendelian randomization used GTEx v8 cis-eQTLs from aorta, coronary, and tibial arteries, with whole blood as negative control, and blood pressure statistics from a European-ancestry genome-wide association study. Sensitivity and colocalization analyses followed. Results: Lesioned arteries showed upregulated CD36, ABCA1, and PLIN2, and downregulation of ACTA2, MYH11, and CNN1. Lipid-handling and contractile module scores were inversely associated (β = -0.42; 95% CI, -0.56 to -0.28), including in control arteries (β = -0.38), and the direction replicated in the validation set (β = -0.35). Genetically higher PLIN2 expression in aorta and CD36 expression in coronary artery were associated with higher blood pressure traits (FDR Conclusion: Arterial lipid-handling programs track with loss of the contractile smooth muscle phenotype, and genetically proxied PLIN2 and CD36 expression is associated with blood pressure, which offers a biologically plausible and testable framework for the mechanistic classification of metabolic hypertension. Lipid quantification and physiological validation in resistance arteries are required to establish causal and clinical relevance.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -9853,17 +9839,15 @@
       ],
       "article": {
         "doi": "10.21203/rs.3.rs-11227495/v1",
-        "ids": [
-          "PPR:PPR1350050"
-        ],
+        "ids": [],
         "title": "Molecular Determinants of Porphyrin Photosensitizer-Mediated Bacterial Photoinactivation",
-        "authors": "Sequeira F, Knight W, Tovmasyan A, Benov L.",
+        "authors": "Fatima Sequeira; William Knight; Artak Tovmasyan; Ludmil Benov",
         "venue": "Research Square",
         "date": "2026-10-26",
-        "indexed": "2026-10-27",
+        "indexed": "2026-10-26",
         "abstract": "Abstract The widespread and increasing resistance of bacteria to antibiotics creates a demand for development of alternative methods for microbial eradication. Photodynamic inactivation (PDI) is a promising approach because of its demonstrated efficacy against a wide range of drug-resistant microorganisms. The practical application of PDI needs photosensitizers (PSs) with high quantum yield, low toxicity against the host, and potent antimicrobial activity. Design of such PSs requires a detailed understanding of how molecular structure influences PDI efficacy. This work investigated the PDI activity of a series of meso -substituted N -ethylpyridinium-2-yl and pentafluorophenyl substituted porphyrins bearing zero to four positive charges. Results demonstrated that the highest bactericidal activity against Gram-negative ( E. coli ) and Gram-positive ( S. aureus ) microorganisms was displayed by the asymmetric dicationic porphyrin with adjacent positive charges ( cis -H 2 DiE). Despite having a similar molecular structure, comparable singlet oxygen quantum yield, and similar lipophilicity, its symmetric regioisomer with two opposite positive charges ( trans -H 2 DiE) was substantially less photoeffective. Pronounced differences were also observed in the PDI sensitivity of Gram-negative and Gram-positive bacteria. Investigations with membrane-impermeable fluorescent agents revealed that membrane permeabilization was the major cause for photo-inactivation of microbes. The combination of moderate lipophilicity and adjacent positive charges facilitates deeper penetration of the PS in the membrane lipid bilayer, positioning the PS in an environment with higher oxygen availability and closer proximity to unsaturated fatty acids, thereby favoring oxidative membrane damage. These findings demonstrate that in addition to lipophilicity and charge number, the molecule symmetry and spatial distribution of charges ( ortho vs meta vs para and adjacent vs opposite), the tridimensional shape of the molecule, its flexibility and bulkiness, should be considered when designing PSs for potential clinical applications.",
         "types": [
-          "Preprint"
+          "posted-content"
         ],
         "preprint": true,
         "version": 1,
@@ -24413,6 +24397,255 @@
       "announced": [
         "10.1101/2025.10.10.681325|preprint|4"
       ],
+      "suppressed": false
+    },
+    "497a1b592d367504f88bf98b": {
+      "aliases": [
+        "doi:10.1242/jcs.264850"
+      ],
+      "article": {
+        "doi": "10.1242/jcs.264850",
+        "ids": [],
+        "title": "Suppressing the SREBP-mediated lipogenic pathway rescues pink1 deficiency in Drosophila and influences mitochondrial morphology",
+        "authors": "Jenny Zhe Liao; Christopher Tam; Esther M. Verheyen",
+        "venue": "Journal of Cell Science",
+        "date": "2026-10-28",
+        "indexed": "2026-10-28",
+        "abstract": "Sterol-regulatory element binding proteins (SREBP) are master transcriptional factors controlling lipogenesis. In Drosophila, the SREBP-mediated lipogenic pathway is essential for development. Homozygous SREBP mutants are lipid deficient and larval lethal, whereas excessive lipids in flies are often associated with neurodegeneration. Since SREBP has previously been identified as a risk factor for Parkinson's disease, we further investigated the role of SREBP-mediated lipogenesis in a pink1 deficient Drosophila parkinsonism model. We found that expressing either dominant negative SREBP or knocking down its downstream target rescues pink1 mutant phenotypes including thorax indentation and impaired locomotion. Investigation of the indirect flight muscles reveals that suppression of the lipogenic pathway restores defective muscle morphology and mitochondrial defects, and reduces ectopic ROS associated with the pink1 null allele. Interestingly, we found altered mitochondrial morphologies when the lipogenic pathway was manipulated under physiological condition, suggesting the SREBP-mediated lipogenic pathway plays a role in regulating mitochondrial shapes. Our findings highlight the tight connection between lipid metabolism and mitochondria in both disease and physiological setting.",
+        "types": [
+          "journal-article"
+        ],
+        "preprint": false,
+        "version": 0,
+        "url": "https://doi.org/10.1242/jcs.264850",
+        "related": [],
+        "sources": [
+          "Crossref"
+        ],
+        "retracted": false,
+        "aliases": [
+          "doi:10.1242/jcs.264850"
+        ],
+        "topics": [
+          "mitochondria",
+          "lipids"
+        ],
+        "reasons": {
+          "mitochondria": {
+            "title_terms": [
+              "mitochondri*"
+            ],
+            "abstract_terms": [
+              "mitochondri*"
+            ],
+            "supporting_terms": []
+          },
+          "lipids": {
+            "title_terms": [],
+            "abstract_terms": [
+              "lipid*",
+              "sterol*"
+            ],
+            "supporting_terms": [
+              "lipid metabolism"
+            ]
+          }
+        },
+        "score": 34,
+        "signals": {
+          "mechanism": [
+            "mutant*",
+            "binding"
+          ],
+          "method": [],
+          "discovery_claim": []
+        },
+        "preferred": false,
+        "jif": null,
+        "tier": "必读候选"
+      },
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28",
+      "announced": [],
+      "suppressed": false
+    },
+    "a0335f816d9c1655a4545bc8": {
+      "aliases": [
+        "doi:10.1021/acsabm.6c01833"
+      ],
+      "article": {
+        "doi": "10.1021/acsabm.6c01833",
+        "ids": [],
+        "title": "Phenolic Hydroxyl-Containing Lipid Nanoparticles Enable Codelivery of HPV Peptide Antigens and Manganese Adjuvant for Cancer Immunotherapy",
+        "authors": "Shuang Hou; Deling Zhou; Yi Zhang; Youming Li; Dang Fan; Yeqin Hu; Liyan Li; Changjiang Qin; Mingxue Li; Ming Li; Hong Liu; Yongming Chen",
+        "venue": "ACS Applied Bio Materials",
+        "date": "2026-10-28",
+        "indexed": "2026-10-28",
+        "abstract": "Abstract Therapeutic peptide vaccines against HPV-associated cancers are often limited by insufficient immunogenicity and inefficient intracellular delivery. Here, we develop a phenolic hydroxyl-containing lipid nanoparticle (EMT@LNP) as a nanomedicine platform for the coordinated codelivery of HPV16 E6/E7 peptide antigens and manganese (Mn2+) adjuvant. Distinct from conventional electrostatic loading strategies, EMT@LNP exploits hydrogen-bonding interactions between phenolic hydroxyl groups and peptide antigens, enabling charge-independent loading of peptides with diverse physicochemical properties, while coordination interactions between phenolic moieties and Mn2+ allow the simultaneous incorporation of immunostimulatory adjuvants. This dual-interaction-driven design integrates antigen delivery and innate immune activation within a single nanostructure. Functionally, EMT@LNP enhances antigen uptake and promotes dendritic cell maturation, accompanied by activation of STING-associated signaling, as indicated by increased phosphorylation of STING, TBK1, and IRF3. In vivo, EMT@LNP facilitates efficient delivery to draining lymph nodes and prolongs antigen retention following intramuscular administration. In a therapeutic TC-1 tumor model, EMT@LNP elicits potent antitumor immune responses, characterized by enhanced CD8+ T-cell infiltration and reduced immunosuppressive cell populations, leading to significant tumor growth inhibition without observable systemic toxicity. Collectively, this study presents a nanobiotechnology strategy that combines charge-independent peptide loading with metal-ion-mediated immune activation, providing a versatile and potentially translatable platform for therapeutic vaccination against HPV-associated malignancies.",
+        "types": [
+          "journal-article"
+        ],
+        "preprint": false,
+        "version": 0,
+        "url": "https://doi.org/10.1021/acsabm.6c01833",
+        "related": [],
+        "sources": [
+          "Crossref"
+        ],
+        "retracted": false,
+        "aliases": [
+          "doi:10.1021/acsabm.6c01833"
+        ],
+        "topics": [
+          "lipids"
+        ],
+        "reasons": {
+          "lipids": {
+            "title_terms": [
+              "lipid*"
+            ],
+            "abstract_terms": [
+              "lipid*"
+            ],
+            "supporting_terms": []
+          }
+        },
+        "score": 14,
+        "signals": {
+          "mechanism": [
+            "signaling"
+          ],
+          "method": [],
+          "discovery_claim": []
+        },
+        "preferred": false,
+        "jif": null,
+        "tier": "其他相关"
+      },
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28",
+      "announced": [],
+      "suppressed": false
+    },
+    "e04e4ec974908de7578e9f72": {
+      "aliases": [
+        "doi:10.1093/carcin/bgag079"
+      ],
+      "article": {
+        "doi": "10.1093/carcin/bgag079",
+        "ids": [],
+        "title": "Secretory acid sphingomyelinase activity is elevated in White but not Black individuals with colorectal neoplasia",
+        "authors": "Justin M Snider; Elise K Batzli; Madison L Hannan; Aki Hara; Qiuming Wang; Juanita L Merchant; Xavier Llor; Rosa M Xicola; Elizabeth T Jacobs; Peter Lance; Nathan A Ellis; Ashley J Snider",
+        "venue": "Carcinogenesis",
+        "date": "2026-10-28",
+        "indexed": "2026-10-27",
+        "abstract": "Abstract Changes in lipid metabolism have been associated with the development of colorectal cancer (CRC), and they may serve as diagnostic markers to identify patients who have developed colorectal neoplasia. This study aimed to identify such biomarkers using untargeted lipidomics. Lipidomics were performed in serum from a racially diverse series of CRC cases and controls from Chicago and Tucson. In addition, enzymatic activity of secretory acid sphingomyelinase (aSMase; S-SMase) was measured in samples from the Tucson CRC series, and two series of adenoma patients. Untargeted lipidomics in the Chicago CRC series revealed significant alterations in sphingolipids. Targeted lipidomics revealed a robust signature of five sphingomyelins (SMs) that were significantly decreased in Chicago CRC patients compared to controls and were validated in the Tucson series. S-SMase activity, which degrades serum SMs, was elevated in CRC cases (0.13 ± 0.10 Cer/SM UACC CRC cases vs. 0.05 ± 0.04 Cer/SM controls; p&lt;0.0001). In mostly white adenoma patients from Tucson, serum S-SMase activity could predict the presence of colorectal neoplasia (0.13 ± 0.07 Cer/SM in UACC adenoma cases vs. 0.03 ± 0.02 Cer/SM in controls; p&lt;0.0001). However, S-SMase activity was not significantly different in Black adenoma patients from Chicago compared to controls. Together, these studies demonstrate for the first time the potential for S-SMase activity to serve as a biomarker for colorectal neoplasia in specific populations.",
+        "types": [
+          "journal-article"
+        ],
+        "preprint": false,
+        "version": 0,
+        "url": "https://doi.org/10.1093/carcin/bgag079",
+        "related": [],
+        "sources": [
+          "Crossref"
+        ],
+        "retracted": false,
+        "aliases": [
+          "doi:10.1093/carcin/bgag079"
+        ],
+        "topics": [
+          "lipids"
+        ],
+        "reasons": {
+          "lipids": {
+            "title_terms": [],
+            "abstract_terms": [
+              "lipid*",
+              "sphingolipid*"
+            ],
+            "supporting_terms": [
+              "lipid metabolism",
+              "lipidomics"
+            ]
+          }
+        },
+        "score": 10,
+        "signals": {
+          "mechanism": [],
+          "method": [
+            "lipidomics"
+          ],
+          "discovery_claim": []
+        },
+        "preferred": false,
+        "jif": null,
+        "tier": "其他相关"
+      },
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28",
+      "announced": [],
+      "suppressed": false
+    },
+    "4d2de5202ad2bda754b6d05e": {
+      "aliases": [
+        "doi:10.1002/ptr.70481"
+      ],
+      "article": {
+        "doi": "10.1002/ptr.70481",
+        "ids": [],
+        "title": "Notoginsenoside R2 Antagonizes Renal Interstitial Fibrosis by Regulating Fatty Acid Oxidation via the CASP2 / ALDH3A1 Axis",
+        "authors": "Guanting Chen; Tao Li; Zhenzhen Wang; Hao Zhao; Xiaoxia Xun; Yijiao Wang; Shiyuan Jiang; Qing Zhang; Weiwei Sun; Kang Yang; Yaoxian Wang",
+        "venue": "Phytotherapy Research",
+        "date": "2026-10-28",
+        "indexed": "2026-10-28",
+        "abstract": "ABSTRACT Renal interstitial fibrosis (RIF) is a major driver of chronic kidney disease (CKD) progression, yet effective therapies remain limited. The Shen‐Yan‐Fang‐Shuai formula (SYFSF) exhibits clinical renoprotective effects; however, its active components and mechanisms remain unclear. This study identifies notoginsenoside R2 (NGR2) as a core active compound of SYFSF that directly binds to caspase‐2 (CASP2). Integrative multi‐omics analyses in unilateral ureteral obstruction (UUO) rats and transforming growth factor‐β1 (TGF‐β1)‐induced NRK‐52E cells demonstrate that NGR2 upregulates CASP2, enhances the CASP2–aldehyde dehydrogenase 3 family member A1 (ALDH3A1) interaction, and promotes ALDH3A1 deubiquitination, thereby stabilizing ALDH3A1. This stabilization restores the integrity of mitochondria‐associated endoplasmic reticulum membranes (MAMs) and improves fatty acid oxidation (FAO) by upregulating carnitine palmitoyltransferase 1A (CPT1A), acyl‐CoA dehydrogenase long chain (ACADL), and peroxisome proliferator‐activated receptor α (PPARα). It also reduces lipid accumulation, oxidative stress, epithelial‐mesenchymal transition (EMT), inflammation, and collagen deposition. In vivo, NGR2 ameliorates renal dysfunction and fibrosis. Mechanistically, NGR2 binds the caspase activation and recruitment domain (CARD) of CASP2 without occluding the ubiquitin‐interacting motif‐like (UIML) region required for its deubiquitinase function, thereby increasing CASP2 abundance and stability rather than activating its apoptotic protease activity, and facilitating ubiquitin chain removal from ALDH3A1. These findings demonstrate that SYFSF and NGR2 antagonize RIF by targeting the CASP2/ALDH3A1 axis to restore MAM function and FAO, providing a molecular basis for traditional Chinese medicine in CKD therapy.",
+        "types": [
+          "journal-article"
+        ],
+        "preprint": false,
+        "version": 0,
+        "url": "https://doi.org/10.1002/ptr.70481",
+        "related": [],
+        "sources": [
+          "Crossref"
+        ],
+        "retracted": false,
+        "aliases": [
+          "doi:10.1002/ptr.70481"
+        ],
+        "topics": [
+          "lipids"
+        ],
+        "reasons": {
+          "lipids": {
+            "title_terms": [
+              "fatty acid*"
+            ],
+            "abstract_terms": [
+              "lipid*",
+              "fatty acid*"
+            ],
+            "supporting_terms": [
+              "fatty acid oxidation"
+            ]
+          }
+        },
+        "score": 18,
+        "signals": {
+          "mechanism": [
+            "mechanism*"
+          ],
+          "method": [],
+          "discovery_claim": []
+        },
+        "preferred": false,
+        "jif": null,
+        "tier": "值得一读"
+      },
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28",
+      "announced": [],
       "suppressed": false
     }
   },

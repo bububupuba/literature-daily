@@ -1862,17 +1862,15 @@
     },
     {
       "doi": "10.21203/rs.3.rs-11290648/v1",
-      "ids": [
-        "PPR:PPR1350998"
-      ],
+      "ids": [],
       "title": "Altered Sphingolipid–N-Acylethanolamine Signaling Reveals Peripheral Lipid Remodeling in First-Episode Schizophrenia",
-      "authors": "Zheng F, Liu M, Qin X, Zhao H, Zhu Y, He Y, Zhou F, Sun Z.",
+      "authors": "Fan Zheng; Mingxia Liu; Xiangqin Qin; Hanyue Zhao; Yizhi Zhu; Yi He; Fuchun Zhou; Zuoli Sun",
       "venue": "Research Square",
       "date": "2026-10-27",
-      "indexed": "2026-10-28",
+      "indexed": "2026-10-27",
       "abstract": "Abstract Background Lipid abnormalities have been reported in schizophrenia, but little is known about changes in sphingolipids and N-acylethanolamines (NAEs) early in the illness or their trajectories during antipsychotic treatment. We examined plasma lipid-related metabolites in first-episode schizophrenia and their associations with clinical symptoms, cognitive performance, and short-term treatment. Methods Targeted plasma metabolomic profiling was performed in 55 individuals with first-episode schizophrenia and 80 healthy controls. Sixty-seven metabolites were quantified. Clinical symptoms and cognitive function were assessed using the Positive and Negative Syndrome Scale (PANSS) and the MATRICS Consensus Cognitive Battery (MCCB). Thirty-five patients had paired plasma samples at baseline and Week 8. Between-group differences, clinical correlations, metabolite correlation patterns, receiver operating characteristic analyses, and longitudinal changes were examined. Results Twenty of the 67 metabolites remained significantly different between patients and controls after false discovery rate (FDR) adjustment. Six of seven sphingolipid and NAE metabolites examined in detail were higher in patients. Plasma sphingosine-1-phosphate (S1P) was positively correlated with negative symptoms (r = 0.42) and PANSS total scores (r = 0.46), and negatively correlated with processing speed (r = − 0.47) and the MCCB composite score (r = − 0.44). S1P distinguished patients from controls with an AUC of 0.81 (95% CI, 0.73–0.88). Sphingolipids and NAEs formed separate correlation modules, with most cross-module correlations involving S1P or sphinganine-1-phosphate. Although PANSS scores improved significantly after 8 weeks of treatment, none of the seven sphingolipid and NAE metabolites changed significantly. Changes in metabolite concentrations were not significantly associated with changes in PANSS scores after multiple-testing adjustment Conclusion First-episode schizophrenia was associated with higher plasma concentrations of several sphingolipids and NAEs. S1P showed prominent between-group and clinical associations, whereas these lipid differences did not closely track short-term symptom improvement. Independent replication and longer follow-up are needed to clarify their clinical and biological relevance.",
       "types": [
-        "Preprint"
+        "posted-content"
       ],
       "preprint": true,
       "version": 1,
@@ -1925,17 +1923,15 @@
     },
     {
       "doi": "10.21203/rs.3.rs-11298378/v1",
-      "ids": [
-        "PPR:PPR1350033"
-      ],
+      "ids": [],
       "title": "APOE-Driven Lipid Metabolic Reprogramming Promotes Gastric Cancer Growth and Chemoresistance",
-      "authors": "Dou X, Fu C, Wang Y, Gong Z, Liu Y, Qin S.",
+      "authors": "Xue Dou; Chao Fu; Yuchen Wang; Zhe Gong; Ying Liu; Songbing Qin",
       "venue": "Research Square",
       "date": "2026-10-26",
-      "indexed": "2026-10-27",
+      "indexed": "2026-10-26",
       "abstract": "Abstract Background Apolipoprotein E (APOE) plays critical role in lipid metabolism but its function in chemoresistance of gastric cancer (GC) remains unclear. This study investigated the clinical significance of APOE in GC progression and elucidated its mechanistic role in regulating lipid metabolism and chemotherapy resistance. Methods APOE expression was analyzed in 4 published GEO datasets (GSE29272, GSE54129, GSE103236, GSE118916) and validated by immunohistochemistry (IHC) in GC tissue microarrays. Gene Set Enrichment Analysis (GSEA) and correlation analyses were performed to identify lipid metabolism pathways associated with APOE . In vitro, APOE was silenced by siRNA in AGS and HGC-27 cells. Western blotting assessed the PI3K/AKT/mTOR-SREBP1-FASN signaling cascade. Cholesterol quantification, CCK-8 proliferation assay, flow cytometry apoptosis assay, and 5-fluorouracil (5-Fu) sensitivity assay were performed. Results APOE expression was significantly upregulated across 4 GC datasets ( P P P = 0.0014). GSEA revealed enrichment of lipid metabolism pathways (fatty acid, glycerophospholipid, and glycerolipid metabolism) in APOE -high tumors. APOE expression was positively correlated with SREBF1 and FASN across datasets, with IHC confirming SREBP1 and FASN co-upregulation and significant positive correlations with APOE H-score (SREBP1: r = 0.3117, P P APOE knockdown suppressed p-AKT, p-mTOR, SREBP1, and FASN, and reduced intracellular cholesterol ( P P",
       "types": [
-        "Preprint"
+        "posted-content"
       ],
       "preprint": true,
       "version": 1,
@@ -2179,17 +2175,15 @@
     },
     {
       "doi": "10.21203/rs.3.rs-11270528/v1",
-      "ids": [
-        "PPR:PPR1349993"
-      ],
+      "ids": [],
       "title": "Engineering Nutrient-Stress Regimes for Microalgal Biodiesel Production: Biomass–Lipid Trade-Offs, Fatty-Acid Remodeling and Fuel-Quality Performance in Pediastrum duplex",
-      "authors": "Adekanmi AA, Garuba EO, Onilude AA.",
+      "authors": "Abideen. A. Adekanmi; Emmanuel. O. Garuba; Abiodun. A. Onilude",
       "venue": "Research Square",
       "date": "2026-10-26",
-      "indexed": "2026-10-27",
+      "indexed": "2026-10-26",
       "abstract": "Abstract Rational manipulation of cultivation conditions is central to engineering microalgal processes that reconcile biomass production, lipid accumulation and biodiesel quality. However, nutrient-stress studies frequently optimise individual biological responses without resolving how cultivation variables propagate through biomass–lipid partitioning, fatty-acid composition and downstream fuel properties. This study developed an integrated bioprocess framework for evaluating nitrogen, phosphate, iron and salinity stress as controllable cultivation variables for biodiesel production from Pediastrum duplex . Biomass concentration and lipid accumulation were experimentally quantified, fatty acid methyl esters (FAMEs) were characterised by gas chromatography, and biodiesel properties were estimated from experimentally determined FAME profiles using established empirical models. Treatment effects and process-response relationships were evaluated using ANOVA, effect-size analysis, Pearson correlation, principal component analysis and hierarchical cluster analysis. Nitrogen limitation produced the highest lipid content (59.75%) but reduced biomass formation, demonstrating a pronounced biomass–lipid production trade-off. Iron limitation generated favourable combination of saturated (48.10%) and monounsaturated (49.20%) fatty acids, whereas salinity stress produced highest predicted cetane number (63.85) and flash point (225 °C). Phosphate limitation increased polyunsaturated fatty acids to 20.50%, demonstrating that cultivation conditions influenced not only lipid accumulation but also downstream fuel-quality characteristics. Multivariate analysis discriminated nutrient-specific process-response regimes and supported integrated pathway linking nutrient availability, carbon allocation, lipid accumulation, FAME remodeling and predicted biodiesel performance. The findings demonstrate that nutrient management can function as bioprocess-engineering strategy for tuning the quantity and compositional quality of lipid feedstock and provide basis for designing staged cultivation strategies that balance biomass production, lipid accumulation and biodiesel quality.",
       "types": [
-        "Preprint"
+        "posted-content"
       ],
       "preprint": true,
       "version": 1,
@@ -2417,17 +2411,15 @@
     },
     {
       "doi": "10.21203/rs.3.rs-11503419/v1",
-      "ids": [
-        "PPR:PPR1351187"
-      ],
+      "ids": [],
       "title": "Vascular Steatosis as a Proposed Mechanism of Metabolic Hypertension: From Arterial Lipid Accumulation to Increased Vascular Resistance",
-      "authors": "Andrade LJdO, de Oliveira GCM, Bittencourt AMV, Salles OJdM, Dinamarco N, de Oliveira LM.",
+      "authors": "Luis Jesuino de Oliveira Andrade; Gabriela Correia Matos de Oliveira; Alcina Maria Vinhaes Bittencourt; Osmário Jorge de Mattos Salles; Nelson Dinamarco; Luis Matos de Oliveira",
       "venue": "Research Square",
       "date": "2026-10-27",
-      "indexed": "2026-10-28",
+      "indexed": "2026-10-27",
       "abstract": "Abstract Introduction: Hypertension remains the leading modifiable determinant of cardiovascular morbidity worldwide. Metabolic disease frequently coexists with elevated pressure, yet no vessel-level lesion has been clearly defined that converts systemic lipid excess into sustained vascular resistance. Objective: We propose vascular steatosis, defined as lipid accumulation within the arterial wall, as a candidate mechanism of metabolic hypertension and test its molecular and genetic support using human arterial transcriptomes and Mendelian randomization. Methods: This in silico study used two public arterial transcriptomes (GSE100927 for discovery, GSE43292 for paired validation). Summary-level Mendelian randomization used GTEx v8 cis-eQTLs from aorta, coronary, and tibial arteries, with whole blood as negative control, and blood pressure statistics from a European-ancestry genome-wide association study. Sensitivity and colocalization analyses followed. Results: Lesioned arteries showed upregulated CD36, ABCA1, and PLIN2, and downregulation of ACTA2, MYH11, and CNN1. Lipid-handling and contractile module scores were inversely associated (β = -0.42; 95% CI, -0.56 to -0.28), including in control arteries (β = -0.38), and the direction replicated in the validation set (β = -0.35). Genetically higher PLIN2 expression in aorta and CD36 expression in coronary artery were associated with higher blood pressure traits (FDR Conclusion: Arterial lipid-handling programs track with loss of the contractile smooth muscle phenotype, and genetically proxied PLIN2 and CD36 expression is associated with blood pressure, which offers a biologically plausible and testable framework for the mechanistic classification of metabolic hypertension. Lipid quantification and physiological validation in resistance arteries are required to establish causal and clinical relevance.",
       "types": [
-        "Preprint"
+        "posted-content"
       ],
       "preprint": true,
       "version": 1,
@@ -2526,7 +2518,7 @@
       "jif": null,
       "tier": "值得一读",
       "key": "d467a0bc389524d9776ad13f",
-      "event": "新收录",
+      "event": "当日规则更新",
       "feed": "lipids",
       "redistributed": true
     },
@@ -3243,16 +3235,15 @@
       "fetched": 338,
       "available": 338
     },
-    "Europe PMC / 脂质生物学": {
+    "biorxiv": {
       "status": "ok",
-      "fetched": 5949,
-      "available": 5949,
-      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-22 TO 2026-10-28] OR FIRST_IDATE:[2026-10-22 TO 2026-10-28] OR UPDATE_DATE:[2026-10-22 TO 2026-10-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "fetched": 1303,
+      "available": 1303
     },
     "Crossref期刊 / 线粒体生物学": {
       "status": "ok",
-      "fetched": 166,
-      "available": 166,
+      "fetched": 167,
+      "available": 167,
       "family": "crossref",
       "topics": [
         "mitochondria"
@@ -3260,8 +3251,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 131,
-          "available": 131,
+          "fetched": 132,
+          "available": 132,
           "query": "mitochondrial",
           "family": "crossref",
           "topics": [
@@ -3290,6 +3281,11 @@
         }
       ]
     },
+    "Research Square / Crossref": {
+      "status": "ok",
+      "fetched": 3311,
+      "available": 3311
+    },
     "Crossref期刊 / 秀丽隐杆线虫": {
       "status": "ok",
       "fetched": 17,
@@ -3311,20 +3307,16 @@
         }
       ]
     },
-    "Research Square / Crossref": {
+    "Europe PMC / 脂质生物学": {
       "status": "ok",
-      "fetched": 3297,
-      "available": 3297
-    },
-    "biorxiv": {
-      "status": "ok",
-      "fetched": 1295,
-      "available": 1295
+      "fetched": 5952,
+      "available": 5950,
+      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-22 TO 2026-10-28] OR FIRST_IDATE:[2026-10-22 TO 2026-10-28] OR UPDATE_DATE:[2026-10-22 TO 2026-10-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "Crossref期刊 / 衰老与长寿": {
       "status": "ok",
-      "fetched": 266,
-      "available": 266,
+      "fetched": 278,
+      "available": 278,
       "family": "crossref",
       "topics": [
         "aging"
@@ -3332,8 +3324,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 204,
-          "available": 204,
+          "fetched": 216,
+          "available": 216,
           "query": "aging",
           "family": "crossref",
           "topics": [
@@ -3378,90 +3370,135 @@
       "available": 42,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.nature.com/nature.rss"
+      "url": "https://www.nature.com/nature.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nature.rss",
+          "bytes": 112423,
+          "sha256": "38a29816aa053ef45f89f186d7306e6b25881ed3141574f2d3a481dcb8651f89",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
     },
     "RSS / Nature Communications": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Cell Biology": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Aging": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Metabolism": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Reviews Molecular Cell Biology": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Reviews Endocrinology": {
-      "status": "failed",
-      "error": "ParseError",
-      "fetched": 0
-    },
-    "RSS / Nature Neuroscience": {
       "status": "ok",
       "fetched": 8,
       "available": 8,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.nature.com/neuro.rss"
+      "url": "https://www.nature.com/ncomms.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/ncomms.rss",
+          "bytes": 18548,
+          "sha256": "461af68d95c0f19364c3548735012cb6f18fc82eb03e9b6223e53b6e3b7f52e4",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
     },
-    "RSS / Cell": {
+    "RSS / Nature Cell Biology": {
       "status": "ok",
-      "fetched": 0,
-      "available": 0,
+      "fetched": 4,
+      "available": 4,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/cell/current.rss"
+      "url": "https://www.nature.com/ncb.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/ncb.rss",
+          "bytes": 19577,
+          "sha256": "596fd0dac010181bfe22f524a5dd78ba879e037ed1fdb40f96467c36e5f20b74",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
     },
-    "RSS / Molecular Cell": {
+    "RSS / Nature Aging": {
       "status": "ok",
-      "fetched": 0,
-      "available": 0,
+      "fetched": 3,
+      "available": 3,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/molecular-cell/current.rss"
-    },
-    "RSS / Cell Metabolism": {
-      "status": "ok",
-      "fetched": 0,
-      "available": 0,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/cell-metabolism/current.rss"
-    },
-    "RSS / Current Biology": {
-      "status": "ok",
-      "fetched": 0,
-      "available": 0,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/current-biology/current.rss"
-    },
-    "RSS / eLife": {
-      "status": "ok",
-      "fetched": 25,
-      "available": 25,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://elifesciences.org/rss/recent.xml"
+      "url": "https://www.nature.com/nataging.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/nataging.rss",
+          "bytes": 19178,
+          "sha256": "0e2b844240566b266bac8827c4a3b94bbd9f4f5a43a2f6a4b180e95bc218fce5",
+          "result": "ok"
+        }
+      ]
     },
     "Crossref期刊 / 脂质生物学": {
       "status": "ok",
-      "fetched": 632,
-      "available": 632,
+      "fetched": 645,
+      "available": 645,
       "family": "crossref",
       "topics": [
         "lipids"
@@ -3469,8 +3506,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 127,
-          "available": 127,
+          "fetched": 128,
+          "available": 128,
           "query": "lipid",
           "family": "crossref",
           "topics": [
@@ -3499,8 +3536,8 @@
         },
         {
           "status": "ok",
-          "fetched": 467,
-          "available": 467,
+          "fetched": 477,
+          "available": 477,
           "query": "fatty acid",
           "family": "crossref",
           "topics": [
@@ -3509,13 +3546,296 @@
         },
         {
           "status": "ok",
-          "fetched": 33,
-          "available": 33,
+          "fetched": 35,
+          "available": 35,
           "query": "cholesterol",
           "family": "crossref",
           "topics": [
             "lipids"
           ]
+        }
+      ]
+    },
+    "RSS / Nature Reviews Molecular Cell Biology": {
+      "status": "ok",
+      "fetched": 1,
+      "available": 1,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nrm.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nrm.rss",
+          "bytes": 15368,
+          "sha256": "c2f825845a13ff42dcd9fd378e389a688e080661b2286549dd1f63c16e3d8e69",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Nature Reviews Endocrinology": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/nrendo.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/nrendo.rss",
+          "bytes": 14949,
+          "sha256": "f048f4f295d41b3cb07904d8d9740f96c52cad63cb9792d4111a974d441ab934",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Nature Metabolism": {
+      "status": "ok",
+      "fetched": 2,
+      "available": 2,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/natmetab.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 17978,
+          "sha256": "c505941a124637a5f7b6b8325e0c716f4e3f47d5aa38a0f95c38c4018261dfe9",
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Cell": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/cell/current.rss",
+          "bytes": 40884,
+          "sha256": "7450d42ffb968c46be7ab496da8c9db798326165c7e0a2ad81e0932460ac0427",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Molecular Cell": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/molecular-cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/molecular-cell/current.rss",
+          "bytes": 34152,
+          "sha256": "e96d5b3a23bd152fe97a53ee2de93e23fe01f0afe5ed25a274ae48e54deaea7b",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Cell Metabolism": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/cell-metabolism/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/cell-metabolism/current.rss",
+          "bytes": 42934,
+          "sha256": "4ec5b0aa1410d0edd91699066d36fac0fbad3aaf90f86c76913f7e0d679b8390",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Nature Neuroscience": {
+      "status": "ok",
+      "fetched": 8,
+      "available": 8,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/neuro.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 18838,
+          "sha256": "2ab0c6f3b4646fcf3fbce5917f162530f734b696bc7e7d8db119f28bc1e60146",
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Current Biology": {
+      "status": "ok",
+      "fetched": 0,
+      "available": 0,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/current-biology/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/current-biology/current.rss",
+          "bytes": 71413,
+          "sha256": "65b5b64bb648dc27273c588988ba4a4f7a9f54e02cefd2cf07e516d5b3062a09",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / eLife": {
+      "status": "ok",
+      "fetched": 25,
+      "available": 25,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://elifesciences.org/rss/recent.xml",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "text/xml",
+          "content_encoding": "",
+          "final_url": "https://elifesciences.org/rss/recent.xml",
+          "bytes": 244039,
+          "sha256": "764cca1d23f60883affd4ca48f3b6b0fbba575e37fb35b86bb01c404d2003a0c",
+          "looks_like_html": false,
+          "result": "ok"
         }
       ]
     },
@@ -3533,16 +3853,16 @@
       ]
     }
   },
-  "deferred": 265,
+  "deferred": 269,
   "rejected": {
-    "首次回溯窗口之前或日期不完整": 15819,
+    "首次回溯窗口之前或日期不完整": 15835,
     "未来出版日期，等待实际日期或在线日期": 78,
-    "主题仅偶然提及或未明确匹配": 1209,
-    "摘要不足，无法可靠筛选": 145,
+    "主题仅偶然提及或未明确匹配": 1238,
+    "摘要不足，无法可靠筛选": 147,
     "无实质研究或综述的文章类型": 8,
     "纯临床或人群关联，缺乏基础分子研究证据线索": 18,
     "临床研究缺乏分子或细胞机制线索": 3,
-    "未找到生物学背景": 796,
+    "未找到生物学背景": 804,
     "社会或非生物材料主题": 2,
     "Nature 新闻或评论记录": 25,
     "撤稿、撤回或更正记录": 7
