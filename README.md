@@ -25,7 +25,7 @@
 需要 Python 3.11 或更高，仅使用标准库。
 
 ```bash
-python -m unittest discover -s tests -v
+python -m unittest discover -s . -p test_monitor.py -v
 python monitor.py preview --directory validation/preview
 python monitor.py build
 python monitor.py notify
