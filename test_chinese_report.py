@@ -114,6 +114,7 @@ class ChineseReportTests(unittest.TestCase):
         self.assertIn('磷脂酰肌醇类', text)
         self.assertIn('秀丽隐杆线虫', text)
         self.assertIn('保留基因和蛋白名称及缩写', text)
+        self.assertEqual(tr.protected_names('UK Biobank and PHB2'), ['PHB2'])
 
     def test_render_sorts_each_feed_even_if_input_unsorted(self):
         rows = [candidate(1, ['aging'], score=80), candidate(2, ['aging'], venue='Nature', score=16)]

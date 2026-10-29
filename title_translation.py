@@ -74,7 +74,7 @@ def ensure_model():
 
 def protected_names(title):
     names = re.findall(r'(?<![A-Za-z0-9])(?:[A-Z][A-Z0-9]{1,}|[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*)(?![A-Za-z0-9])', title)
-    return sorted({name for name in names if name not in ('II', 'III', 'IV', 'VI', 'VII', 'VIII', 'IX')})
+    return sorted({name for name in names if name not in ('II', 'III', 'IV', 'VI', 'VII', 'VIII', 'IX', 'UK', 'US', 'USA', 'EU')})
 
 
 def translation_prompt(title):
@@ -110,7 +110,7 @@ def translate_batch(titles):
                     break
                 print(f'Retrying incomplete title translation {index}: attempt {attempt + 1}', flush=True)
             else:
-                raise RuntimeError('Chinese title incomplete or identifiers missing; publication stopped')
+                raise RuntimeError('Chinese title incomplete or identifiers missing; publication stopped. Title: ' + title + '; missing identifiers: ' + ', '.join(missing))
             results.append(translated)
             print(f'Chinese titles translated: {index}/{len(titles)}', flush=True)
     finally:
