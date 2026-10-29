@@ -7,7 +7,7 @@ import shutil
 import time
 import urllib.request
 
-MODEL_ID = 'hy-mt1.5-1.8b-q4km-glossary-v1'
+MODEL_ID = 'hy-mt1.5-1.8b-q4km-glossary-v2'
 MODEL_SHA256 = '4383ac0c3c8e476de98ff979c2a3f069f8c4fb385e7860cf2d28da896cc477c7'
 MODEL_NAME = 'HY-MT1.5-1.8B-Q4_K_M.gguf'
 MODEL_URL = ('https://huggingface.co/tencent/HY-MT1.5-1.8B-GGUF/resolve/'
@@ -24,6 +24,8 @@ GLOSSARY = {
     'hydroxyproline': '羟脯氨酸', 'branched-chain amino acid': '支链氨基酸',
     'sonic hedgehog': 'Sonic hedgehog（SHH）',
     'matrix metalloproteinase': '基质金属蛋白酶', 'rhabdomyosarcoma': '横纹肌肉瘤',
+    'cell traps': '细胞捕获装置', 'depression': '抑郁', 'picoliter': '皮升',
+    'untargeted': '非靶向', 'targeted': '靶向', 'mitochondrial dynamics': '线粒体动力学',
     'O-GlcNAcylation': 'O-GlcNAc糖基化', 'NAD': 'NAD', 'rRNA': 'rRNA',
 }
 
@@ -70,8 +72,14 @@ def ensure_model():
     raise RuntimeError('Offline title model unavailable; publication stopped: ' + ', '.join(errors))
 
 
+def protected_names(title):
+    names = re.findall(r'(?<![A-Za-z0-9])(?:[A-Z][A-Z0-9]{1,}|[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*)(?![A-Za-z0-9])', title)
+    return sorted({name for name in names if name not in ('II', 'III', 'IV', 'VI', 'VII', 'VIII', 'IX')})
+
+
 def translation_prompt(title):
     terms = [f'{source} 翻译成 {target}' for source, target in GLOSSARY.items() if source.casefold() in title.casefold()]
+    terms.extend(f'{name} 翻译成 {name}' for name in protected_names(title))
     guidance = '参考下面的翻译：\n' + '\n'.join(terms) + '\n\n' if terms else ''
     message = guidance + '将以下生物学论文标题翻译为简体中文，保留基因和蛋白名称及缩写，只输出翻译后的标题，不要额外解释：\n\n' + title
     # Official model template; no system prompt.
@@ -90,14 +98,19 @@ def translate_batch(titles):
             tokens = translator.tokenize(prompt.encode(), add_bos=False, special=True)
             if len(tokens) + 384 > 2048:
                 raise RuntimeError('Title exceeds model input limit; refusing to truncate')
-            output = translator(tokens, max_tokens=384, temperature=0, top_k=20,
-                                top_p=0.6, repeat_penalty=1.05, seed=42)
-            choice = output['choices'][0]
-            if choice['finish_reason'] == 'length':
-                raise RuntimeError('Chinese title truncated; publication stopped')
-            translated = choice['text'].strip()
-            if not valid_chinese(translated) or '\n' in translated or '<｜' in translated:
-                raise RuntimeError('Invalid Chinese title output; publication stopped')
+            for attempt in range(3):
+                output = translator(tokens, max_tokens=384, temperature=0 if attempt == 0 else 0.7,
+                                    top_k=20, top_p=0.6, repeat_penalty=1.05, seed=42 + attempt)
+                choice = output['choices'][0]
+                translated = choice['text'].strip()
+                missing = [name for name in protected_names(title) if name not in translated]
+                valid = (choice['finish_reason'] != 'length' and valid_chinese(translated)
+                         and '\n' not in translated and '<｜' not in translated and not missing)
+                if valid:
+                    break
+                print(f'Retrying incomplete title translation {index}: attempt {attempt + 1}', flush=True)
+            else:
+                raise RuntimeError('Chinese title incomplete or identifiers missing; publication stopped')
             results.append(translated)
             print(f'Chinese titles translated: {index}/{len(titles)}', flush=True)
     finally:

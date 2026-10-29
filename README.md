@@ -87,4 +87,4 @@ python monitor.py status
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
 - NCBI 使用声明与版权说明：https://www.ncbi.nlm.nih.gov/home/about/policies/
 
-离线翻译模型：[腾讯 HY-MT1.5-1.8B 官方模型](https://huggingface.co/tencent/HY-MT1.5-1.8B-GGUF)，Q4_K_M（约 1.1 GB，缓存不提交到仓库）；运行时：[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)。常用生物学术语随提示传入，基因和蛋白缩写保留。模型遵循其官方许可证。
+离线翻译模型：[腾讯 HY-MT1.5-1.8B 官方模型](https://huggingface.co/tencent/HY-MT1.5-1.8B-GGUF)，Q4_K_M（约 1.1 GB，缓存不提交到仓库）；运行时：[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)。常用生物学术语随提示传入；基因和蛋白缩写检查保留，缺失时最多尝试三次，仍不合格则停止。模型遵循其官方许可证。

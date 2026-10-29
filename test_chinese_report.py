@@ -2,7 +2,8 @@ import copy
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
+from types import SimpleNamespace
 import monitor as m
 import title_translation as tr
 from test_monitor import CONFIG, article
@@ -94,6 +95,19 @@ class ChineseReportTests(unittest.TestCase):
             with patch.dict(tr.os.environ, {'TITLE_MODEL_CACHE': tmp}), patch.object(tr.urllib.request, 'urlopen', side_effect=OSError('fixture')), patch.object(tr.time, 'sleep'):
                 with self.assertRaisesRegex(RuntimeError, 'publication stopped'):
                     tr.ensure_model()
+
+    def test_missing_gene_identifier_is_retried_and_never_silently_accepted(self):
+        model = MagicMock()
+        model.tokenize.return_value = [1, 2]
+        model.side_effect = [
+            {'choices': [{'finish_reason': 'stop', 'text': '线粒体自噬的调节'}]},
+            {'choices': [{'finish_reason': 'stop', 'text': 'PHB2介导的线粒体自噬调节'}]},
+        ]
+        with patch.dict('sys.modules', {'llama_cpp': SimpleNamespace(Llama=MagicMock(return_value=model))}), patch.object(tr, 'ensure_model', return_value=Path('fixture')):
+            result = tr.translate_batch(['PHB2 regulates mitophagy'])
+        self.assertEqual(result, ['PHB2介导的线粒体自噬调节'])
+        self.assertEqual(model.call_count, 2)
+        model.close.assert_called_once()
 
     def test_title_prompt_supplies_species_and_lipid_terminology(self):
         text = tr.translation_prompt('Phosphoinositides control Caenorhabditis elegans lifespan')
