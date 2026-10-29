@@ -4,3 +4,5 @@ __pycache__/
 .env.*
 config.local.json
 validation/
+.venv-translate/
+.models/

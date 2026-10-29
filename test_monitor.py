@@ -79,6 +79,7 @@ class MonitorTests(unittest.TestCase):
 
     def test_cap_and_overflow_not_marked_seen(self):
         config = copy.deepcopy(CONFIG)
+        config['selection_mode'] = 'legacy'
         config['max_papers'] = 2
         config['pool_limits'] = {'journals': 2, 'preprints': 0}
         rows = [article(doi=f'10.1234/{i}', ids=[]) for i in range(5)]

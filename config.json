@@ -3,7 +3,6 @@
   "schedule_local": "09:00",
   "initial_days": 3,
   "overlap_days": 7,
-  "max_papers": 50,
   "ai_enabled": false,
   "github_owner": "bububupuba",
   "repository_name": "literature-daily",
@@ -204,11 +203,6 @@
     "10.1038/s41580-022-00490-x",
     "10.1038/s41467-024-46037-w"
   ],
-  "pool_limits": {
-    "journals": 25,
-    "preprints": 25
-  },
-  "quota_per_feed": 5,
   "tiers": {
     "must_read": 28,
     "recommended": 16
@@ -290,5 +284,7 @@
       "name": "eLife",
       "url": "https://elifesciences.org/rss/recent.xml"
     }
-  ]
+  ],
+  "selection_mode": "all_priority",
+  "title_translation": "offline_en_zh"
 }

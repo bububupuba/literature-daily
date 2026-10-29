@@ -452,6 +452,15 @@ def rank(paper):
 
 
 def choose(papers, config):
+    if config.get('selection_mode') == 'all_priority':
+        selected = {}
+        for row in papers:
+            p = decorate(row, config)
+            if p['tier'] not in ('必读候选', '值得一读'):
+                continue
+            p['feed'] = 'interdisciplinary' if len(p['topics']) >= 2 else p['topics'][0]
+            selected[p['key']] = p
+        return sorted(selected.values(), key=rank)
     if 'pool_limits' in config:
         selected = []
         for preprint, pool in ((False, 'journals'), (True, 'preprints')):
@@ -526,6 +535,7 @@ def ingest(records, state, config, report_date, select=True):
         # Merge histories if a later data source establishes an explicit relationship.
         histories = [state['papers'][k] for k in old_keys]
         announced = sorted({fp for item in histories for fp in item.get('announced', [])})
+        announced_dates = {fp: date for item in histories for fp, date in item.get('announced_dates', {}).items()}
         merged_aliases = sorted(set(paper['aliases']).union(*(set(item['aliases']) for item in histories)))
         dates = [item['first_seen'] for item in histories]
         if paper['date'] and paper['date'] > report_date:
@@ -547,7 +557,7 @@ def ingest(records, state, config, report_date, select=True):
             evaluated = old['article']
         for extra in old_keys[1:]:
             del state['papers'][extra]
-        state['papers'][key] = {'aliases': merged_aliases, 'article': evaluated, 'first_seen': min(dates) if dates else report_date, 'last_seen': report_date, 'announced': announced, 'suppressed': False}
+        state['papers'][key] = {'aliases': merged_aliases, 'article': evaluated, 'first_seen': min(dates) if dates else report_date, 'last_seen': report_date, 'announced': announced, 'announced_dates': announced_dates, 'suppressed': False}
         for alias in merged_aliases:
             lookup[alias] = key
     pending = []
@@ -563,11 +573,12 @@ def ingest(records, state, config, report_date, select=True):
         elif p['preprint'] and p['version'] > 1:
             label = '新收录的预印本修订版'
         if item['first_seen'] < report_date and not item['announced']:
-            label += '（此前超过每日上限，顺延）'
+            label += '（此前待推荐）'
         pending.append(dict(p, key=key, event=label))
     selected = choose(pending, config) if select else []
     for p in selected:
         state['papers'][p['key']]['announced'].append(fingerprint(p))
+        state['papers'][p['key']].setdefault('announced_dates', {})[fingerprint(p)] = report_date
     return selected, len(pending) - len(selected), rejected
 
 
@@ -576,71 +587,36 @@ def md(value):
 
 
 def render(report, config):
-    papers = [decorate(p, config) for p in report['papers']]
+    papers = sorted([decorate(p, config) for p in report['papers'] if decorate(p, config)['tier'] in ('必读候选', '值得一读')], key=rank)
     counts = {'journals': sum(not p['preprint'] for p in papers), 'preprints': sum(p['preprint'] for p in papers)}
-    limits = config.get('pool_limits', {'journals': 25, 'preprints': 25})
-    names = dict(interdisciplinary='交叉研究', **{key: spec['name'] for key, spec in config['topics'].items()})
+    names = {key: spec['name'] for key, spec in config['topics'].items()}
+    names['interdisciplinary'] = '交叉研究'
     lines = [f"# 文献日报 · {report['date']}", '',
-        f"期刊论文 **{counts['journals']}/{limits['journals']}** 篇；预印本 **{counts['preprints']}/{limits['preprints']}** 篇；合计 **{len(papers)}** 篇独立文献，另有 {report['deferred']} 篇候选顺延。", '',
-        '四方向与交叉研究各预分配 5 个名额，缺额在同组内转给其他栏目；每篇仅占一个名额。期刊组与预印本组分别分配，互不占用名额。', '',
-        '**排序：** 相关性筛选合格后，期刊论文优先按已核验的期刊影响因子降序；未知指标不估算，预印本不赋影响因子。各栏目内预印本按相关性、方法和机制关键词排序。指标年份及来源逐篇列出，已核验指标覆盖仍不完整。', '',
-        '**阅读分级：** 必读候选／值得一读／其他相关。分级取决于主题与实验方法关键词规则，不是科学质量评审，也不因影响因子高就自动评为必读。', '',
-        '**无大模型模式：** 中文栏目与匹配理由；标题、作者和摘要保留原文。摘要为作者表述，可能混合实验描述、解释与假设，尚未自动证据分层。', '',
-        f"检索窗口：{report['start']} 至 {report['date']}（北京时间）。期刊 RSS 为滚动条目，数据库可能延迟收录。", '',
-        '## 数据源状态', '']
-    labels = {'ok': '完成', 'partial': '覆盖不完整', 'failed': '失败'}
-    for source, status in report['sources'].items():
-        suffix = f" 错误：{status['error']}" if status.get('error') else ''
-        if status.get('scope'):
-            suffix += ' ' + status['scope']
-        lines.append(f"- {source}：{labels[status['status']]}；获取 {status.get('fetched', 0)} / {status.get('available', '未知')} 条。{suffix}")
-    if any(s['status'] != 'ok' for s in report['sources'].values()):
-        failure = '所有来源检索失败' if all(s['status'] == 'failed' for s in report['sources'].values()) else '部分来源未完成'
-        lines += ['', f'**{failure}，存在检索缺口。不能把零结果理解为没有新论文，也不能把备用来源成功理解为缺失来源已完全覆盖。**']
-    elif not papers:
-        lines += ['', '在已查询数据源与当前规则下，本次没有新增或更新的合格文献。']
-    categories = list(config['topics']) + ['interdisciplinary']
+        f"期刊论文 **{counts['journals']}** 篇；预印本 **{counts['preprints']}** 篇；合计 **{len(papers)}** 篇独立文献。", '',
+        '列出本次全部“必读候选”和“值得一读”，不设栏目或总篇数上限。跨领域文献统一放入交叉研究，每篇仅列一次。', '',
+        '各栏目按已核验的期刊影响因子（IF）降序，未知值排后；预印本无 IF，按相关性规则分排序。阅读分级依据主题与方法关键词，不等同科学质量评审。', '',
+        '标题为离线模型自动中文翻译，术语可能有误；点击标题查看原文。期刊名保留正式名称。', '',
+        f"检索窗口：{report['start']} 至 {report['date']}（北京时间）；数据库可能延迟收录。", '']
+    problems = source_problems(report.get('sources', {}))
+    if problems:
+        lines += ['**检索缺口：' + '、'.join(problems) + '；禁止发布与推送。**', '']
+    else:
+        lines += [f"数据源：{len(report['sources'])}/{len(report['sources'])} 完成。[检索诊断](../diagnostics/retrieval-{report['date']}.json)", '']
     for preprint, label, pool in ((False, '期刊论文', 'journals'), (True, '预印本（未经同行评审）', 'preprints')):
-        lines += ['', f"## {label} · {counts[pool]}/{limits[pool]} 篇", '', '| 栏目 | 基础名额 | 实际入选 |', '|---|---:|---:|']
-        subset = [(i, p) for i, p in enumerate(papers, 1) if p['preprint'] == preprint]
-        for key in categories:
-            n = sum(p.get('feed', p['topics'][0]) == key for _, p in subset)
-            lines.append(f"| {names[key]} | 5 | {n} |")
-        for key in categories:
-            lines += ['', f"### {names[key]}", '']
-            group = [(i, p) for i, p in subset if p.get('feed', p['topics'][0]) == key]
-            for i, p in group:
+        lines += [f"## {label} · {counts[pool]} 篇", '']
+        for key, name in names.items():
+            group = [p for p in papers if p['preprint'] == preprint and p.get('feed', 'interdisciplinary' if len(p['topics']) >= 2 else p['topics'][0]) == key]
+            lines += [f"### {name} · {len(group)} 篇", '']
+            for p in group:
+                if not p.get('title_zh'):
+                    raise SourceError('Chinese title missing; publication stopped')
                 metric = p.get('jif')
-                impact = f"IF {metric['value']:g}（{metric['year'] or '官网未注明年份'}）" if metric else '预印本，无 IF' if preprint else 'IF 未核验'
-                lines.append(f"- [#{i} {md(p['title'])}](#paper-{i}) — **{p['tier']}** · {impact}")
+                impact = f"[IF {metric['value']:g}（{metric['year'] or '年份未注明'}）]({metric['source']})" if metric else '无 IF（预印本）' if preprint else 'IF 未核验'
+                venue = metric['journal'] if metric else p['venue']
+                lines += [f"- **[{md(p['title_zh'])}]({p['url']})**  ", f"  {md(venue) or '来源未注明'} · **{p['tier']}** · {impact} · {p['date']}" + (f" · v{p['version'] or '未知'}" if preprint else ''), '']
             if not group:
-                lines.append('本栏无合格新增候选，空缺名额已用于其他栏目；全组不足时不凑数。')
-    lines += ['', '## 文献详情', '']
-    for i, p in enumerate(papers, 1):
-        status = f"**预印本：未经同行评审 · v{p['version'] or '未知'}**" if p['preprint'] else '期刊发表版本（同行评审过程未单独核验）'
-        metric = p.get('jif')
-        impact = f"[{metric['value']:g}（{metric['year'] or '官网未注明年份'}）]({metric['source']})；核验日期 {metric['verified_at']}" if metric else '不适用（预印本）' if p['preprint'] else '未核验，不以猜测值参与排序'
-        lines += [f'<a id="paper-{i}"></a>', f"### {i}. {md(p['title'])}", '',
-            f"- 作者：{md(p['authors']) or '数据库未提供'}", f"- 来源：{md(p['venue'])} · 日期：{p['date'] or '未提供'}",
-            f"- 状态：{status}；{p.get('event', '新收录')}", f"- 原文：[{md(p['doi']) or '原始页面'}]({p['url']})",
-            f"- 期刊影响因子：{impact}", f"- 阅读分级：**{p['tier']}**；相关性规则分 {p['score']}（不是质量分）",
-            '- 关联方向：' + '、'.join(config['topics'][t]['name'] for t in p['topics']),
-            '- 名额归属：' + names.get(p.get('feed', p['topics'][0]), '') + ('（调剂名额）' if p.get('redistributed') else '')]
-        for topic in p['topics']:
-            reason = p['reasons'][topic]
-            terms = reason['title_terms'] or reason['abstract_terms']
-            lines.append(f"- 与{config['topics'][topic]['name']}相关的依据：{'标题' if reason['title_terms'] else '摘要'}匹配 {md('；'.join(terms))}。")
-        if p['related']:
-            lines.append('- 关联版本：' + '；'.join(f'[{md(d)}](https://doi.org/{d})' for d in p['related']))
-        lines += ['', '**原文摘要（作者表述，未经自动证据分层）**', '', '> ' + md(p['abstract']), '',
-            '**科学意义、实验可靠性与推测边界：** 待阅读全文判断，规则分级与期刊影响因子都不替代逐篇审阅。', '']
-    lines += ['## 范围与局限', '',
-        '- 不设期刊白名单；期刊论文通过 Europe PMC、PubMed、Crossref 和已配置的期刊 RSS 补充获取。各源覆盖和时间窗不同，不能保证零遗漏。',
-        '- DOI、PMID、数据库编号与明确登记的版本关系用于去重。没有登记关系的预印本转期刊可能漏识别；检测到关联后优先保留期刊版本。',
-        '- 缺少足够摘要、完整日期或生物学背景的记录暂不推荐，过滤统计保存在同日 JSON。',
-        '- 影响因子来自可核验来源且标注年份；未核验期刊仍可入选，排序靠后。不同年份的数值可比性有限，不把期刊影响因子称为论文影响因子。',
-        '- 预印本版本号变化会提示更新；无新版本号的内容修订与未及时登记的撤稿仍可能漏识别。',
-        '- 报告生成和微信投递分别保存状态：未送达报告在补发时汇总链接；已确认送达的日报不自动重发。', '']
+                lines += ['本栏暂无新增或更新的必读候选／值得一读文献。', '']
+    lines += ['---', '', '影响因子覆盖尚不完整，各值保留指标年份与来源；期刊指标不代表单篇论文质量。原文题录、摘要与筛选数据保留在[结构化记录](./' + report['date'] + '.json)。', '']
     return '\n'.join(lines)
 
 def collect(config, start, end, incremental):
@@ -720,15 +696,33 @@ def build(config, directory, today, preview=False, refresh=False):
                 if item.get('suppressed'):
                     continue
                 p = item['article']
-                if fingerprint(p) not in item['announced'] or old_aliases.intersection(item['aliases']):
+                if (fingerprint(p) not in item['announced'] or old_aliases.intersection(item['aliases'])
+                        or item.get('announced_dates', {}).get(fingerprint(p)) == today
+                        or (not item.get('announced_dates') and item['first_seen'] == today)):
                     candidates.append(dict(p, key=key, event='当日规则更新' if old_aliases.intersection(item['aliases']) else '新收录'))
             selected = choose(candidates, config)
             for p in selected:
                 announced = state['papers'][p['key']]['announced']
                 if fingerprint(p) not in announced:
                     announced.append(fingerprint(p))
+                state['papers'][p['key']].setdefault('announced_dates', {})[fingerprint(p)] = today
             deferred = sum(not item.get('suppressed') and fingerprint(item['article']) not in item['announced'] for item in state['papers'].values())
-    report = {'date': today, 'start': start.isoformat(), 'papers': selected, 'sources': statuses, 'deferred': deferred, 'rejected': rejected, 'mode': 'no-model-api', 'preview': preview}
+    excluded_priority = deferred if config.get('selection_mode') == 'all_priority' else 0
+    if config.get('selection_mode') == 'all_priority':
+        deferred = 0
+    report = {'excluded_lower_priority': excluded_priority, 'date': today, 'start': start.isoformat(), 'papers': selected, 'sources': statuses, 'deferred': deferred, 'rejected': rejected, 'mode': 'no-model-api', 'preview': preview}
+    if config.get('title_translation') == 'offline_en_zh':
+        from title_translation import translate_titles
+        retrieval.update(phase='translating')
+        json_write(directory / 'state/retrieval_status.json', retrieval)
+        try:
+            translate_titles(selected, directory / 'state/title_translations.json')
+        except Exception as exc:
+            retrieval.update(phase='translation_failed', error=type(exc).__name__ + ': ' + str(exc))
+            json_write(directory / 'state/retrieval_status.json', retrieval)
+            json_write(directory / 'diagnostics' / ('retrieval-' + today + '.json'), retrieval)
+            raise
+    report['selection_mode'] = config.get('selection_mode')
     text = render(report, config)
     (directory / 'reports').mkdir(parents=True, exist_ok=True)
     json_write(report_path, report)
@@ -751,7 +745,7 @@ def push_payload(report, repository):
     title = f"文献日报 {report['date']}：{count}篇" + ('（检索有缺口）' if degraded else '')
     url = f"https://github.com/{repository}/blob/main/reports/{report['date']}.md"
     journals = sum(not p['preprint'] for p in report['papers'])
-    lines = [f"期刊 {journals}/25 篇，预印本 {count - journals}/25 篇；四方向与交叉各预分配5篇，缺额组内调剂。", f"[完整日报（公开阅读）]({url})", '']
+    lines = [f"期刊 {journals} 篇，预印本 {count - journals} 篇；全部必读候选与值得一读，不限篇数。", f"[完整日报（公开阅读）]({url})", '']
     if degraded:
         lines += ['部分数据源失败或分页不完整，不能据此认定没有新论文。', '']
     elif count == 0:
@@ -760,11 +754,11 @@ def push_payload(report, repository):
     for paper in highlights:
         metric = paper.get('jif')
         impact = f" IF {metric['value']:g}" if metric else ''
-        entry = f"- [{'[预印本] ' if paper['preprint'] else ''}{md(paper['title'])}]({paper['url']}){impact}"
+        entry = f"- [{'[预印本] ' if paper['preprint'] else ''}{md(paper.get('title_zh', paper['title']))}]({paper['url']}) — {md(paper['venue'])}{impact}"
         if len('\n'.join(lines + [entry])) > 3000:
             break
         lines.append(entry)
-    lines += ['', '手机通知展示精选标题；全部条目与原文摘要见公开日报。']
+    lines += ['', '手机通知展示精选标题；全部中文标题与期刊列表见公开日报。']
     return title, '\n'.join(lines)
 
 

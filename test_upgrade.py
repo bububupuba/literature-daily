@@ -43,16 +43,16 @@ class SelectionTests(unittest.TestCase):
         rows = [candidate(i,['mitochondria']) for i in range(40)] + [candidate(100+i,['celegans']) for i in range(2)]
         rows += [candidate(200+i,['aging']) for i in range(8)] + [candidate(300+i,['lipids']) for i in range(8)]
         selected = m.choose(rows, CONFIG)
-        self.assertEqual(len(selected),25)
+        self.assertEqual(len(selected),58)
         self.assertEqual(sum(p['feed']=='celegans' for p in selected),2)
         self.assertEqual(sum(p['feed']=='interdisciplinary' for p in selected),0)
-        self.assertEqual(sum(p['redistributed'] for p in selected),8)
+        self.assertEqual(sum(p['feed']=='mitochondria' for p in selected),40)
 
     def test_pool_does_not_borrow_preprint_shortage(self):
         rows = [candidate(i,['mitochondria']) for i in range(40)] + [candidate(i,['aging'],True) for i in range(2)]
         selected=m.choose(rows,CONFIG)
-        self.assertEqual(len(selected),27)
-        self.assertEqual(sum(not p['preprint'] for p in selected),25)
+        self.assertEqual(len(selected),42)
+        self.assertEqual(sum(not p['preprint'] for p in selected),40)
 
     def test_impact_factor_overrides_score_for_journals(self):
         a=candidate(1,['lipids'],score=99,venue='Journal of Lipid Research')
@@ -93,10 +93,10 @@ class SelectionTests(unittest.TestCase):
         self.assertEqual(len(m.consolidate([a,b,bridge])),1)
 
     def test_render_has_two_separate_pools_and_metrics_sources(self):
-        p=candidate(1,['aging'],venue='Nature');p.update(feed='aging',event='新收录')
+        p=candidate(1,['aging'],venue='Nature');p.update(feed='aging',event='新收录',title_zh='衰老研究标题')
         text=m.render(report('2026-10-28',[p]),CONFIG)
-        self.assertIn('期刊论文 · 1/25',text)
-        self.assertIn('预印本（未经同行评审） · 0/25',text)
+        self.assertIn('期刊论文 · 1 篇',text)
+        self.assertIn('预印本（未经同行评审） · 0 篇',text)
         self.assertIn('56.1',text)
         self.assertIn('journal-metrics',text)
 

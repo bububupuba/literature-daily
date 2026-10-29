@@ -4,13 +4,13 @@
 
 ## 每日篇数与排序
 
-- **期刊论文最多 25 篇，预印本另外最多 25 篇，总上限 50 篇。**
-- 两组分别为线粒体、秀丽隐杆线虫、衰老与长寿、脂质生物学各预分配 5 篇，交叉研究另预分配 5 篇。
-- 某栏不足 5 篇，余量在同一组内调剂；不跨期刊／预印本组借额。全部合格候选不足时，按实际数量输出。
-- 每篇仅归属一个展示栏目，整份日报去重。所有关联方向仍在详情中列出。
-- 先筛选研究相关性。期刊组优先按**已核验期刊影响因子**降序，之后按相关性规则分；预印本按相关性、方法和机制关键词排序，不赋影响因子。
-- 影响因子来源、指标年份与核验日期列在详情中。官网只给值而未注明年份时如实注明；未知指标不估算，仍可入选但排序靠后。指标覆盖并不完整。
-- 阅读分级为“必读候选／值得一读／其他相关”，依据主题与实验方法关键词阈值，不代表创新性、严谨性或机制深度已经经过评审。
+- **全部列出“必读候选”和“值得一读”，取消每栏 5 篇和两组各 25 篇的限制。** “其他相关”不展示。
+- 期刊论文与预印本分组，每组保留四个独立方向和交叉研究。跨两个及以上方向的论文放入交叉研究，每篇仅展示一次。
+- 各栏目按已核验期刊影响因子降序排列，同值再按相关性规则分排序。未知 IF 不猜测，排在已核验值之后；预印本没有 IF，按相关性规则分排序。
+- 每篇显示**中文标题、发表期刊（预印本显示平台）、阅读分级、IF 及年份、发表日期、原文链接**。不再设置文献详情或原文摘要区。
+- 阅读分级依据主题与实验方法关键词阈值，不等同论文质量或机制深度评审。
+- 中文标题由腾讯开放的 HY-MT1.5-1.8B 量化翻译模型在 GitHub Actions 离线生成，无需翻译 API、密钥或个人电脑开机。模型下载时校验 SHA-256，缓存于 Actions；翻译按原文与模型版本缓存，原文题录及摘要保留在 JSON 中。机器译名可能不准确，点击标题可核对原文。
+- 翻译失败或缺失中文标题会阻止发布与推送，保留已有日报和历史；不得以英文标题静默替代成功。
 
 ## 数据源与去重
 
@@ -23,7 +23,7 @@
 - bioRxiv／medRxiv 官方接口：新发与修订预印本。
 - Research Square：Crossref DOI 前缀和日期增量查询。
 
-按 DOI、PMID、数据库编号、Research Square 版本根 DOI 和明确登记的预印本／期刊关系合并，不靠相似标题强行合并。初次回溯含当天的 3 个日历日，之后重叠检索并保存历史；超过名额的候选顺延。
+按 DOI、PMID、数据库编号、Research Square 版本根 DOI 和明确登记的预印本／期刊关系合并，不靠相似标题强行合并。初次回溯含当天的 3 个日历日，之后重叠检索并保存历史；未推荐候选保留历史，后续规则更新或版本更新时重新评估。
 
 每个数据源单独报告成功、失败或分页不完整。**任一已启用来源（包括 RSS）重试后仍失败，或分页不完整，整次运行失败：不发布新日报、不覆盖已有日报、不更新推荐历史、不推送微信。** 其他源成功不能替代失败源。数据库收录延迟、缺少摘要、日期不完整及无登记版本关系，仍可能导致漏检。
 
@@ -45,10 +45,12 @@ Nature 返回 `Client Challenge` JavaScript 页面时，会再使用普通 Chrom
 
 当前仓库已部署，`DAILY_ENABLED=true` 已开启。推送密钥放在仓库 Actions Secret `SERVERCHAN_SENDKEY`，不写入代码，不发送到聊天。
 
-需要 Python 3.11+。常规检索使用标准库；云端另安装微软 Playwright 与 Chromium，供 Nature JavaScript 页面后的正常浏览器获取使用。不需要大模型 API 或数据库 API Key，电脑仍无需开机。
+需要 Python 3.11+。常规检索使用标准库；云端安装 llama-cpp-python 供离线标题翻译；另安装微软 Playwright 与 Chromium，供 Nature JavaScript 页面后的正常浏览器获取使用。不需要大模型 API 或数据库 API Key，电脑仍无需开机。
 
 ```bash
 python -B -m unittest discover -s . -p 'test_*.py' -v
+python -m pip install -r requirements.txt
+python -m playwright install chromium
 python monitor.py preview --directory validation/preview
 python monitor.py build
 python monitor.py build --refresh
@@ -60,10 +62,11 @@ python monitor.py status
 
 ## 文件
 
-- `config.json`：方向、关键词、期刊／预印本名额、阅读分级阈值、RSS 与 Crossref 查询词。
+- `config.json`：方向、关键词、不限量优先级选择模式、阅读分级阈值、RSS 与 Crossref 查询词。
 - `journal_metrics.json`：逐刊核验的影响因子值、年份与官方来源；不完整的指标表，需要随年份更新。
-- `monitor.py`：检索调度、筛选、名额分配、去重和报告。
+- `monitor.py`：检索调度、筛选、优先级选择、去重和报告。
 - `sources_extra.py`：PubMed、Crossref 期刊和 RSS 解析。
+- `title_translation.py` 与 `state/title_translations.json`：离线标题翻译与可追溯缓存。
 - `delivery.py`：待发送队列、补发、投递状态和运行健康摘要。
 - `reports/YYYY-MM-DD.md` 与 `.json`：完整日报与结构化结果。
 - `state/history.json`：候选与已报告版本历史。
@@ -72,7 +75,7 @@ python monitor.py status
 
 ## 内容分析边界
 
-中文栏目与筛选理由，原文标题和摘要保留英文。不生成 AI 中文总结，不自动区分每句实验结果／解释／假设。科学意义、实验可靠性和因果机制仍需阅读全文判断。期刊影响因子不能等同单篇论文质量。
+日报显示自动翻译的中文标题与期刊名，原文标题和摘要保留在结构化 JSON。不生成 AI 中文总结，不自动区分每句实验结果／解释／假设。科学意义、实验可靠性和因果机制仍需阅读全文判断。期刊影响因子不能等同单篇论文质量。
 
 ## 官方文档
 
@@ -83,3 +86,5 @@ python monitor.py status
 - https://github.com/easychen/serverchan-sdk
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
 - NCBI 使用声明与版权说明：https://www.ncbi.nlm.nih.gov/home/about/policies/
+
+离线翻译模型：[腾讯 HY-MT1.5-1.8B 官方模型](https://huggingface.co/tencent/HY-MT1.5-1.8B-GGUF)，Q4_K_M（约 1.1 GB，缓存不提交到仓库）；运行时：[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)。常用生物学术语随提示传入，基因和蛋白缩写保留。模型遵循其官方许可证。
