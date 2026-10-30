@@ -7,5 +7,10 @@
     "acknowledged": true,
     "at": "2026-10-29T09:02:17.276990+00:00",
     "batch_latest_date": "2026-10-29"
+  },
+  "2026-10-30": {
+    "acknowledged": true,
+    "at": "2026-10-30T07:01:07.397922+00:00",
+    "batch_latest_date": "2026-10-30"
   }
 }
