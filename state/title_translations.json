@@ -773,5 +773,380 @@
     "source": "SphK1/S1P signaling network: From molecular mechanism to therapeutic targeting.",
     "zh": "SphK1/S1P信号网络：从分子机制到治疗靶点探索。",
     "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "1d7e001c1defc1476e0b703943fedd55ecca9a18e64cfd6cb04473d2ea8a77f8": {
+    "source": "Integrated Single‐Cell and Spatial Transcriptomics Reveal Convergence on a Senescence‐Associated B Cell–MIF Signaling Axis in Joint Aging and Osteoarthritis Progression",
+    "zh": "整合单细胞与空间转录组学分析揭示衰老相关B细胞-MIF信号通路在衰老和骨关节炎进展中的共同作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "a529653a64756b259b5b7195f6e5a8f1b4f6edfdea60fe306c9e101b2ede085e": {
+    "source": "A Damage‐Gated Small‐Molecule Chimera Selectively Enhances Mitophagy by Coupling Dysfunctional Mitochondria to Autophagy",
+    "zh": "一种损伤门控的小分子混合物通过使功能失调的线粒体与自噬结合，选择性地增强线粒体自噬",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "cf8b1b11f4ed9053f2e11cceaaf76f0565eecfabeac61b2e91d317f24240d9b6": {
+    "source": "HFPO‑TA induces developmental hepatotoxicity in hESC‑derived hepatocyte‑like cells by disrupting lipid homeostasis and mitochondrial function.",
+    "zh": "HFPO‑TA通过破坏脂质稳态和线粒体功能，在由hESC衍生出的肝细胞样细胞中引发发育性肝毒性。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "5ae9e00c98397d837aa40b4cfebad985ae8b47a4d584e194d1ca320858379174": {
+    "source": "Temporal Changes in Hepatic Fatty Acid Metabolism, Desaturase Expression, and Lipid Peroxidation During Long-Term Sucrose Feeding in Male and Female Rats",
+    "zh": "长期蔗糖喂养对雄性及雌性大鼠肝脏脂肪酸代谢、去饱和酶表达及脂质过氧化作用的时序变化",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "56088f9f37094fbad82d901939665753dc438435bea1c14c765f43de0035450c": {
+    "source": "Lipids at the meningeal-tumor interface: aging, anatomical niches, and meningioma biology",
+    "zh": "脑膜瘤界面处的脂质：衰老、解剖学微环境与脑膜瘤生物学特性",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "d18d4ae33b32446f28e03e36934fbf26bda430a0c82754e10c19bfc1c00ee157": {
+    "source": "Red Light Therapy and Mitochondrial Rejuvenation in Age-Related Disorders.",
+    "zh": "红光疗法与线粒体再生在与年龄相关的疾病中的作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "b061ef66133742c6533ec2e0ea450e254946e9fe93ab46977c7cff8342847a64": {
+    "source": "The crosstalk between ferroptosis and cellular senescence in gestational diabetes mellitus: from iron dyshomeostasis to trophoblast dysfunction",
+    "zh": "妊娠糖尿病中铁死亡与细胞衰老之间的相互作用：从铁稳态失调到滋养层功能障碍",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "6d8019d9004761fa23849ac04e5f52dcc3b25952ffc708e73f1f078b18455b62": {
+    "source": "Beyond Chronological Age: Circadian Disruption, Mitochondrial Dysfunction, and the Biology of Female Reproductive Aging",
+    "zh": "超越年龄顺序：昼夜节律紊乱、线粒体功能障碍与女性生殖衰老的生物学机制",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "5f05094cb16433ab3bd683aa5bb2914d2d34ff1b76bddfaebef45417cdbae266": {
+    "source": "Curcumin mitigates palmitic acid-induced senescence in MIN6 β cells through NOX4/ROS regulation.",
+    "zh": "姜黄素通过调节NOX4/ROS来减轻MIN6β细胞中棕榈酸引起的衰老现象。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "cd2be74eece98ae5c8cbe269b5c0b4885de0d3ac0cbd2026e8255df126065c7d": {
+    "source": "Electroacupuncture regulates lipid metabolism through PPARγ-associated LXRα signaling: from nuclear receptor signaling to cardiovascular protection",
+    "zh": "电针通过与 PPARγ 相关的 LXRα 信号传导调节脂质代谢：从核受体信号传导到心血管保护",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "fb017ff5f528d0b1140045801b913b3a0f2220f0332ba7d11ce9084bf360553f": {
+    "source": "Inhibiting apolipoprotein C3 alleviates ferroptosis and cell damage induced by Pseudomonas aeruginosa.",
+    "zh": "抑制C3可以减轻由铜绿假单胞菌引起的铁死亡和细胞损伤。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "00308489e2deaa207cefd982a56d2b0bef6ea5d8edc09d8597a521d65f379f88": {
+    "source": "Omega-3 fatty acids in aromatase inhibitor-associated dyslipidemia: mechanisms, clinical evidence, and future perspectives",
+    "zh": "Omega-3脂肪酸在芳香化酶抑制剂相关血脂异常中的作用机制、临床证据及未来展望",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "224c425d18ee204c7d2c714c55068a41f27d5cfb7e781bd8a2967a6ef8c700ca": {
+    "source": "Integrated chemical profiling and lipidomics reveal that Mailuoning oral liquid alleviates diet-induced MASLD via PPARα-mediated lipid homeostasis and COX-2 inhibition, with identification of potential active constituents",
+    "zh": "综合化学分析和脂质组学研究表明，美露宁口服液通过PPARα介导的脂质稳态调节和COX抑制，能够缓解饮食引起的MASLD，并识别出潜在的活性成分。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "0d25f5aa2cacdac0546243b11ffcf65bd007f298a4ad1ab12933a2056b390960": {
+    "source": "Plasma Lipidomic Features of Adolescent Major Depressive Disorder and Lipid Changes After Fluoxetine Treatment",
+    "zh": "青少年重度抑郁障碍的血浆脂质组特征及氟西汀治疗后的脂质变化",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f450c72261f6cff3f4baaf661f30e48c13c69e899966cef38e50c7d2cce626ff": {
+    "source": "A stress-adapted fiber state promotes clonal expansion of deleted mitochondrial DNA.",
+    "zh": "一种适应压力的纤维状态促进了删除的线粒体DNA的克隆扩增。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f329f164b6aea4bd1371c68d1509aced6605890946dcb4ccd2f2cfaf304134d5": {
+    "source": "Mitochondrial acquisition after the Asgard revolution: Reconstructing eukaryogenesis with insights for mitochondrial transplantation.",
+    "zh": "Asgard革命後の线粒体獲得：以线粒体移植為基礎，重建真核生物的起源。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "194858fe888ffdcb0e1fd7f052db471c36e0d2a40732cfc559c4ccc8b89241ef": {
+    "source": "Mitochondrial Dysfunction as a Convergent Mechanism of α-Synuclein Toxicity: A Systematic Review of In Vitro Fibrillar Models.",
+    "zh": "线粒体功能障碍作为α-突触核蛋白毒性的一种汇聚机制：体外纤维模型系统的综述。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "75d2525b2bded8e059c5d5ac7d9ffe234427df856ceb9a8af49e95c50133c4aa": {
+    "source": "Involvement of PINK1-related Mitophagy and Necroptosis in TDI-Induced Experimental Asthma.",
+    "zh": "PINK1相关线粒体自噬和坏死性凋亡在TDI诱导的实验性哮喘中的作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "6d2ef4244ae6d7665b1227bfe1fc90aa2dbd2cfdcd4d19b4dd1e756b847ec8c2": {
+    "source": "Transcriptomic signatures of lipids in blood provide hypotheses of functional mechanisms linked to lipid metabolism and immune-cell regulation.",
+    "zh": "血液中脂质的转录组特征为与脂质代谢和免疫细胞调节相关的功能机制提供了假设。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "4ac524d6dc0477ec1f760bceb47554425eabd90af546126c7b477b78d2df1b13": {
+    "source": "Matrix Stiffness Controls Lipid Homeostasis in Human Corneal Endothelial Cells via a Piezo1-PI3K/AKT-mTOR-PPARγ Mechanotransduction Axis",
+    "zh": "基质硬度通过Piezo1-PI3K/AKT-mTOR-PPARγ机制传导轴调控人类角膜内皮细胞的脂质稳态",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "ca284d0105f06f942d548a46df1dc21c3752ef45b115ec175f2c290e148804f0": {
+    "source": "Stemonine Alleviates UVB‐Induced Keratinocyte Senescence by Activating SIRT3",
+    "zh": "Stemonine通过激活SIRT3缓解 UVB 引起的角质细胞衰老",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "39d302b5d18da116c4eaa6c5733361d44593b64d045326c739189f8ab278afb4": {
+    "source": "Circulating cell-free mitochondrial DNA and inflammation in Charcot-Marie-Tooth 1A and Charcot-Marie-Tooth 2A.",
+    "zh": "Charcot-Marie-Tooth 1A和Charcot-Marie-Tooth 2A中循环无细胞线粒体DNA与炎症的关系",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "4c613d9e3546cb6444eae6d522ee476d42ff0d29be23a58863f4142c9bd53c4c": {
+    "source": "Lipid Mediators and Metabolic Inflammation: From Molecular Mechanisms to a New Therapeutic Paradigm",
+    "zh": "脂质介质与代谢性炎症：从分子机制到新的治疗范式",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "7013695287af4cebe2d42a78bb5590ad70e4d02773290d9d0298b2cc41c11462": {
+    "source": "Mitochondrial Lactate Signaling and Protein Lactylation in Neurological Diseases.",
+    "zh": "神经疾病中线粒体乳酸信号传导与蛋白质乳酸化作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "0857771298c21e09a790235876b78eb6c1cb8f286928f730fb61382c14015d8a": {
+    "source": "Maternal HFD and CDAHFD Exposure from Pregnancy to Lactation Differentially Affect Lipid Profiles and Behavior in Offspring Mice",
+    "zh": "从怀孕到哺乳期，母体摄入的 HFD 和 CDAHFD 对后代小鼠的脂质谱和行为的不同影响",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "14c7a638cb56fc469138f7725478677e388ec8e1c59bf0f7d09174144017998b": {
+    "source": "Reversing amorphous aging associated with resistance drift in phase-change memory via atomistic rejuvenation",
+    "zh": "通过原子级恢复力逆转与相变存储器抗性漂移相关的非晶老化现象",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "ba2322f963c8ca6ef7d0e6a0f2cafe4e0d10383c07051b15bc75981063714b99": {
+    "source": "The senescence-linked factor Chi3L1 contributes to mesenchymal stromal cells dysfunction promoting joint aging and osteoarthritis progression",
+    "zh": "与衰老相关的因子Chi3L1会导致间充质基质细胞功能障碍，从而促进关节衰老和骨关节炎的进展",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "026655aa2a116d04b99de7b6e13fe159185a656862417dc6e5b07954a51db9e2": {
+    "source": "Chronic Intermittent Hypoxia Aggravates the Pyroptosis of Renal Tubular Epithelial Cells Through Regulating Mitophagy‐Mediated NLRP3 Inflammasome Activation",
+    "zh": "慢性间歇性缺氧通过调节线粒体自噬介导的NLRP3炎症小体激活，加重肾小管上皮细胞的热死亡现象",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "41337f36a44a2140130e63fbefd4c391b8dbc38bd1aff9735d5db53fa341917b": {
+    "source": "Electroacupuncture Alleviates Chemotherapy- Associated Cancer-Related Fatigue by Restoring Mitochondrial Homeostasis.",
+    "zh": "电针疗法通过恢复线粒体稳态来减轻化疗引起的癌症相关疲劳。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "4be8516b55194c83e5920abc485da500906b94d4bba5aa71fb92b0c3a7c65fb6": {
+    "source": "Urolithin A Attenuates Noise-induced Hearing Loss and Is Associated With Increased Cochlear Mitophagy Markers",
+    "zh": "尿胆酸可减轻噪声引起的听力损失，并伴随耳蜗线粒体自噬标志物的增加",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "adf998544839c864af178275d400b35bd3951dbbd28f6554070dfa968af09bd6": {
+    "source": "Biological State-Space and Adaptive Reserve Across Scales: An Entropy-Symmetry Framework for Ageing and Cancer",
+    "zh": "生物状态空间与跨尺度适应性储备：一个用于衰老和癌症的熵对称框架",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "7e6dddf363c86e07b383279aa02c08dea091d28ab6d9b76fca7d78ef9c848d13": {
+    "source": "Cellular Senescence in Diabetic Kidney Disease: Mechanisms and Treatments",
+    "zh": "糖尿病肾病中的细胞衰老：机制与治疗方法",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "c151cd89725352c78eee125d841bca0d015e7842b50cf84fcbc681bd361e2e79": {
+    "source": "Dopamine turns mitochondrial stress into inflammation.",
+    "zh": "多巴胺将线粒体压力转化为炎症。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "e6c7dfd21470133df1212062d707bae5028d69bcd1fba9fef6ba97f02bc7d8c9": {
+    "source": "Impact of SPAK Deficiency on Glomerular Injury and Mitochondrial Homeostasis in Adriamycin-Induced FSGS",
+    "zh": "SPAK缺陷对阿霉素诱导的FSGS中肾小球损伤和线粒体稳态的影响",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f97250a9c2122df8bae1ecda6e67c5c71d10a793e0648c6c1f73bc96d28ac613": {
+    "source": "Lactobacillus johnsonii attenuates ovarian aging by remodeling the gut–ovary axis",
+    "zh": "Lactobacillus johnsonii通过重塑肠道-卵巢轴来减缓卵巢衰老",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "9a86402b5a84b8f330264d7d65bf1d9af24ef233fcc56ad76d83d1ee01d0293c": {
+    "source": "Membrane Diffusion Mode of Human Perforin-1 and Its Cholesterol Sensitivity.",
+    "zh": "人类穿孔素-1的膜扩散模式及其对胆固醇的敏感性",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "639f465ae8c58e5d63471c05bdb03f40343ac2f51be93729abe3900e93396b71": {
+    "source": "Neurovascular-immune-clearance remodeling in brain aging",
+    "zh": "大脑老化过程中的神经血管-免疫-清除重塑",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f8a288fbde9858ad0f6410a9515349241d0dadcca410c1d11ca7eca7b800faf2": {
+    "source": "Perturbation of Melatonin Signaling Modulates Respiration and Mitochondrial Gene Expression in Arabidopsis thaliana During Photooxidative Stress",
+    "zh": "光氧化应激下褪黑激素信号传导的扰动对拟南芥的呼吸和线粒体基因表达的影响",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "35e5bf702e6aff4eb9e88142dddc1bf789aa876c8c940b31a52cfea11b22e4d4": {
+    "source": "Prognostic significance of SLC25A28 and its associations with mitochondrial metabolism and immune features in glioma",
+    "zh": "SLC25A28的预后意义及其与线粒体代谢和免疫特征在胶质瘤中的关联",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "9ed8aba550fd08de9a242073907d44fe526be87ae632d0b91d3e855207e6a949": {
+    "source": "Purpurin Alleviates Meniscal Senescence and Osteoarthritis by Blocking the Non‐Metabolic Function of Hexokinase 2",
+    "zh": "紫色素通过阻断六激酶2的非代谢功能，缓解半月板衰老和骨关节炎",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "3177f1e05b2a08bc4b5adb3491e26959f22480249ecd11abbed4b113fa766fa6": {
+    "source": "Toxic Concentrations of Glutamate Induce Ferroptosis without Affecting Mitochondrial Respiration in Rodent Brain Slice Cultures.",
+    "zh": "谷氨酸的毒性浓度在啮齿动物脑切片培养中引起铁死亡，而不影响线粒体呼吸。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "c143f2d521023aad3d5110544d7840b0df42e0370f005cf5282bded7ae58f4d3": {
+    "source": "Beyond Mitochondrial Fission: Emerging Roles of Drp1 in Skeletal Muscle Physiology and Disease",
+    "zh": "超越线粒体分裂：Drp1在骨骼肌生理与疾病中的新兴作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "c1e6fdee2ab22005b98ed155b8f5270b5510c7b5cd6f16c468e78f0887be1107": {
+    "source": "Huaier Attenuates Renal Injury in Type 2 Diabetic Nephropathy by Ameliorating Mitochondrial Dysfunction and Inhibiting Tubular Epithelial Cell Apoptosis",
+    "zh": "华艺通过改善线粒体功能并抑制肾小管上皮细胞凋亡，减轻2型糖尿病肾病中的肾损伤",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "54d183de351479b29bda7e4a8e0298c36e1626b5ebc16ce7cc699b293a591725": {
+    "source": "JWA as a context-dependent redox regulatory hub linking stress responses with aging hallmarks and age-related diseases",
+    "zh": "JWA作为一种依赖环境的氧化还原调控枢纽，将应激反应与衰老特征以及与年龄相关的疾病联系起来",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "21c246cdd7b6c1a547a3cecae419f73e4a13a4d1a5af3ead2dfbce5d807b3d56": {
+    "source": "Mechanical stress-induced release of mitochondrial double-stranded RNA activates RIG-I to drive osteogenic differentiation in aortic disease",
+    "zh": "机械应力诱导的线粒体双链RNA释放激活RIG-I，促进主动脉疾病中的骨生成分化",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "851013e092fb7b06c52f4a2f1e288bb2866d649d1da801a9e41f1fb30ced06eb": {
+    "source": "Sirtuin 1/peroxisome proliferator-activated receptor gamma coactivator 1α signaling pathway: Molecular mechanisms from mitochondrial function regulation to the treatment of neurodegenerative diseases",
+    "zh": "Sirtuin 1/过氧化物酶体增殖剂激活的受体γ共激活因子1α信号通路：从线粒体功能调节到神经退行性疾病的治疗——分子机制",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "1e3ec7dd70dc79f63390664c731d0fd8c50e1c079bf99080fd8b1b1b4bbc072a": {
+    "source": "Calorie restriction uncouples mutation rate from lifespan",
+    "zh": "热量限制使突变率与寿命之间的关系不再相关",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "822e14365376404829815037770f66b80273bb20fd40723ddb1eb23e97ef2bab": {
+    "source": "Beyond Glycemic Control: The Pleiotropic Role of GLP-1RAs and Melatonin in Combating Neuroinflammation and Mitochondrial Dysfunction",
+    "zh": "超越血糖控制：GLP-1受体激动剂和褪黑激素在对抗神经炎症和线粒体功能障碍中的多效作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "01f137da8f1a216d14a2b2773d5965af655d2d2998ca942e4e34520e3ac13d4a": {
+    "source": "Biological functions and emerging interplay of FGF21 and GDF15 in metabolic diseases and aging",
+    "zh": "FGF21与GDF15在代谢疾病和衰老中的生物学功能及相互关联",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "1eea62bfc0687c8612bb2e609fb4100b5c76476ddc12a722cc78b3d44a819b8a": {
+    "source": "Ciliary-Mitochondrial Crosstalk in Cancer: Mechanistic Links Between Primary Cilium Dysfunction and Mitochondrial Reprogramming in Tumor Progression and Metastasis",
+    "zh": "癌症中的睫状-线粒体相互作用：原发性睫状细胞功能障碍与线粒体重编程在肿瘤进展和转移过程中的机制联系",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "38d36a90055cfee02f0e608e81545f0b7eb40134ee979d6e764c0f07b5b49aa7": {
+    "source": "Differential redox-mitochondrial adaptation to ultra-high-dose-rate irradiation in astrocytes and glioma cells",
+    "zh": "星形胶质细胞和胶质瘤细胞在超高剂量率辐射下的差异性氧化还原-线粒体适应机制",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "8e3be017c6a48684daeec502ecd0a58cbe3deda6345e98be0206670d1659d35c": {
+    "source": "Trehalose alleviates oxidative stress-induced senescence and is associated with cell-cycle remodeling.",
+    "zh": "海藻糖能够缓解氧化应激引起的衰老现象，并与细胞周期的重构有关。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "4eb6c5adeae79387abab163a50060f00ae3bc53540bc36b7e7722538964b6bc1": {
+    "source": "Universal protein immobilization and digestion reactor facilitates deep quantitative proteomic analysis of single Caenorhabditis elegans individuals",
+    "zh": "通用蛋白质固定和消化反应器有助于对单个秀丽隐杆线虫进行深度定量蛋白质组学分析",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "ad8786e0a1859d44314df00a645293f5e2e4cbee12ef81084e2bd69b07767ea0": {
+    "source": "2,4-Dichlorophenol induced sex hormone imbalance in zebrafish ovary via esr1-mediated cholesterol synthesis inhibition.",
+    "zh": "2,4-二氯酚通过esr1介导的胆固醇合成抑制，导致斑马鱼卵巢中的性激素失衡。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "700443460c58e6d2569a6370c053dc4633d052a351c1e36164122c955f926273": {
+    "source": "Ebola Virus VP40 C-terminal Lysine Residue Mediates Lipid Interactions and Dimer-Dimer Interactions.",
+    "zh": "埃博拉病毒VP40的C端赖氨酸残基调节脂质相互作用和二聚体间的相互作用。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "af495cbafa49dc0ceb2892b1ab5ed1bfcf5295c42ca1de7f0410717ef0aae4fb": {
+    "source": "Effect of Atorvastatin and Rosuvastatin on Lipid Parameters and Inflammatory Biomarkers in Patients with Acute Coronary Syndrome: A Systematic Review and Meta-Analysis",
+    "zh": "阿托伐他汀和罗苏伐他汀对急性冠状动脉综合征患者脂质参数和炎症生物标志物的影响：系统综述与荟萃分析",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "ae202b6e1eed545e163f9b330f93e746d745233769a7819e99f416db004063c1": {
+    "source": "Gut microbiota dysbiosis and altered short-chain fatty acid biosynthetic pathways in Chinese children with obesity and nonalcoholic fatty liver disease",
+    "zh": "中国肥胖和非酒精性脂肪肝患儿的肠道微生物失调及短链脂肪酸生物合成途径的改变",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "cc525fdada32c4ef6fd88bc64ddc9bba810c72fe8bbbb32e4dfdb7d94aa80591": {
+    "source": "Hippocampal Glial Alterations Are Associated with Mitochondrial Changes and Reduced Glucocorticoid Receptor Density in Suicides",
+    "zh": "海马神经胶质细胞的改变与线粒体变化以及自杀行为中的糖皮质激素受体密度降低有关",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "9ca7b13408b33b3cb91bbcdacdf32d48138af0cfed08d30bb0c5251685d3bf2d": {
+    "source": "Immunotherapy targeting an endogenous retrovirus decreases islet senescence markers and preserves glucose control in a mouse model of type 2 diabetes.",
+    "zh": "针对内源性逆转录病毒的免疫疗法能够降低衰老标志物的水平，并在2型糖尿病小鼠模型中保持血糖控制。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f87a26cfaea89d5b57dcd3c994c70b3108b40fa079fda2afbeca0a193afd3674": {
+    "source": "In Silico Evidence for Enterobactin-Facilitated Ferric Iron Import into Mitochondria via ATP Synthase Alpha Subunit Binding",
+    "zh": "在计算机模拟中发现的证据表明，Enterobactin能够促进ATP合成酶α亚基与线粒体结合，从而帮助铁离子进入线粒体",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "0691c8d87b8bb9bdbb09fe6690fd0c2b1b6b8a1540aeec2cb2e8dde18f24abe1": {
+    "source": "Mitochondrial genome editing reveals the impact of complex I heteroplasmic variants on human neurogenesis",
+    "zh": "线粒体基因组编辑揭示了复杂I型异质性变异对人类神经发生的影响",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "08ee33cc7b53c5ee7558969a7d53d7d654a2168ff85a2c42a340cd32f6a33d37": {
+    "source": "Role of the ACTH-SF1/NR5A1-NRF2 axis in glucocorticoid-induced adrenocortical cell death through mitochondrial ROS accumulation",
+    "zh": "ACTH-SF1/NR5A1-NRF2轴在通过线粒体ROS积累导致糖皮质激素诱导的肾上腺皮质细胞死亡中的作用",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "3aeff65fe0adcc17b0d57ae5d9ee6ed8c21a73715d467e534639c4ae1694fc3b": {
+    "source": "Structural Determinants Underlying the Interplay Between Fatty Acid Binding and S-Nitrosylation of Human Serum Albumin",
+    "zh": "影响人类血清白蛋白中脂肪酸结合与S-亚硝基化相互作用的结构决定因素",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "412f0d8696fc1661f54afc5ce0b575ec1c54ce909554d67ecd88f6360fee989f": {
+    "source": "Total salvianolic acids protect APP/PS1 mice from Alzheimer's disease by attenuating neuroinflammation through hippocampal lipid regulation",
+    "zh": "总 salvianolic酸通过调节海马区的脂质水平，减轻神经炎症，从而保护 APP/PS1 小鼠免受阿尔茨海默病的侵害。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "f74c56d80ecc5f824516de57039cd8248547b9a12c85da35246bb98883a99cba": {
+    "source": "Cancers relax selection on charge at the mitochondrial complex I quinone cavity",
+    "zh": "癌症使得在线粒体复合物I的醌腔中对电荷的选择性降低",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "23ed05f49d634ab4c6619c6ff51be17ee6826405b612e199a9ef53c366957771": {
+    "source": "Clinical and genetic spectrum in a cohort of patients with suspected mitochondrial disease",
+    "zh": "疑似线粒体疾病患者的临床和遗传谱型分析",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "60a7051967df256997ea1ae3dfe21cd55627d597a257930e990a71445d0dd004": {
+    "source": "Comparison of 3 guideline lipid emulsion regimens for local anesthetic systemic toxicity: an in silico study of bolus duration, total dose, and treatment delay in intravenous bupivacaine overdose.",
+    "zh": "比较三种指南推荐的脂乳剂治疗方案对局部麻醉药全身毒性影响的差异：通过计算机模拟研究单次注射持续时间、总剂量以及静脉输注布比卡因过量时的治疗延迟时间。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "5b89dce9f7e352a06b18b5a599ffe1118e60b9fd7491264828c1220026165ca3": {
+    "source": "Dietary Lipid Sources and Lysolecithin Modulate Growth, Lipid Metabolism, Hepatopancreatic Health, and Intestinal Microbiota in Macrobrachium rosenbergii.",
+    "zh": "饮食中的脂质来源和溶血卵黄素调节大眼螯虾的生长、脂质代谢、肝胰腺健康以及肠道微生物群",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "cdbcc05fc1f4418b606228c35efaafa91b34de132ef2e6904bff03da3f1be63e": {
+    "source": "Differential reproductive effects of two insect growth regulators (20-hydroxyecdysone and methyl farnesoate) on non-target aquatic organism: A case study using Daphnia magna.",
+    "zh": "两种昆虫生长调节剂（20-羟基蜕皮酮和甲基法尼酸酯）对非目标水生生物的生殖差异影响：以大型蚤为案例研究",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "ccd1073fb9dc09a488c09e04ebee724d415676344a6d3595ef9ee0fc1363710a": {
+    "source": "Electrochemical Features and Mechanism of Steel Corrosion Inhibition by Inhibitors Derived from Beef Tallow Fatty Acids",
+    "zh": "源自牛肉油酸的抑制剂对钢铁腐蚀抑制的电化学特性与机制",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "d49402a3f33e46ec5861503edeb13eb4ff433ef39f4f6f58a8635ee5c8d37515": {
+    "source": "Identification of ageing-related genes in prostate cancer with type 2 Diabetes using machine learning: a multi-omics study focusing on SOX4, PRNP, and FOXO4.",
+    "zh": "利用机器学习技术，通过多组学研究来识别与前列腺癌和2型糖尿病相关的衰老相关基因：重点关注SOX4、PRNP和FOXO4。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "3c8a3c686990190ffa9f1c480d28f73fc808a9efd9671221059e04adcc526182": {
+    "source": "Lipid-based nanoencapsulation prolongs the antinociceptive effect of cannabidiol in experimental neuropathic pain.",
+    "zh": "基于脂质的纳米封装技术能够延长大麻二酚在实验性神经痛中的镇痛效果。",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "4ad873637146e55643852eeaa305a1504b169d64de6de130c60b0069424a879c": {
+    "source": "Neuronal receptor remodeling in the aging periosteum: From single-cell atlases to regenerative targets",
+    "zh": "老化骨膜中神经元受体的重塑：从单细胞图谱到再生靶点",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "a3ffdb1913c3aff14948f9b5d15dd7385931e92f08bc0d53b72482cd790c07ca": {
+    "source": "Standard treatment against paediatric BRAF-V600E glioma promotes senescence and sensitizes tumours to BCL-xL inhibition",
+    "zh": "针对儿童 BRAF-V600E 胶质瘤的标准治疗能够促进衰老过程，并使肿瘤对 BCL-xL 的抑制更加敏感",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
+  },
+  "cbf5b30f23dcc9d4f57593bee3dc32b312ad23b594f2ef3d0683976258cd26fe": {
+    "source": "TMEM63B as a dual-function mechanosensitive channel and lipid scramblase: structural insights, physiological roles, and pharmacological potential.",
+    "zh": "TMEM63B作为具有双重功能的机械敏感通道和脂质错配酶：结构特征、生理作用及药理学潜力研究",
+    "model": "hy-mt1.5-1.8b-q4km-glossary-v2"
   }
 }
