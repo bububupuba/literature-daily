@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "pending_report_dates": [],
   "uncertain_report_dates": [],
   "latest_report": "2026-10-30",
-  "retrieval_blocked": false,
-  "last_retrieval_attempt": "2026-10-30",
+  "retrieval_blocked": true,
+  "last_retrieval_attempt": "2026-10-31",
   "source_problems": []
 }
