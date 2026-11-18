@@ -1,48 +1,48 @@
 {
-  "date": "2026-11-17",
-  "attempted_at": "2026-11-17T08:52:57.657592+00:00",
+  "date": "2026-11-18",
+  "attempted_at": "2026-11-18T08:18:13.945018+00:00",
   "start": "2026-10-28",
   "complete": false,
   "phase": "failed",
   "sources": {
     "Europe PMC / 秀丽隐杆线虫": {
       "status": "ok",
-      "fetched": 1680,
-      "available": 1680,
-      "query": "(TITLE_ABS:\"Caenorhabditis elegans\" OR TITLE_ABS:\"C. elegans\" OR TITLE_ABS:\"C elegans\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-17] OR FIRST_IDATE:[2026-10-28 TO 2026-11-17] OR UPDATE_DATE:[2026-10-28 TO 2026-11-17]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "fetched": 1706,
+      "available": 1706,
+      "query": "(TITLE_ABS:\"Caenorhabditis elegans\" OR TITLE_ABS:\"C. elegans\" OR TITLE_ABS:\"C elegans\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-18] OR FIRST_IDATE:[2026-10-28 TO 2026-11-18] OR UPDATE_DATE:[2026-10-28 TO 2026-11-18]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "Europe PMC / 线粒体生物学": {
       "status": "partial",
       "fetched": 10000,
-      "available": 16371,
-      "query": "(TITLE_ABS:mitochondri* OR TITLE_ABS:mitophagy OR TITLE_ABS:OXPHOS OR TITLE_ABS:\"oxidative phosphorylation\" OR TITLE_ABS:UPRmt OR TITLE_ABS:mtDNA OR TITLE_ABS:cristae OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-17] OR FIRST_IDATE:[2026-10-28 TO 2026-11-17] OR UPDATE_DATE:[2026-10-28 TO 2026-11-17]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "available": 16686,
+      "query": "(TITLE_ABS:mitochondri* OR TITLE_ABS:mitophagy OR TITLE_ABS:OXPHOS OR TITLE_ABS:\"oxidative phosphorylation\" OR TITLE_ABS:UPRmt OR TITLE_ABS:mtDNA OR TITLE_ABS:cristae OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-18] OR FIRST_IDATE:[2026-10-28 TO 2026-11-18] OR UPDATE_DATE:[2026-10-28 TO 2026-11-18]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "Europe PMC / 衰老与长寿": {
       "status": "partial",
       "fetched": 10000,
-      "available": 18465,
-      "query": "(TITLE_ABS:aging OR TITLE_ABS:ageing OR TITLE_ABS:longevity OR TITLE_ABS:lifespan OR TITLE_ABS:\"life span\" OR TITLE_ABS:healthspan OR TITLE_ABS:\"health span\" OR TITLE_ABS:senescence OR TITLE_ABS:senescent OR TITLE_ABS:geroscience OR TITLE_ABS:rejuvenation OR TITLE_ABS:\"biological age\" OR TITLE_ABS:\"epigenetic age\" OR TITLE_ABS:\"aging clock\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-17] OR FIRST_IDATE:[2026-10-28 TO 2026-11-17] OR UPDATE_DATE:[2026-10-28 TO 2026-11-17]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "available": 18889,
+      "query": "(TITLE_ABS:aging OR TITLE_ABS:ageing OR TITLE_ABS:longevity OR TITLE_ABS:lifespan OR TITLE_ABS:\"life span\" OR TITLE_ABS:healthspan OR TITLE_ABS:\"health span\" OR TITLE_ABS:senescence OR TITLE_ABS:senescent OR TITLE_ABS:geroscience OR TITLE_ABS:rejuvenation OR TITLE_ABS:\"biological age\" OR TITLE_ABS:\"epigenetic age\" OR TITLE_ABS:\"aging clock\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-18] OR FIRST_IDATE:[2026-10-28 TO 2026-11-18] OR UPDATE_DATE:[2026-10-28 TO 2026-11-18]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "medrxiv": {
       "status": "ok",
-      "fetched": 1250,
-      "available": 1250
+      "fetched": 1330,
+      "available": 1330
     },
     "Europe PMC / 脂质生物学": {
       "status": "partial",
       "fetched": 10000,
-      "available": 30130,
-      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-17] OR FIRST_IDATE:[2026-10-28 TO 2026-11-17] OR UPDATE_DATE:[2026-10-28 TO 2026-11-17]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "available": 30691,
+      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-18] OR FIRST_IDATE:[2026-10-28 TO 2026-11-18] OR UPDATE_DATE:[2026-10-28 TO 2026-11-18]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "biorxiv": {
       "status": "partial",
       "fetched": 3000,
-      "available": 4743
+      "available": 5100
     },
     "Crossref期刊 / 秀丽隐杆线虫": {
       "status": "ok",
-      "fetched": 78,
-      "available": 78,
+      "fetched": 79,
+      "available": 79,
       "family": "crossref",
       "topics": [
         "celegans"
@@ -50,8 +50,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 78,
-          "available": 78,
+          "fetched": 79,
+          "available": 79,
           "query": "Caenorhabditis elegans",
           "family": "crossref",
           "topics": [
@@ -62,8 +62,8 @@
     },
     "Crossref期刊 / 线粒体生物学": {
       "status": "ok",
-      "fetched": 1110,
-      "available": 1110,
+      "fetched": 1156,
+      "available": 1156,
       "family": "crossref",
       "topics": [
         "mitochondria"
@@ -71,8 +71,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 854,
-          "available": 854,
+          "fetched": 888,
+          "available": 888,
           "query": "mitochondrial",
           "family": "crossref",
           "topics": [
@@ -81,8 +81,8 @@
         },
         {
           "status": "ok",
-          "fetched": 142,
-          "available": 142,
+          "fetched": 150,
+          "available": 150,
           "query": "mitochondria",
           "family": "crossref",
           "topics": [
@@ -91,8 +91,8 @@
         },
         {
           "status": "ok",
-          "fetched": 114,
-          "available": 114,
+          "fetched": 118,
+          "available": 118,
           "query": "mitophagy",
           "family": "crossref",
           "topics": [
@@ -103,8 +103,8 @@
     },
     "Crossref期刊 / 衰老与长寿": {
       "status": "partial",
-      "fetched": 1433,
-      "available": 1665,
+      "fetched": 1467,
+      "available": 1746,
       "family": "crossref",
       "topics": [
         "aging"
@@ -113,7 +113,7 @@
         {
           "status": "partial",
           "fetched": 1000,
-          "available": 1232,
+          "available": 1279,
           "query": "aging",
           "family": "crossref",
           "topics": [
@@ -122,8 +122,8 @@
         },
         {
           "status": "ok",
-          "fetched": 113,
-          "available": 113,
+          "fetched": 122,
+          "available": 122,
           "query": "longevity",
           "family": "crossref",
           "topics": [
@@ -132,8 +132,8 @@
         },
         {
           "status": "ok",
-          "fetched": 237,
-          "available": 237,
+          "fetched": 255,
+          "available": 255,
           "query": "senescence",
           "family": "crossref",
           "topics": [
@@ -142,8 +142,8 @@
         },
         {
           "status": "ok",
-          "fetched": 83,
-          "available": 83,
+          "fetched": 90,
+          "available": 90,
           "query": "lifespan",
           "family": "crossref",
           "topics": [
@@ -152,17 +152,65 @@
         }
       ]
     },
-    "PubMed / 四方向": {
+    "Crossref期刊 / 脂质生物学": {
       "status": "partial",
-      "fetched": 9997,
-      "available": 12383,
-      "query": "(mitochondri*[Title/Abstract] OR mitophagy[Title/Abstract] OR OXPHOS[Title/Abstract] OR \"oxidative phosphorylation\"[Title/Abstract] OR UPRmt[Title/Abstract] OR mtDNA[Title/Abstract] OR cristae[Title/Abstract] OR cardiolipin[Title/Abstract] OR \"Caenorhabditis elegans\"[Title/Abstract] OR \"C. elegans\"[Title/Abstract] OR \"C elegans\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR longevity[Title/Abstract] OR lifespan[Title/Abstract] OR \"life span\"[Title/Abstract] OR healthspan[Title/Abstract] OR \"health span\"[Title/Abstract] OR senescence[Title/Abstract] OR senescent[Title/Abstract] OR geroscience[Title/Abstract] OR rejuvenation[Title/Abstract] OR \"biological age\"[Title/Abstract] OR \"epigenetic age\"[Title/Abstract] OR \"aging clock\"[Title/Abstract] OR lipid*[Title/Abstract] OR phospholipid*[Title/Abstract] OR phosphoinositide*[Title/Abstract] OR PIP2[Title/Abstract] OR PIP3[Title/Abstract] OR sphingolipid*[Title/Abstract] OR ceramide*[Title/Abstract] OR \"fatty acid*\"[Title/Abstract] OR cholesterol[Title/Abstract] OR sterol*[Title/Abstract] OR triglyceride*[Title/Abstract] OR cardiolipin[Title/Abstract]) AND ((\"2026-10-28\"[Date - Publication] : \"2026-11-17\"[Date - Publication]) OR (\"2026-10-28\"[Entrez Date] : \"2026-11-17\"[Entrez Date]))",
-      "family": "pubmed",
+      "fetched": 2272,
+      "available": 4529,
+      "family": "crossref",
       "topics": [
-        "mitochondria",
-        "celegans",
-        "aging",
         "lipids"
+      ],
+      "queries": [
+        {
+          "status": "partial",
+          "fetched": 1000,
+          "available": 1036,
+          "query": "lipid",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 14,
+          "available": 14,
+          "query": "phosphoinositide",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 7,
+          "available": 7,
+          "query": "cardiolipin",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "partial",
+          "fetched": 1000,
+          "available": 3221,
+          "query": "fatty acid",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 251,
+          "available": 251,
+          "query": "cholesterol",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        }
       ]
     },
     "RSS / Nature": {
@@ -179,8 +227,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/nature.rss",
-          "bytes": 121030,
-          "sha256": "b426db82e6b9cf6971dd1c2c62d03f574deede2450a215ed7740a03f419042d5",
+          "bytes": 108907,
+          "sha256": "b387babb28b0c205a97726d27f53afedcc01679e03ed486a7b1dfea7a37038a3",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -197,59 +245,12 @@
         {
           "attempt": 1,
           "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncomms.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 2,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncomms.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 3,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncomms.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 4,
-          "transport": "chromium",
-          "http_status": 200,
           "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
           "final_url": "https://www.nature.com/ncomms.rss",
-          "bytes": 17630,
-          "sha256": "c5f66afe06cd112ebaddf477aa98e501c4b3e7e11e90179cea20604c6b8959c6",
+          "bytes": 18060,
+          "sha256": "a9cc071ad6fc936578e6bc1d277c99e787ffce97304329397204477c9b2e637e",
+          "looks_like_html": false,
           "result": "ok"
         }
       ]
@@ -265,62 +266,20 @@
         {
           "attempt": 1,
           "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 2,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 3,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 4,
-          "transport": "chromium",
-          "http_status": 200,
           "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
           "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 17606,
-          "sha256": "0b10854586bc1d331f2245198178c11e8351bd17792e8d4d2e310ca2aadae56f",
+          "bytes": 17531,
+          "sha256": "b29fc3be0cb2590ab5771a68f649a4274685c81b8ace290c98bd2808c21a2e04",
+          "looks_like_html": false,
           "result": "ok"
         }
       ]
+    },
+    "Research Square / Crossref": {
+      "status": "partial",
+      "fetched": 10000,
+      "available": 12668
     },
     "RSS / Nature Aging": {
       "status": "ok",
@@ -384,8 +343,8 @@
           "http_status": 200,
           "content_type": "application/rss+xml; charset=utf-8",
           "final_url": "https://www.nature.com/nataging.rss",
-          "bytes": 16575,
-          "sha256": "0a5acf3485b8a608ee6dd857ad637270668d63f639213309480b0da2eae1b4a8",
+          "bytes": 16414,
+          "sha256": "afdd4082e06b5e21cbc9cd6f4810db0c114fb969b6cc612da8ec2179fba212fc",
           "result": "ok"
         }
       ]
@@ -401,20 +360,67 @@
         {
           "attempt": 1,
           "http_status": 200,
-          "content_type": "application/rss+xml; charset=utf-8",
+          "content_type": "text/html; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/natmetab.rss",
-          "bytes": 18087,
-          "sha256": "799f1e5f485cc98f48df061c5a56d3c6abdfee9e6e6fb6d3af6b05ef3272fc25",
-          "looks_like_html": false,
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 3,
+          "http_status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 3038,
+          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+          "looks_like_html": true,
+          "page_title": "Client Challenge",
+          "html_markers": [
+            "javascript"
+          ],
+          "result": "failed",
+          "error": "not well-formed (invalid token): line 14, column 4"
+        },
+        {
+          "attempt": 4,
+          "transport": "chromium",
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "final_url": "https://www.nature.com/natmetab.rss",
+          "bytes": 18551,
+          "sha256": "099983df8a585b1d05878a3bd6bbdcdeefd4f6793bd768f1b0188033362ae5a4",
           "result": "ok"
         }
       ]
     },
     "RSS / Nature Reviews Molecular Cell Biology": {
       "status": "ok",
-      "fetched": 6,
-      "available": 6,
+      "fetched": 7,
+      "available": 7,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
       "url": "https://www.nature.com/nrm.rss",
@@ -473,8 +479,71 @@
           "http_status": 200,
           "content_type": "application/rss+xml; charset=utf-8",
           "final_url": "https://www.nature.com/nrm.rss",
-          "bytes": 15434,
-          "sha256": "1dd13e846325de0ef0d9016e49798d17ef9fd8b534cbce9d22cea6716442baaa",
+          "bytes": 15727,
+          "sha256": "c53c31317aa9741d4dea26fd34a5423eac9cbe0d5e751d261c6bb9444aa722eb",
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Nature Neuroscience": {
+      "status": "ok",
+      "fetched": 8,
+      "available": 8,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.nature.com/neuro.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml; charset=utf-8",
+          "content_encoding": "",
+          "final_url": "https://www.nature.com/neuro.rss",
+          "bytes": 19666,
+          "sha256": "468406e6701427fe72213126c13e558a167d297a84ca7a81583310dd9c71dd80",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Cell": {
+      "status": "ok",
+      "fetched": 23,
+      "available": 23,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/cell/current.rss",
+          "bytes": 49455,
+          "sha256": "c053671bd22d56de6fcccc44b61c181697690da4a55f168a905282a23da62813",
+          "looks_like_html": false,
+          "result": "ok"
+        }
+      ]
+    },
+    "RSS / Molecular Cell": {
+      "status": "ok",
+      "fetched": 5,
+      "available": 5,
+      "family": "rss",
+      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
+      "url": "https://www.cell.com/molecular-cell/current.rss",
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "content_type": "application/rss+xml;charset=UTF-8",
+          "content_encoding": "",
+          "final_url": "https://www.cell.com/molecular-cell/current.rss",
+          "bytes": 33569,
+          "sha256": "b2ed2a2f1071668b6f1497d7e20a358ccf1780abd7799a8fe68a08d35fec2449",
+          "looks_like_html": false,
           "result": "ok"
         }
       ]
@@ -541,118 +610,8 @@
           "http_status": 200,
           "content_type": "application/rss+xml; charset=utf-8",
           "final_url": "https://www.nature.com/nrendo.rss",
-          "bytes": 15055,
-          "sha256": "7d09cf5c01cf226088c72a5a7a7de30b2fed4af64f868cc1786b92ef4abf7300",
-          "result": "ok"
-        }
-      ]
-    },
-    "RSS / Nature Neuroscience": {
-      "status": "ok",
-      "fetched": 8,
-      "available": 8,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.nature.com/neuro.rss",
-      "attempts": [
-        {
-          "attempt": 1,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/neuro.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 2,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/neuro.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 3,
-          "http_status": 200,
-          "content_type": "text/html; charset=utf-8",
-          "content_encoding": "",
-          "final_url": "https://www.nature.com/neuro.rss",
-          "bytes": 3038,
-          "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
-          "looks_like_html": true,
-          "page_title": "Client Challenge",
-          "html_markers": [
-            "javascript"
-          ],
-          "result": "failed",
-          "error": "not well-formed (invalid token): line 14, column 4"
-        },
-        {
-          "attempt": 4,
-          "transport": "chromium",
-          "http_status": 200,
-          "content_type": "application/rss+xml; charset=utf-8",
-          "final_url": "https://www.nature.com/neuro.rss",
-          "bytes": 17706,
-          "sha256": "12b70d96a87c45ad6e15f9fc2b6b9be8573a933ea2eed184c5f13c546cf56c63",
-          "result": "ok"
-        }
-      ]
-    },
-    "RSS / Cell": {
-      "status": "ok",
-      "fetched": 23,
-      "available": 23,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/cell/current.rss",
-      "attempts": [
-        {
-          "attempt": 1,
-          "http_status": 200,
-          "content_type": "application/rss+xml;charset=UTF-8",
-          "content_encoding": "",
-          "final_url": "https://www.cell.com/cell/current.rss",
-          "bytes": 49455,
-          "sha256": "c053671bd22d56de6fcccc44b61c181697690da4a55f168a905282a23da62813",
-          "looks_like_html": false,
-          "result": "ok"
-        }
-      ]
-    },
-    "RSS / Molecular Cell": {
-      "status": "ok",
-      "fetched": 5,
-      "available": 5,
-      "family": "rss",
-      "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
-      "url": "https://www.cell.com/molecular-cell/current.rss",
-      "attempts": [
-        {
-          "attempt": 1,
-          "http_status": 200,
-          "content_type": "application/rss+xml;charset=UTF-8",
-          "content_encoding": "",
-          "final_url": "https://www.cell.com/molecular-cell/current.rss",
-          "bytes": 33569,
-          "sha256": "b2ed2a2f1071668b6f1497d7e20a358ccf1780abd7799a8fe68a08d35fec2449",
-          "looks_like_html": false,
+          "bytes": 16642,
+          "sha256": "62e3f68088e29bffb8a65233549f5a63504c4059b2605c386ba6455df2a94b83",
           "result": "ok"
         }
       ]
@@ -701,8 +660,8 @@
     },
     "RSS / eLife": {
       "status": "ok",
-      "fetched": 56,
-      "available": 56,
+      "fetched": 61,
+      "available": 61,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
       "url": "https://elifesciences.org/rss/recent.xml",
@@ -713,78 +672,25 @@
           "content_type": "text/xml",
           "content_encoding": "",
           "final_url": "https://elifesciences.org/rss/recent.xml",
-          "bytes": 244757,
-          "sha256": "ee9434f666d8dd964dc7b8c6b7629a402962d928193db7f02a8ec76dfb8fa8c7",
+          "bytes": 245569,
+          "sha256": "8fb498eff4ed39810f889b919d26d7255f7035a8ff4837d4c8525cad484317fb",
           "looks_like_html": false,
           "result": "ok"
         }
       ]
     },
-    "Crossref期刊 / 脂质生物学": {
+    "PubMed / 四方向": {
       "status": "partial",
-      "fetched": 2244,
-      "available": 4339,
-      "family": "crossref",
+      "fetched": 9996,
+      "available": 12967,
+      "query": "(mitochondri*[Title/Abstract] OR mitophagy[Title/Abstract] OR OXPHOS[Title/Abstract] OR \"oxidative phosphorylation\"[Title/Abstract] OR UPRmt[Title/Abstract] OR mtDNA[Title/Abstract] OR cristae[Title/Abstract] OR cardiolipin[Title/Abstract] OR \"Caenorhabditis elegans\"[Title/Abstract] OR \"C. elegans\"[Title/Abstract] OR \"C elegans\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR longevity[Title/Abstract] OR lifespan[Title/Abstract] OR \"life span\"[Title/Abstract] OR healthspan[Title/Abstract] OR \"health span\"[Title/Abstract] OR senescence[Title/Abstract] OR senescent[Title/Abstract] OR geroscience[Title/Abstract] OR rejuvenation[Title/Abstract] OR \"biological age\"[Title/Abstract] OR \"epigenetic age\"[Title/Abstract] OR \"aging clock\"[Title/Abstract] OR lipid*[Title/Abstract] OR phospholipid*[Title/Abstract] OR phosphoinositide*[Title/Abstract] OR PIP2[Title/Abstract] OR PIP3[Title/Abstract] OR sphingolipid*[Title/Abstract] OR ceramide*[Title/Abstract] OR \"fatty acid*\"[Title/Abstract] OR cholesterol[Title/Abstract] OR sterol*[Title/Abstract] OR triglyceride*[Title/Abstract] OR cardiolipin[Title/Abstract]) AND ((\"2026-10-28\"[Date - Publication] : \"2026-11-18\"[Date - Publication]) OR (\"2026-10-28\"[Entrez Date] : \"2026-11-18\"[Entrez Date]))",
+      "family": "pubmed",
       "topics": [
+        "mitochondria",
+        "celegans",
+        "aging",
         "lipids"
-      ],
-      "queries": [
-        {
-          "status": "ok",
-          "fetched": 985,
-          "available": 985,
-          "query": "lipid",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 13,
-          "available": 13,
-          "query": "phosphoinositide",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 6,
-          "available": 6,
-          "query": "cardiolipin",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "partial",
-          "fetched": 1000,
-          "available": 3095,
-          "query": "fatty acid",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 240,
-          "available": 240,
-          "query": "cholesterol",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        }
       ]
-    },
-    "Research Square / Crossref": {
-      "status": "partial",
-      "fetched": 9991,
-      "available": 11889
     }
   }
 }
