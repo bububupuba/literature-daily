@@ -1,83 +1,47 @@
 {
-  "date": "2026-11-27",
-  "attempted_at": "2026-11-27T09:32:24.851362+00:00",
+  "date": "2026-11-28",
+  "attempted_at": "2026-11-28T08:46:34.507963+00:00",
   "start": "2026-10-28",
   "complete": false,
   "phase": "failed",
   "sources": {
     "Europe PMC / 秀丽隐杆线虫": {
       "status": "ok",
-      "fetched": 2948,
-      "available": 2948,
-      "query": "(TITLE_ABS:\"Caenorhabditis elegans\" OR TITLE_ABS:\"C. elegans\" OR TITLE_ABS:\"C elegans\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-27] OR FIRST_IDATE:[2026-10-28 TO 2026-11-27] OR UPDATE_DATE:[2026-10-28 TO 2026-11-27]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "fetched": 2962,
+      "available": 2962,
+      "query": "(TITLE_ABS:\"Caenorhabditis elegans\" OR TITLE_ABS:\"C. elegans\" OR TITLE_ABS:\"C elegans\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-28] OR FIRST_IDATE:[2026-10-28 TO 2026-11-28] OR UPDATE_DATE:[2026-10-28 TO 2026-11-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "Europe PMC / 线粒体生物学": {
       "status": "partial",
       "fetched": 10000,
-      "available": 23063,
-      "query": "(TITLE_ABS:mitochondri* OR TITLE_ABS:mitophagy OR TITLE_ABS:OXPHOS OR TITLE_ABS:\"oxidative phosphorylation\" OR TITLE_ABS:UPRmt OR TITLE_ABS:mtDNA OR TITLE_ABS:cristae OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-27] OR FIRST_IDATE:[2026-10-28 TO 2026-11-27] OR UPDATE_DATE:[2026-10-28 TO 2026-11-27]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "available": 23298,
+      "query": "(TITLE_ABS:mitochondri* OR TITLE_ABS:mitophagy OR TITLE_ABS:OXPHOS OR TITLE_ABS:\"oxidative phosphorylation\" OR TITLE_ABS:UPRmt OR TITLE_ABS:mtDNA OR TITLE_ABS:cristae OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-28] OR FIRST_IDATE:[2026-10-28 TO 2026-11-28] OR UPDATE_DATE:[2026-10-28 TO 2026-11-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "Europe PMC / 衰老与长寿": {
       "status": "partial",
       "fetched": 10000,
-      "available": 28834,
-      "query": "(TITLE_ABS:aging OR TITLE_ABS:ageing OR TITLE_ABS:longevity OR TITLE_ABS:lifespan OR TITLE_ABS:\"life span\" OR TITLE_ABS:healthspan OR TITLE_ABS:\"health span\" OR TITLE_ABS:senescence OR TITLE_ABS:senescent OR TITLE_ABS:geroscience OR TITLE_ABS:rejuvenation OR TITLE_ABS:\"biological age\" OR TITLE_ABS:\"epigenetic age\" OR TITLE_ABS:\"aging clock\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-27] OR FIRST_IDATE:[2026-10-28 TO 2026-11-27] OR UPDATE_DATE:[2026-10-28 TO 2026-11-27]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
+      "available": 29105,
+      "query": "(TITLE_ABS:aging OR TITLE_ABS:ageing OR TITLE_ABS:longevity OR TITLE_ABS:lifespan OR TITLE_ABS:\"life span\" OR TITLE_ABS:healthspan OR TITLE_ABS:\"health span\" OR TITLE_ABS:senescence OR TITLE_ABS:senescent OR TITLE_ABS:geroscience OR TITLE_ABS:rejuvenation OR TITLE_ABS:\"biological age\" OR TITLE_ABS:\"epigenetic age\" OR TITLE_ABS:\"aging clock\") AND (FIRST_PDATE:[2026-10-28 TO 2026-11-28] OR FIRST_IDATE:[2026-10-28 TO 2026-11-28] OR UPDATE_DATE:[2026-10-28 TO 2026-11-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "medrxiv": {
       "status": "ok",
-      "fetched": 1930,
-      "available": 1930
+      "fetched": 1983,
+      "available": 1983
     },
     "Research Square / Crossref": {
       "status": "partial",
       "fetched": 10000,
-      "available": 19215
+      "available": 19517
     },
-    "Crossref期刊 / 线粒体生物学": {
+    "biorxiv": {
       "status": "partial",
-      "fetched": 1339,
-      "available": 1468,
-      "family": "crossref",
-      "topics": [
-        "mitochondria"
-      ],
-      "queries": [
-        {
-          "status": "partial",
-          "fetched": 1000,
-          "available": 1129,
-          "query": "mitochondrial",
-          "family": "crossref",
-          "topics": [
-            "mitochondria"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 184,
-          "available": 184,
-          "query": "mitochondria",
-          "family": "crossref",
-          "topics": [
-            "mitochondria"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 155,
-          "available": 155,
-          "query": "mitophagy",
-          "family": "crossref",
-          "topics": [
-            "mitochondria"
-          ]
-        }
-      ]
+      "fetched": 3000,
+      "available": 7410
     },
     "Crossref期刊 / 秀丽隐杆线虫": {
       "status": "ok",
-      "fetched": 107,
-      "available": 107,
+      "fetched": 109,
+      "available": 109,
       "family": "crossref",
       "topics": [
         "celegans"
@@ -85,8 +49,8 @@
       "queries": [
         {
           "status": "ok",
-          "fetched": 107,
-          "available": 107,
+          "fetched": 109,
+          "available": 109,
           "query": "Caenorhabditis elegans",
           "family": "crossref",
           "topics": [
@@ -95,10 +59,51 @@
         }
       ]
     },
+    "Crossref期刊 / 线粒体生物学": {
+      "status": "partial",
+      "fetched": 1348,
+      "available": 1498,
+      "family": "crossref",
+      "topics": [
+        "mitochondria"
+      ],
+      "queries": [
+        {
+          "status": "partial",
+          "fetched": 1000,
+          "available": 1150,
+          "query": "mitochondrial",
+          "family": "crossref",
+          "topics": [
+            "mitochondria"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 187,
+          "available": 187,
+          "query": "mitochondria",
+          "family": "crossref",
+          "topics": [
+            "mitochondria"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 161,
+          "available": 161,
+          "query": "mitophagy",
+          "family": "crossref",
+          "topics": [
+            "mitochondria"
+          ]
+        }
+      ]
+    },
     "Crossref期刊 / 衰老与长寿": {
       "status": "partial",
-      "fetched": 1606,
-      "available": 2287,
+      "fetched": 1621,
+      "available": 2333,
       "family": "crossref",
       "topics": [
         "aging"
@@ -107,7 +112,7 @@
         {
           "status": "partial",
           "fetched": 1000,
-          "available": 1681,
+          "available": 1712,
           "query": "aging",
           "family": "crossref",
           "topics": [
@@ -116,8 +121,8 @@
         },
         {
           "status": "ok",
-          "fetched": 163,
-          "available": 163,
+          "fetched": 170,
+          "available": 170,
           "query": "longevity",
           "family": "crossref",
           "topics": [
@@ -126,8 +131,8 @@
         },
         {
           "status": "ok",
-          "fetched": 320,
-          "available": 320,
+          "fetched": 327,
+          "available": 327,
           "query": "senescence",
           "family": "crossref",
           "topics": [
@@ -136,8 +141,8 @@
         },
         {
           "status": "ok",
-          "fetched": 123,
-          "available": 123,
+          "fetched": 124,
+          "available": 124,
           "query": "lifespan",
           "family": "crossref",
           "topics": [
@@ -146,71 +151,11 @@
         }
       ]
     },
-    "biorxiv": {
+    "Europe PMC / 脂质生物学": {
       "status": "partial",
-      "fetched": 3000,
-      "available": 7066
-    },
-    "Crossref期刊 / 脂质生物学": {
-      "status": "partial",
-      "fetched": 2350,
-      "available": 5709,
-      "family": "crossref",
-      "topics": [
-        "lipids"
-      ],
-      "queries": [
-        {
-          "status": "partial",
-          "fetched": 1000,
-          "available": 1310,
-          "query": "lipid",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 17,
-          "available": 17,
-          "query": "phosphoinositide",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 9,
-          "available": 9,
-          "query": "cardiolipin",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "partial",
-          "fetched": 1000,
-          "available": 4049,
-          "query": "fatty acid",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        },
-        {
-          "status": "ok",
-          "fetched": 324,
-          "available": 324,
-          "query": "cholesterol",
-          "family": "crossref",
-          "topics": [
-            "lipids"
-          ]
-        }
-      ]
+      "fetched": 10000,
+      "available": 42004,
+      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-28] OR FIRST_IDATE:[2026-10-28 TO 2026-11-28] OR UPDATE_DATE:[2026-10-28 TO 2026-11-28]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     },
     "RSS / Nature": {
       "status": "ok",
@@ -226,8 +171,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/nature.rss",
-          "bytes": 147168,
-          "sha256": "65c36602046ce8f31573ffa379c507c8d8cf4b92a1942eb4a82e008d54f3d43d",
+          "bytes": 140982,
+          "sha256": "528a03947ae6ec08ea1df865c98fa35489ab36092237297e4123edc7f15f6800",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -247,8 +192,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/ncomms.rss",
-          "bytes": 17660,
-          "sha256": "c52f723033645b39d07b2859fb4beeda40dcceb4fdc16dd5477268521023d79f",
+          "bytes": 18516,
+          "sha256": "8341bfcce15131754c6f56b964b949d837ddaeac3ce6fcceb7ceaf456d27132d",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -268,8 +213,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/ncb.rss",
-          "bytes": 17792,
-          "sha256": "47ef5a1f795b54ba2f466bd3bbbd510a758efe5802b24240a9536c90ec1d6571",
+          "bytes": 17456,
+          "sha256": "fb7764148a144acecac1eceb6140e009a74a7d835e97c8202b1b7cfb78e3ac57",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -289,8 +234,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/nataging.rss",
-          "bytes": 17568,
-          "sha256": "4134f2ea5238fc1773fd87b3c9c2f38898e87c8b9ff6605f378cc1f84abb5398",
+          "bytes": 17502,
+          "sha256": "c5726601628f639614325df93a27b37fddf76fc434f6c61d3d249d96a498e2c0",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -310,8 +255,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/natmetab.rss",
-          "bytes": 17272,
-          "sha256": "59ebd7457ebdd7d2ef06736b5fd7f2ac01314b4486a49f77bcde9f7d6289b79a",
+          "bytes": 17278,
+          "sha256": "f278aed1c8587c2875ae35b540b5d7b951781405c8ec9162749b51d4712281ac",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -352,10 +297,71 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/nrendo.rss",
-          "bytes": 17198,
-          "sha256": "8f07ee85a47f99b3e01e2d64272045cfa7b8579b573363e2761bb685cd976628",
+          "bytes": 17252,
+          "sha256": "ed221040817e40a475f2ec15572ce96a4b00f049cafaeb445a2f3f5c8eb5bed6",
           "looks_like_html": false,
           "result": "ok"
+        }
+      ]
+    },
+    "Crossref期刊 / 脂质生物学": {
+      "status": "partial",
+      "fetched": 2358,
+      "available": 5865,
+      "family": "crossref",
+      "topics": [
+        "lipids"
+      ],
+      "queries": [
+        {
+          "status": "partial",
+          "fetched": 1000,
+          "available": 1347,
+          "query": "lipid",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 18,
+          "available": 18,
+          "query": "phosphoinositide",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 9,
+          "available": 9,
+          "query": "cardiolipin",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "partial",
+          "fetched": 1000,
+          "available": 4160,
+          "query": "fatty acid",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
+        },
+        {
+          "status": "ok",
+          "fetched": 331,
+          "available": 331,
+          "query": "cholesterol",
+          "family": "crossref",
+          "topics": [
+            "lipids"
+          ]
         }
       ]
     },
@@ -373,8 +379,8 @@
           "content_type": "application/rss+xml; charset=utf-8",
           "content_encoding": "",
           "final_url": "https://www.nature.com/neuro.rss",
-          "bytes": 18653,
-          "sha256": "ab13ebe0fe485b2fa39239ed68a616171f66bc0a602d9c293896f2e78bd22289",
+          "bytes": 18605,
+          "sha256": "7c3d410302c666837bb68d2b80c02c323392f818acb58590ddce8e8c6bb6e1e2",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -466,8 +472,8 @@
     },
     "RSS / eLife": {
       "status": "ok",
-      "fetched": 95,
-      "available": 95,
+      "fetched": 96,
+      "available": 96,
       "family": "rss",
       "scope": "滚动订阅源当前可见条目，不代表期刊完整历史",
       "url": "https://elifesciences.org/rss/recent.xml",
@@ -478,8 +484,8 @@
           "content_type": "text/xml",
           "content_encoding": "",
           "final_url": "https://elifesciences.org/rss/recent.xml",
-          "bytes": 254157,
-          "sha256": "4fe6b7b384452475e713c93269f06968233ba2932db526a096f7ef2c0e43df83",
+          "bytes": 253801,
+          "sha256": "16b9797e01f76cc0b60862d0300ea5ab400f2ba2c6c0617efb9e7f9ef8dde7c5",
           "looks_like_html": false,
           "result": "ok"
         }
@@ -488,8 +494,8 @@
     "PubMed / 四方向": {
       "status": "partial",
       "fetched": 9982,
-      "available": 18585,
-      "query": "(mitochondri*[Title/Abstract] OR mitophagy[Title/Abstract] OR OXPHOS[Title/Abstract] OR \"oxidative phosphorylation\"[Title/Abstract] OR UPRmt[Title/Abstract] OR mtDNA[Title/Abstract] OR cristae[Title/Abstract] OR cardiolipin[Title/Abstract] OR \"Caenorhabditis elegans\"[Title/Abstract] OR \"C. elegans\"[Title/Abstract] OR \"C elegans\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR longevity[Title/Abstract] OR lifespan[Title/Abstract] OR \"life span\"[Title/Abstract] OR healthspan[Title/Abstract] OR \"health span\"[Title/Abstract] OR senescence[Title/Abstract] OR senescent[Title/Abstract] OR geroscience[Title/Abstract] OR rejuvenation[Title/Abstract] OR \"biological age\"[Title/Abstract] OR \"epigenetic age\"[Title/Abstract] OR \"aging clock\"[Title/Abstract] OR lipid*[Title/Abstract] OR phospholipid*[Title/Abstract] OR phosphoinositide*[Title/Abstract] OR PIP2[Title/Abstract] OR PIP3[Title/Abstract] OR sphingolipid*[Title/Abstract] OR ceramide*[Title/Abstract] OR \"fatty acid*\"[Title/Abstract] OR cholesterol[Title/Abstract] OR sterol*[Title/Abstract] OR triglyceride*[Title/Abstract] OR cardiolipin[Title/Abstract]) AND ((\"2026-10-28\"[Date - Publication] : \"2026-11-27\"[Date - Publication]) OR (\"2026-10-28\"[Entrez Date] : \"2026-11-27\"[Entrez Date]))",
+      "available": 19031,
+      "query": "(mitochondri*[Title/Abstract] OR mitophagy[Title/Abstract] OR OXPHOS[Title/Abstract] OR \"oxidative phosphorylation\"[Title/Abstract] OR UPRmt[Title/Abstract] OR mtDNA[Title/Abstract] OR cristae[Title/Abstract] OR cardiolipin[Title/Abstract] OR \"Caenorhabditis elegans\"[Title/Abstract] OR \"C. elegans\"[Title/Abstract] OR \"C elegans\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR longevity[Title/Abstract] OR lifespan[Title/Abstract] OR \"life span\"[Title/Abstract] OR healthspan[Title/Abstract] OR \"health span\"[Title/Abstract] OR senescence[Title/Abstract] OR senescent[Title/Abstract] OR geroscience[Title/Abstract] OR rejuvenation[Title/Abstract] OR \"biological age\"[Title/Abstract] OR \"epigenetic age\"[Title/Abstract] OR \"aging clock\"[Title/Abstract] OR lipid*[Title/Abstract] OR phospholipid*[Title/Abstract] OR phosphoinositide*[Title/Abstract] OR PIP2[Title/Abstract] OR PIP3[Title/Abstract] OR sphingolipid*[Title/Abstract] OR ceramide*[Title/Abstract] OR \"fatty acid*\"[Title/Abstract] OR cholesterol[Title/Abstract] OR sterol*[Title/Abstract] OR triglyceride*[Title/Abstract] OR cardiolipin[Title/Abstract]) AND ((\"2026-10-28\"[Date - Publication] : \"2026-11-28\"[Date - Publication]) OR (\"2026-10-28\"[Entrez Date] : \"2026-11-28\"[Entrez Date]))",
       "family": "pubmed",
       "topics": [
         "mitochondria",
@@ -497,12 +503,6 @@
         "aging",
         "lipids"
       ]
-    },
-    "Europe PMC / 脂质生物学": {
-      "status": "partial",
-      "fetched": 10000,
-      "available": 41656,
-      "query": "(TITLE_ABS:lipid* OR TITLE_ABS:phospholipid* OR TITLE_ABS:phosphoinositide* OR TITLE_ABS:PIP2 OR TITLE_ABS:PIP3 OR TITLE_ABS:sphingolipid* OR TITLE_ABS:ceramide* OR TITLE_ABS:\"fatty acid*\" OR TITLE_ABS:cholesterol OR TITLE_ABS:sterol* OR TITLE_ABS:triglyceride* OR TITLE_ABS:cardiolipin) AND (FIRST_PDATE:[2026-10-28 TO 2026-11-27] OR FIRST_IDATE:[2026-10-28 TO 2026-11-27] OR UPDATE_DATE:[2026-10-28 TO 2026-11-27]) AND (SRC:MED OR SRC:PMC OR SRC:PPR)"
     }
   }
 }
